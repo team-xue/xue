@@ -1,0 +1,19 @@
+{% extends 'userena/base_userena.html' %}
+{% load i18n cms_tags %}
+
+{% block title %}已注销{% endblock %}
+{% block content_title %}<h2>{% trans "You have been signed out" %}.</h2>{% endblock %}
+
+{# XXX Remember to change both refresh durations if updated! #}
+
+{% block head_extras %}
+<meta http-equiv="refresh" content="3; url={% page_url "home" %}" />
+{% endblock %}
+
+{% block content %}
+<p class="standalone-notice">已注销。</p>
+<p class="standalone-notice">3 秒后自动返回<a href="{% page_url "home" %}">首页</a>。</p>
+{% endblock %}
+
+
+{# vim: set ai et ts=2 sw=2 sts=2 ff=unix fenc=utf-8 syntax=django: #}

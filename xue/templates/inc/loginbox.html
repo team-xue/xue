@@ -1,0 +1,28 @@
+{% load cache %}
+
+
+<div class="auth">
+  <span class="title">学院内网</span>
+  {% cache 600 auth-box-frag request.user.username %}
+  {% include "inc/now.html" %}
+  <div class="status">
+    {% if request.user.is_authenticated %}
+    <span class="username auth_button"><a href="{%url userena_profile_detail request.user.username %}">{{ request.user.username }}</a></span>
+    {% else %}
+    <span>您目前正在匿名浏览网站。</span>
+    {% endif %}
+
+    <div class="action">
+      {% if request.user.is_authenticated %}
+      <span class="auth_button"><a href="{% url userena_signout %}">点这里注销</a></span>
+      {% else %}
+      <span class="auth_button"><a href="{% url userena_signin %}">点这里登录</a></span>
+      <span class="auth_button"><a href="{% url userena_signup %}">点这里注册</a></span>
+      {% endif %}
+    </div>
+    {% endcache %}
+  </div>
+</div>
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf8 syntax=django: #}

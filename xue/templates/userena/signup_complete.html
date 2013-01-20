@@ -1,0 +1,21 @@
+{% extends 'userena/base_userena.html' %}
+{% load i18n %}
+
+{% block title %}注册快要完成了！{% endblock %}
+
+{% block content_title %}<h2>{% trans "Signup" %}</h2>{% endblock %}
+
+{% block content %}
+<p class="standalone-notice">感谢注册！</p>
+
+{% if userena_activation_required %}
+<p class="standalone-notice">已经发给你一封内含帐号激活链接的邮件。</p>
+<p class="standalone-notice">你的激活信息将在服务器上存放 {{ userena_activation_days }} 天。</p>
+{% else %}
+<p class="standalone-notice">现在可以<a href="{% url userena_signin %}">从这里登录</a>了。</p>
+<p class="standalone-notice">请在资料页面继续完善个人信息，在其他站内应用都会用到。</p>
+{% endif %}
+{% endblock %}
+
+
+{# vim: set ai et ts=2 sw=2 sts=2 ff=unix fenc=utf-8 syntax=django: #}

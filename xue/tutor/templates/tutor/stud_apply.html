@@ -1,0 +1,21 @@
+{% extends 'tutor/base_tutor.html' %}
+{% load i18n %}
+
+{% block title %}提交申请{% endblock %}
+
+{% block content %}{% if is_repeat %}
+<p class="error standalone-notice">你已经提交过申请，请在申请通过之后再行选择项目，谢谢~</p>{% else %}
+<form method="post">
+  {% csrf_token %}
+  <fieldset>
+    <legend>提交申请表</legend>
+    <div class="clear"></div>
+    {{ form.non_field_errors }}
+    {{ form.as_p }}
+    <input type="submit" value="提交" class="button" />
+  </fieldset>
+</form>{% endif %}
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--[if lt IE 6]><html id="ie6minus"><![endif]-->
+<!--[if IE 6]><html id="ie6"><![endif]-->
+<!--[if IE 7]><html id="ie7" lang="zh"><![endif]-->
+<!--[if IE 8]><html id="ie8" lang="zh"><![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)]><!-->
+<html id="modern" lang="zh-cmn">
+<!--<![endif]-->
+  <head>{% comment %}
+  UPDATE: Actually this (IE8 lookahead downloader thing) got fixed...
+  see http://blogs.msdn.com/b/ieinternals/archive/2010/04/01/ie8-lookahead-downloader-fixed.aspx
+  http://blogs.msdn.com/b/ieinternals/archive/2009/07/27/bugs-in-the-ie8-lookahead-downloader.aspx
+  http://www.ravelrumba.com/blog/ie-8-charset-bug/
+{% endcomment %}
+    <!--[if IE 8]><!--><meta charset="utf-8" /><!--<![endif]-->
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="MSSmartTagsPreventParsing" content="true" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <![endif]-->
+    <title>Error 500</title>
+  </head>
+
+  <body>
+    <h1>500 Internal Server Error</h1>
+    <p>服务器表示代码出了点问题，错误的详细信息已经邮件给了开发者，他们将第一时间解决问题。</p>
+    <p>对造成的不便深表歉意。</p>
+  </body>
+</html>
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf8 syntax=django: #}

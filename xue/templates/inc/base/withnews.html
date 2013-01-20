@@ -1,0 +1,31 @@
+{% extends "./inc/base/leftright.html" %}
+{% load cms_tags menu_tags %}
+
+{% block styles %}{{ block.super }}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/contentpage.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/subtitle.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/nav-left.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/stackedmenu.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/portal.css" />
+{% endblock %}
+
+{% block iestyles %}{{ block.super }}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/nav-left-ie.css" />
+{% endblock %}
+
+{# NOTE: Remove the color paste to save vertical space for auth box #}
+{% block nav_colorpaste %}
+{% endblock %}
+
+{% block left_container %}{{ block.super }}
+<aside class="rMarginer">
+{% include "inc/nav-left.html" %}
+
+  <h2 class="subtitle fancysub"><span class="dmred">新闻与事件</span></h2>
+
+{% include "inc/news-frag.html" %}
+</aside>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf8 syntax=django: #}

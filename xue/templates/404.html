@@ -1,0 +1,35 @@
+{% extends "./inc/base/withnews.html" %}
+{% load cms_tags menu_tags %}
+
+{% block appstyles %}{{ block.super }}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/contentpage.css" />
+{% endblock %}
+
+{% block scripts %}
+    <!--[if lt IE 7]>
+    <script type="text/javascript">
+    (function($){
+      // set the hovering up
+      function initContentHovers()
+      {
+        // tr:hover
+        $("div.text tr").hoverIntent(hoverConfig);
+      }
+
+      // ready handler
+      $(document).ready(function(){
+        initContentHovers();
+      });
+    })($jq17);
+    </script>
+    <![endif]-->
+{% endblock %}
+
+{% block right_container %}
+          <div class="error error404">
+            <h1>抱歉，您访问的页面不存在</h1>
+          </div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf8 syntax=django: #}

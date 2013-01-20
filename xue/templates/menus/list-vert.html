@@ -1,0 +1,20 @@
+{% load menu_tags %}
+{% for child in children %}
+<li>
+  <a href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">{{ child.get_menu_title }}{% if not child.is_leaf_node %} &raquo;{% endif %}</a>
+  {% if child.children %}
+  <ul>
+    {% show_menu from_level to_level extra_inactive extra_active max_count filter_opt template "" "" child %}
+  </ul>
+  {% endif %}
+</li>
+{% endfor %}
+
+{# if showing menu below a specific id, we can give a "more" link pointing to that page #}
+{% if root_node and max_count != -1 and children|length == max_count %}
+<li class="more">
+  <a href="{{ root_node.attr.redirect_url|default:root_node.get_absolute_url }}">more</a>
+</li>
+{% endif %}
+
+{# vim:set ai et ts=2 sw=2 sts=2 ff=unix fenc=utf8 syntax=django: #}

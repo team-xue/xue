@@ -1,0 +1,38 @@
+{% extends "./inc/base/leftright_base.html" %}
+{% load cache cms_tags menu_tags %}
+
+
+{% block styles %}{{ block.super }}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/common.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/colors.css" />
+
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/breadcrumb.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/nav-horiz.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/dropmenu.css" />
+{% endblock %}
+
+{% block iestyles %}{{ block.super }}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/nav-horiz-ie.css" />
+{% endblock %}
+
+
+{% block left_container_base %}
+{% block nav_colorpaste %}<div class="dmblue_bg nav_colorpaste"></div>{% endblock %}
+{% block left_container %}{% endblock %}
+{% endblock %}
+
+{% block right_container_base %}
+{% with NAV_SHOW_HOME_ENTRY=1 %}{% include "inc/nav-horiz.html" %}{% endwith %}
+
+<div class="lMarginer">
+  <ul class="breadcrumb clear">
+{% cache 3600 breadcrumb-frag request.path_info request.user.username %}
+{% show_breadcrumb %}
+{% endcache %}
+  </ul>
+{% block right_container %}{% endblock %}
+</div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf8 syntax=django: #}

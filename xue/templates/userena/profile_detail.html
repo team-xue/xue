@@ -1,0 +1,79 @@
+{% extends 'userena/base_userena.html' %}
+{% load i18n %}
+
+{% block title %}{{ profile.user.username }} 的资料{% endblock %}
+{% block content_title %}<h2>{{ profile.user.username }} {% if profile.user.get_full_name %}({{ profile.user.get_full_name }}){% endif %}</h2>{% endblock %}
+
+{% block content %}
+<div class="outer-box">
+  <div class="nav-box">
+{% comment %}Dirty hack. Will use django-guardian in the future.{% endcomment %}
+    <div class="nav">
+      <ul id="box-nav">
+        <li class="first selected"><a href="#">资料 &raquo;</a></li>
+{% if user.username == profile.user.username %}
+        <li><a href="{% url userena_profile_edit user.username %}">编辑资料 &raquo;</a></li>
+        <li><a href="{% url userena_password_change user.username %}">修改密码 &raquo;</a></li>
+        <li class="last"><a href="{% url userena_email_change user.username %}">修改邮箱地址 &raquo;</a></li>
+{% endif %}
+      </ul>
+    </div>
+
+    <div class="mainpane-container">
+      <div id="details" class="mainpane">
+        <div class="ident">
+          <img src="{{ profile.get_mugshot_url }}" alt="{{ profile.user.username }} 的头像" class="gravatar" width="80" height="80" />
+          <h2 class="panetitle">
+            {{ profile.user.username }}
+            <span class="nickname">{{ profile.nickname }}</span>
+            <span class="role">{% if profile.role == 0 %}
+              [学生]{% endif %}{% if profile.role == 1 %}
+              [教师]{% endif %}{% if profile.role == 2 %}
+              [程序]{% endif %}
+            </span>
+          </h2>
+          <p class="sign_line">
+            {% if profile.sign_line %}{{ profile.sign_line }}{% else %}没有设置个性签名...{% endif %}
+          </p>
+        </div>
+        <div class="clear"></div>
+{% if user.is_staff or profile.role == 0 and user.username == profile.user.username %}
+        <p class="infoentry">
+          <strong>资料完成度</strong>
+          <span>{{ user.central_info.get_completeness|floatformat:2 }}%</span>
+        </p>
+{% endif %}
+        <p class="infoentry regdate">
+          <strong>注册时间</strong>
+          <span>{{ profile.user.date_joined|date:"Y.m.d H:i:s" }}</span>
+        </p>
+        <p class="infoentry lastlogin">
+          <strong>最后登录</strong>
+          <span>{{ profile.user.last_login|date:"Y.m.d H:i:s" }}</span>
+        </p>
+{% if profile.user.email %}
+        <p class="infoentry email">
+          <strong>{% trans "Email" %}</strong><br />
+          <span>{{ profile.user.email }}</span>
+        </p>
+{% endif %}
+
+{% if profile.role == 0 and user.username == profile.user.username %}
+        <ul class="titledsect actions">
+          <li class="action_item">
+            <a href="{% url xue.infocenter.views.detail_view %}" class="action_link">去学生信息页</a>
+          </li>
+
+          <li class="action_item">
+            <a href="{% url xue.infocenter.views.edit_view %}" class="action_link">完善资料</a>
+          </li>
+        </ul>{% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+{# vim: set ai et ts=2 sw=2 sts=2 ff=unix fenc=utf-8 syntax=django: #}
+

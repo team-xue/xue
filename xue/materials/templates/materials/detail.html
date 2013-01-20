@@ -1,0 +1,65 @@
+{% extends 'materials/base.html' %}
+{% load comments %}
+
+{% block title %}浏览材料{% endblock %}
+
+{% block content %}
+  <div class="mainpane">
+    <div class="detailpage">
+      <h2 class="panetitle">浏览材料</h2>
+{% if access_granted %}
+      <article>
+        <header>
+        <h1 class="material_title{% if entry.is_locked %} material_locked{% endif %}">{{ entry.title }}</h1>
+        <div class="material_metadata">{% with tzoffset="+08:00" %}
+          <time datetime="{{ entry.ctime|date:"Y-m-d\TH:i:s" }}{{ tzoffset }}" class="ctime">{{ entry.ctime|date:"Y-m-d H:i:s" }}</time>
+          <time datetime="{{ entry.mtime|date:"Y-m-d\TH:i:s" }}{{ tzoffset }}" class="mtime">{{ entry.mtime|date:"Y-m-d H:i:s" }}</time>{% endwith %}
+          <span class="length">{{ entry.get_length }}</span>
+        </div>
+        </header>
+
+{% for paragraph in entry.get_paragraphs %}
+<p>{% for line in paragraph %}{{ line }}{% if not forloop.last %}<br />{% endif %}{% endfor %}</p>
+{% endfor %}
+      </article>
+
+      <ul class="titledsect actions">{% if not entry.is_locked %}{# this piece of material is not locked #}
+        <li class="action_item">
+        <a href="{% url xue.materials.views.edit_view entry.pk %}" class="action_link">编辑这份材料</a>
+        </li>{% endif %}
+{% if is_my_material %}
+        <li class="action_item">
+        <a href="{% url xue.materials.views.list_mine_view %}" class="action_link">回我的材料列表页</a>
+        </li>
+{% endif %}
+        <li class="action_item">
+        <a href="{% url xue.materials.views.homepage_view %}" class="action_link">回到起始页</a>
+        </li>
+      </ul>
+
+      {# Comments #}
+      <section class="comments">
+        {% get_comment_count for entry as comment_count %}
+        <p class="comment_count">{% if comment_count == 0 %}
+        暂无评论{% else %}
+        {{ comment_count }} 条评论{% endif %}
+        </p>
+
+        {% render_comment_list for entry %}
+        {% render_comment_form for entry %}
+      </section>
+{% else %}{# access_granted == False #}
+      <p>您无权访问这篇材料。</p>
+
+      <ul class="titledsect actions">
+        <li class="action_item">
+        <a href="{% url xue.materials.views.homepage_view %}" class="action_link">回到起始页</a>
+        </li>
+      </ul>
+{% endif %}
+    </div>
+  </div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

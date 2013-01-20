@@ -1,0 +1,23 @@
+{% extends 'tutor/base_tutor.html' %}
+
+{% block title %}项目管理{% endblock %}
+
+{% block content %}
+  <div class="mainpane">
+    <div class="projadmin">
+      <h2 class="panetitle">导师项目管理 - {% block moduletitle %}{% endblock %}</h2>
+
+{% if not is_allowed %}
+      <div class="error">
+        <p class="reason">
+          {{ disallow_reason }}
+        </p>
+      </div>
+{% else %}{% block modulecontent %}{% endblock %}
+{% endif %}
+    </div>
+  </div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

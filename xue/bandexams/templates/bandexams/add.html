@@ -1,0 +1,23 @@
+{% extends 'bandexams/base.html' %}
+
+
+{% block title %}添加成绩{% endblock %}
+
+
+{% block content %}
+<div class="mainpane">
+  <h2 class="panetitle">添加一条成绩</h2>
+
+  <form method="post">
+    {% csrf_token %}
+    <fieldset>
+      {{ form.non_field_errors }}
+      {{ form.as_p }}
+      <input type="submit" value="提交" class="button" />
+    </fieldset>
+  </form>
+</div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

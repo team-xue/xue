@@ -1,0 +1,41 @@
+{% extends 'tutor/base_tutor.html' %}
+{% load i18n %}
+
+{% block title %}项目介绍{% endblock %}
+
+{% block content %}
+<div class="mainpane">
+  <h2 class="panetitle">导师项目介绍</h2>
+
+  <div class="projdetails">
+    {% with teacher=project.teacher %}
+    <h3 class="name">{{ project.name }}</h3>
+{% comment %}
+    <p class="tutor">
+      导师:{% if teacher %}
+      <a href="{% url userena_profile_detail teacher.username %}">
+        <span>{{ teacher.profile.realname }}</span>
+      </a>{% else %}
+      未关联账号{% endif %}
+    </p>
+{% endcomment %}
+    <p class="description">
+      项目描述:<br />
+      <span>{{ project.desc }}
+      </span>
+    </p>
+
+    <p class="requirements">
+      对学生的要求:<br />
+      <span>{{ project.requirements }}
+      </span>
+    </p>{% endwith %}
+    <p class="link">
+      <a href="{% url xue.tutor.studentviews.selectproj_view %}">去申请 &raquo;</a>
+    </p>
+  </div>
+</div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

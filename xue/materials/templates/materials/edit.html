@@ -1,0 +1,23 @@
+{% extends 'materials/base.html' %}
+
+
+{% block title %}编辑材料{% endblock %}
+
+
+{% block content %}
+<div class="mainpane">
+  <h2 class="panetitle">编辑材料内容</h2>
+
+  <form method="post">
+    {% csrf_token %}
+    <fieldset>
+      {{ form.non_field_errors }}
+      {{ form.as_p }}
+      <input type="submit" value="提交" class="button" />
+    </fieldset>
+  </form>
+</div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

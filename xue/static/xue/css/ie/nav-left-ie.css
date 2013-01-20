@@ -1,0 +1,27 @@
+/* mainly rgba fixes */
+
+.nav_leftsect ul.firstlvl li:hover,
+.nav_leftsect ul.firstlvl li.hover {
+    /*background: rgba(0, 0, 0, 0.0625);*/
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#10000000,endColorStr=#10000000);
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#10000000,endColorstr=#10000000";
+    zoom: 1;
+}
+
+.nav_leftsect ul.submenu {
+    /*background: rgba(255, 255, 255, 0.875); /* 7/8 */
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#E0FFFFFF,endColorStr=#E0FFFFFFF);
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#E0FFFFFF,endColorstr=#E0FFFFFFF";
+    zoom: 1;
+}
+
+.nav_leftsect ul.submenu li:hover,
+.nav_leftsect ul.submenu li.hover {
+    background-color: transparent;
+    filter: none;
+}
+
+
+/* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

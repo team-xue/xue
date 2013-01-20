@@ -1,0 +1,11 @@
+{% extends "inc/base/app_simple.html" %}
+
+{% block ieappstyles %}{{ block.super }}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/ie/app/accounts-ie.css" />
+{% endblock %}
+
+{% block appname %}2012 国家春季助学金{% endblock %}
+{% block appstyleclass %}springaid{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf8 syntax=django: #}

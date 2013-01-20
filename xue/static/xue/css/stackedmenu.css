@@ -1,0 +1,35 @@
+/*
+ * XXX removed child selectors, only works with 1 level of submenu
+ *
+ * Update: IE6 was eventually killed, so we can resume using child selectors
+ * and apply LOTS of them!
+ */
+
+.stackedmenu {
+    position: relative;
+}
+
+.stackedmenu>ul.firstlvl {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.stackedmenu li {
+    position: relative;
+}
+
+.stackedmenu>ul.firstlvl>li>ul {
+    /*display: none;*/
+    visibility: hidden;
+}
+
+/* .stackedmenu ul.firstlvl li.hover ul */
+.stackedmenu>ul.firstlvl>li:hover>ul,
+.stackedmenu>ul.firstlvl>li.hover>ul {
+    visibility: visible;
+}
+
+
+/* vim:set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf8: */

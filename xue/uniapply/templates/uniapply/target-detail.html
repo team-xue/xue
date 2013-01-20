@@ -1,0 +1,49 @@
+{% extends 'uniapply/base.html' %}
+{% load i18n %}
+
+{% block title %}事项细节{% endblock %}
+
+{% block content %}
+<div class="mainpane">
+  <h2 class="panetitle">事项细节</h2>{% if is_allowed %}
+  <article class="uniply_tgt">
+  <header>
+  <h1 class="uniply_tgt_title">{{ target.name }}</h1>
+  <span class="uniply_tgt_creator">{{ target.user.username }}</span>{% with tz_offset="+08:00" %}
+  <time class="uniply_tgt_stime" datetime="{{ target.start_date|date:"Y-m-d\TH:i:s" }}{{ tz_offset }}">{{ target.start_date|date:"Y/m/d H:i:s" }}</time>
+  <time class="uniply_tgt_etime" datetime="{{ target.end_date|date:"Y-m-d\TH:i:s" }}{{ tz_offset }}">{{ target.end_date|date:"Y/m/d H:i:s" }}</time>{% endwith %}
+  <ul class="uniply_tgt_classes clear">{% for cls in target.allowed_classes.all %}
+    <li>{{ cls }}</li>{% endfor %}
+  </ul>
+  {% if target.pagelink %}
+  <a href="{{ target.pagelink }}" class="uniply_tgt_pagelink">{{ target.pagelink }}</a>
+  {% endif %}
+  </header>
+
+  <section class="uniply_tgt_desc">{% for para in desc_paras %}
+  <p>{% for line in para %}{{ line }}{% if not forloop.last %}<br />{% endif %}{% endfor %}</p>{% endfor %}
+  </section>
+
+  <ul class="titledsect actions">
+    <li class="action_item">
+    <a href="{% url xue.uniapply.views.apply_view target.pk %}" class="action_link">申请这个事项</a>
+    </li>
+    {% if target.user == user or user.is_staff or user_is_auditer %}
+    <li class="action_item">
+    <a href="{% url xue.uniapply.views.entry_list_view target.pk %}" class="action_link">查看申请者</a>
+    </li>
+
+    <li class="action_item">
+    <a href="{% url xue.uniapply.views.target_export_view target.pk %}" class="action_link">导出所有材料</a>
+    </li>
+    {% endif %}
+  </ul>
+  </article>
+  {% else %}{# access not granted #}
+  <p>你不能访问这个页面，具体原因传达尚未实现</p>
+  {% endif %}
+</div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

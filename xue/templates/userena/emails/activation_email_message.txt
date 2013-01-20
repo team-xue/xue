@@ -1,0 +1,12 @@
+{% autoescape off %}
+{% with user.username as username %}亲爱的 {{ username }},{% endwith %}
+
+感谢在江南大学数字媒体学院注册帐号。要激活帐号，请访问以下链接：
+
+{{ protocol }}://dm.jiangnan.edu.cn{% url userena_activate user.username activation_key %}
+
+再次感谢您使用本站！
+
+
+江南大学数字媒体学院网站团队
+{% endautoescape %}

@@ -1,0 +1,95 @@
+/* XXX removed child selectors, only works w/ 1 level of submenu */
+
+.nav_leftsect {
+    /* for alignment */
+    height: 155px; /* 279px-124px for quikblock */
+}
+
+.nav_leftsect>.firstlvl>li {
+    display: block;
+    margin-bottom: 5px; /* 0.4em */
+}
+
+.nav_leftsect>.firstlvl>li>span {
+    display: block;
+    width: 75%;
+    border-left: 5px solid #00b6fa;
+    border-bottom: 2px dotted #a00;
+    padding: 3px 0 5px 16px;
+    margin-bottom: 3px;
+    font-size: 15px; /* 1.2em */
+}
+
+/* this doesn't need a .hover class, because older IEs won't recognize
+ * the rgba() thing anyway, and this filter stuff is already done in
+ * nav-left-ie.css. 
+ */
+.nav_leftsect>.firstlvl>li:hover {
+    background: rgba(0, 0, 0, 0.0625);
+}
+
+.nav_leftsect>.firstlvl>li>.submenu>li {
+    background-color: transparent;
+}
+
+/*
+ * is this an IE6 hack?
+ * let's disable it
+ * .nav_leftsect ul.firstlvl li span a {
+ *     display: inline;
+ * }
+ */
+
+.nav_leftsect .submenu {
+    margin-right: 10px;
+    padding: 0 4px;
+    background: rgba(255, 255, 255, 0.875); /* 7/8 */
+    border: 2px solid #ccc;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* no need for .hover class for the same reasons above */
+.nav_leftsect>.firstlvl>li:hover>.submenu {
+    visibility: visible;
+    opacity: 1;
+}
+
+.nav_leftsect>ul>li>.submenu>li {
+    /*list-style: disc inside none;*/
+    border-bottom: 1px dashed #ccc;
+    margin: 3px 0; /* must override here without using child selector */
+    padding: 2px 4px;
+    background-color: transparent;
+}
+
+.nav_leftsect>ul>li>.submenu>.last {
+    /*list-style: disc inside none;*/
+    border-bottom: none;
+}
+
+/*
+ * it seems this rule could be taken off... bye IE6
+ * original code is preserved
+ *
+.nav_leftsect .submenu li span {
+    display: inline;
+    border: none;
+    font-size: 12px; /* 1em * /
+    padding: 0; /* AGAIN FSCK IE6 FOR HAVING NO CHILD SELECTORS!!! * /
+}
+*/
+
+/* XXX Where should this reside in? */
+.announcement, .news {
+    /*float: left;*/
+    width: 100% !important;
+    min-height: 350px !important;
+}
+
+
+/* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

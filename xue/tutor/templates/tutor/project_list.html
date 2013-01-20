@@ -1,0 +1,33 @@
+{% extends 'tutor/base_tutor.html' %}
+{% load i18n %}
+
+{% block title %}项目列表{% endblock %}
+
+{% block content %}
+<div class="mainpane">
+  <h2 class="panetitle">所有导师项目</h2>
+
+  <div class="projlist">
+    <ul>{% for entry in entries %}{% with teacher=entry.teacher %}
+      <li>
+          <h3 class="name">
+            <a href="{% url xue.tutor.views.project_detail_view entry.id %}">
+              {{ entry.name }}
+            </a>
+          </h3>
+{% comment %} -- 书记认为学生见到导师姓名不合适，会减弱跨专业积极性，所以注释掉
+        <p>
+          导师:{% if teacher %}
+          <a href="{% url userena_profile_detail teacher.username %}">
+            <span class="tutor">{{ teacher.profile.realname }}</span>
+          </a>{% else %}
+          未关联账号{% endif %}
+        </p>{% endcomment %}
+      </li>{% endwith %}{% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

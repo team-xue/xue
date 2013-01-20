@@ -1,0 +1,72 @@
+/* VARIOUS PROFILE INFO FIELDS */
+span.nickname {
+    color: #ccc;
+    font-size: 16px;
+    font-weight: normal;
+    margin-left: 3px;
+}
+
+span.role {
+    color: #999;
+    font-size: 12px;
+}
+
+p.sign_line {
+    color: #ccc;
+    font-size: 12px;
+}
+
+img.gravatar {
+    border: 1px solid #fff;
+    /* padding: 1px; */
+    box-shadow: 2px 2px 4px #999;
+}
+
+/* USER LIST PAGE */
+div.userena ul#profile_list li {
+    clear: both;
+    border-bottom: 1px solid #666;
+    padding: 10px 0 10px 24px;
+}
+
+div.userena ul#profile_list li:hover {
+    background-color: #ccc;
+    color: #333;
+}
+
+div.userena ul#profile_list li:hover span.username {
+    color: #000;
+}
+
+div.userena ul#profile_list li:hover p.sign_line,
+div.userena ul#profile_list li:hover span.nickname
+ {
+    color: #333;
+}
+
+div.userena ul#profile_list a.avatar {
+    float: left;
+    margin-right: 16px;
+}
+
+
+/* DETAIL PAGE: INFO ENTRY GENERAL */
+div.userena div#details p {
+    padding: 0 0 16px 0;
+}
+
+div.userena div#details p span {
+    font-size: 20px;
+}
+
+div.userena div#details img.gravatar {
+    float: left;
+    margin: 0 16px 16px 0;
+}
+
+p.email span {
+    font-family: "Courier New", "WenquanYi Micro Hei Mono", "Monospace", monospace;
+}
+
+
+/* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

@@ -1,0 +1,27 @@
+{% load menu_tags %}
+
+
+{% with max_count_str=max_count|stringformat:"d" %}{% with maxchild_slicer=":"|add:max_count_str %}
+{% for child in children|slice:maxchild_slicer %}
+<li class="preview_item">{#  <img src="{{ MEDIA_URL }}xue/img/no-thumbnail.png" class="thumbnail" alt="[No thumbnail]" />#}
+  <a href="{{ child.attr.redirect_url|default:child.get_absolute_url }}" class="preview_link">
+    {{ child.get_menu_title }}{% if not child.is_leaf_node %} &raquo;{% endif %}
+      </a>{% comment %}
+{% if child.children %}
+  <ul class="section_preview" style="display: none;">
+    {% show_menu from_level to_level extra_inactive extra_active max_count filter_opt "menus/section-preview.html" "" "" child %}
+  </ul>
+  {% endif %}
+{% endcomment %}
+</li>
+{% endfor %}{% endwith %}{% endwith %}
+
+{# if showing menu below a specific id, we can give a "more" link pointing to that page #}
+{% if root_node and max_count != -1 and children|length == max_count %}
+<li class="preview_item more">
+<a href="{{ root_node.attr.redirect_url|default:root_node.get_absolute_url }}" class="more_link">查看更多</a>
+</li>
+{% endif %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 ff=unix fenc=utf8 syntax=django: #}

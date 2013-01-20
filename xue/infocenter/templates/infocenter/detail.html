@@ -1,0 +1,79 @@
+{% extends 'infocenter/base.html' %}
+
+{% block title %}起始页{% endblock %}
+
+{% block content %}
+  <div class="mainpane">
+    <div class="startpage">
+      <h2 class="panetitle">起始页</h2>
+
+      <ul class="titledsect actions">{% if not entry.is_locked %}
+        <li class="action_item">
+        <a href="{% url xue.infocenter.views.edit_view %}">编辑个人资料</a>
+        </li>{% endif %}
+      </ul>
+
+      <span class="profile_completeness">资料完成度 {{ entry.get_completeness|floatformat:2 }} %</span>
+      <p class="profile_reminder">请尽快进行信息完善，以便后续处理，多谢多谢</p>
+      <dl class="profile_detail">
+        <dt>姓名</dt>
+        <dd>{{ profile.realname }}</dd>
+
+        <dt>班级</dt>
+        <dd>{{ entry.klass }}</dd>
+
+        <dt>民族</dt>
+        <dd>{{ entry.ethnic }}</dd>
+
+        <dt>家庭住址</dt>
+        <dd>{{ entry.location }}</dd>
+
+        <dt>邮政编码</dt>
+        <dd>{{ entry.postal }}</dd>
+
+        <dt>手机号码</dt>
+        <dd>{{ entry.phone }}</dd>
+
+        <dt>家庭电话</dt>
+        <dd>{{ entry.phone_family }}</dd>
+
+        <dt>身份证号</dt>
+        <dd>{{ entry.ident }}</dd>
+
+        <dt>父亲姓名</dt>
+        <dd>{{ entry.name_pa }}</dd>
+
+        <dt>父亲身份证号</dt>
+        <dd>{{ entry.ident_pa }}</dd>
+
+        <dt>父亲工作单位</dt>
+        <dd>{{ entry.unit_pa }}</dd>
+
+        <dt>母亲姓名</dt>
+        <dd>{{ entry.name_ma }}</dd>
+
+        <dt>母亲身份证号</dt>
+        <dd>{{ entry.ident_ma }}</dd>
+
+        <dt>母亲工作单位</dt>
+        <dd>{{ entry.unit_ma }}</dd>
+
+        <dt>政治面貌</dt>
+        <dd>{{ entry.political }}</dd>
+
+        <dt>高中学校</dt>
+        <dd>{{ entry.high_school }}</dd>
+
+        <dt>兴趣爱好</dt>
+        <dd>{{ entry.hobby }}</dd>
+      </dl>
+
+      <p>
+      注：获奖情况、个人简历等复杂字段暂时没有实现
+      </p>
+    </div>
+  </div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

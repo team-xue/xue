@@ -1,0 +1,28 @@
+{% extends 'tutor/teacher_base.html' %}
+
+{% block moduletitle %}学生申请列表{% endblock %}
+
+{% block modulecontent %}
+{% if entries %}
+      <p>目前学生申请有 {{ entries|length }} 个。</p>
+
+      <div class="studentlist projlist">
+        <ul>{% for entry in entries %}
+          <li>
+            <h3 class="name">
+              <a href="{% url xue.tutor.teacherviews.picking_view project.id entry.id %}">
+                {{ entry.student.profile.realname }} 的申请
+              </a>
+
+              [<span class="status">{% with entrystatus=entry.status %}{% if entrystatus == 0 %}待处理{% endif %}{% if entrystatus == 1 %}已通过{% endif %}{% if entrystatus == 2 %}未通过{% endif %}{% endwith %}</span>]
+            </h3>
+          </li>{% endfor %}
+        </ul>
+      </div>
+{% else %}
+      <p>此项目暂无学生报名。</p>
+{% endif %}
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

@@ -1,0 +1,273 @@
+/* FORM LOOK'N'FEEL AND TITLE STYLE */
+.dmapp-simple {
+    font-size: 16px;
+}
+
+.dmapp-simple span, .dmapp-simple p, .dmapp-simple li {
+    /* XXX I'M GOING TO REMOVE THAT GLOBAL PROP! */
+    line-height: normal;
+}
+
+.dmapp-simple div.leftContainer {
+    text-align: right;
+}
+
+.dmapp-simple div.leftContainer span {
+    padding: 10px 3px 10px 0;
+
+}
+
+.dmapp-simple div.leftContainer span.titlepart {
+    display: block;
+    font-size: 24px !important;
+    border-bottom: 1px solid #464646; /* dmgray */
+    clear: both;
+}
+
+.dmapp-simple div.leftContainer span.auxlink {
+    float: right;
+    padding-bottom: 0;
+    font-size: 12px;
+    color: #999;
+    clear: both;
+}
+
+.dmapp-simple div.leftContainer a:hover span.auxlink {
+    /* well... ie6 will support a:hover at least... */
+    color: #333;
+}
+
+.dmapp-simple div.rightContainer form {
+    padding: 10px 0 32px 16px;
+}
+
+.dmapp-simple div.rightContainer,
+.dmapp-simple div.rightContainer legend,
+.dmapp-simple div.rightContainer a {
+    color: #fff;
+}
+
+.dmapp-simple div.rightContainer legend {
+    float: left;
+    clear: both;
+    width: 100%;
+
+    font-size: 24px !important;
+
+    /*
+     * add padding-bottom for better look w/ border-bottom
+     * padding-top not needed here because the forms are now wrapped in div.mainpane
+     * which already has done this
+     */
+    padding: 0 33px 10px 3px;
+    margin: -10px 0 20px -26px;
+    border-bottom: 1px solid #fff;
+}
+
+/* PANE TITLE */
+.dmapp-simple h2.panetitle {
+    font-size: 24px;
+    /* font-weight: bold; */
+    border-bottom: 1px solid #fff;
+    padding-bottom: 10px;
+    margin: 0 -10px 10px;
+}
+
+/* FORM FIELDS */
+.dmapp-simple form>fieldset>p {
+    padding: 0 0 20px;
+    clear: both;
+}
+
+.dmapp-simple form>fieldset>p>label {
+    display: block;
+    float: left;
+    width: 20%;
+    text-align: right;
+    padding-right: 5%;
+}
+
+.dmapp-simple form>fieldset>p>input {
+    width: 75%;
+}
+
+.dmapp-simple form>fieldset>p>input[type=text],
+.dmapp-simple form>fieldset>p>input[type=password] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    color: #fff;
+}
+
+.dmapp-simple form>fieldset>.button {
+    /* no surrounding <p /> so padding must be re-defined */
+    margin: 0 0 20px;
+    padding: 3px;
+    border: none;
+    background-color: #333;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.dmapp-simple form>fieldset>.button:hover {
+    background-color: #ccc;
+    color: #333;
+}
+
+.dmapp-simple form>fieldset>.submit {
+    margin-right: 25%;
+    padding: 4px 16px;
+}
+
+.dmapp-simple form .helptext {
+    display: block;
+    clear: both;
+    font-size: 12px;
+    /* for alignment */
+    margin-left: 25%;
+    padding-left: 16px;
+}
+
+/* FORM ERRORS */
+.dmapp-simple form .errorlist {
+    margin: 6px 0;
+    padding-left: 25%;
+    border-left: 2px solid #c00;
+    color: #f99;
+}
+
+.dmapp-simple form .errorlist li {
+    padding: 0 0 3px 3px;
+}
+
+/* CHECKBOX SPECIAL-CASE */
+.dmapp-simple form .checkbox label {
+    width: auto;
+    margin-left: 25%;
+    padding: 0;
+}
+
+.dmapp-simple form .checkbox input {
+    margin: 0 16px 0 -16px; /* for alignment */
+}
+
+/* INSIDE PAGES: BOX NAVIGATION AND MAIN PANE */
+.dmapp-simple .outer-box {
+    float: left;
+    width: 100%;
+    overflow: hidden;
+}
+
+.dmapp-simple .nav-box {
+    float: left;
+    position: relative;
+    right: 67%;
+    width: 100%;
+    background-color: #232323;
+}
+
+.dmapp-simple .nav {
+    float: left;
+    width: 33%;
+    position: relative;
+    left: 67%;
+}
+
+.dmapp-simple #box-nav>.first {
+    /* for a continuous split line */
+    border-bottom: 1px solid #464646; /* dmgray */
+}
+
+.dmapp-simple #box-nav>.selected {
+    background-color: #000;
+}
+
+.dmapp-simple .mainpane-container {
+    float: right;
+    width: 67%;
+    position: relative;
+    left: 67%;
+}
+
+.dmapp-simple .mainpane {
+    padding: 10px 10px 0; /* right and bottom same as the form's */
+}
+
+.dmapp-simple .mainpane form {
+    padding: 0;
+}
+
+/* NAVBOX LINKS */
+.dmapp-simple #box-nav>li {
+    padding: 10px 8px 10px 8px;
+    /* make only the first item bigger, thx @hanfeng */
+    text-align: right;
+}
+
+.dmapp-simple #box-nav>.first {
+    font-size: 24px;
+}
+
+.dmapp-simple #box-nav>li:hover {
+    background-color: #ccc;
+}
+
+.dmapp-simple #box-nav>li:hover a {
+    color: #464646; /* dmgray */
+}
+
+
+/* STANDALONE NOTICE -- USED IN LOGOUT PAGE AND SOME APP MESSAGES */
+.dmapp-simple .standalone-notice {
+    font-size: 24px !important;
+    padding: 10px 0 10px 3px;
+}
+
+
+/* titled sections */
+.dmapp-simple .titledsect {
+    display: block;
+    margin: 0 0 16px 31px;
+    padding: 0 0 8px;
+    border-left: 1px solid #666;
+}
+
+.dmapp-simple .titledsect:before {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #666;
+    /* kludge to eliminate outstanding border-left from ul itself */
+    border-left: 1px solid #464646;
+    margin: 0 0 8px -1px; /* -1 to overlap the border w/ bkgnd color */
+    padding: 0 1px 4px 0;
+    color: #999;
+    font-size: 16px;
+}
+
+/* action links */
+.dmapp-simple .actions:before {
+    content: "可进行的动作";
+}
+
+.dmapp-simple .actions>.action_item {
+    display: block;
+    margin: 0 0 4px 16px;
+}
+
+.dmapp-simple .actions>.action_item>.action_link {
+    font-size: 20px;
+    color: #ccc;
+}
+
+.dmapp-simple .actions>.action_item>.action_link:hover {
+    color: #fff;
+}
+
+.dmapp-simple .actions>.action_item>.action_link:after {
+    content: "»";
+    color: #999;
+    margin: 0 0 0 4px;
+}
+
+
+/* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

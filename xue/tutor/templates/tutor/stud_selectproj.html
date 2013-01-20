@@ -1,0 +1,52 @@
+{% extends 'tutor/base_tutor.html' %}
+{% load i18n %}
+
+{% block title %}选择项目{% endblock %}
+
+{% block content %}
+<div class="mainpane">
+  <h2 class="panetitle">项目选择</h2>
+
+  <div class="projects">{% if not projects %}
+    你还没有选择项目。{% else %}
+    你选择了 {{ projects|length }} 个项目：
+    <ul class="project_list">{% for studproj in projects %}{% with proj=studproj.project %}
+      <li>
+        <h3 class="project_name">{{ proj.name }}</h3>
+        <a href="{% url xue.tutor.views.project_detail_view proj.id %}">
+          项目页面
+        </a>
+
+        申请状态：
+        <span class="status">{% with prj_stat=studproj.status %}{% if prj_stat == 0 %}
+          待处理{% endif %}{% if prj_stat == 1 %}
+          接受{% endif %}{% if prj_stat == 2 %}
+          未通过{% endif %}{% endwith %}
+        </span>
+{% if proj.status == 2 %}
+        拒绝原因：
+        <span class="fail_reason">
+          {{ proj.fail_reason }}
+        </span>{% endif %}
+      </li>{% endwith %}{% endfor %}
+    </ul>{% endif %}
+  </div>
+{% if is_exceeded %}
+  <p class="exceeded">
+    你申请的项目数已经达到上限，请耐心等待审核，谢谢。
+  </p>
+{% else %}
+  <form method="post">
+    {% csrf_token %}
+    <fieldset>
+      {{ form.non_field_errors }}
+      {{ form.as_p }}
+      <input type="submit" value="提交" class="button" />
+    </fieldset>
+  </form>
+{% endif %}
+</div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

@@ -1,0 +1,77 @@
+/***** SECTION PAGE *****/
+.articlelist>li {
+    display: block;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0 10px 10px;
+    min-height: 92px; /* img_h+border1px*2 */
+}
+
+.articlelist>li:hover {
+    background-color: #eee;
+}
+
+.articlelist>li>.thumbnail {
+    float: left;
+    border: 1px solid #666;
+    width: 120px;
+    height: 90px;
+    margin-right: 10px;
+}
+
+.articlelist>li>.metadata {
+    display: table-cell;
+}
+
+.articlelist>li>.metadata>.title {
+    font-size: 15px; /* 1.2em */
+}
+
+.articlelist>li>.metadata>.date {
+    font-size: 80%;
+}
+
+
+/***** SECTION CONTENT PREVIEW *****/
+.articlelist>li>.section_preview {
+    color: #999;
+    padding: 0 0 0 32px;
+}
+
+.articlelist>li:hover>.section_preview {
+    color: #666;
+}
+
+.articlelist>li>.section_preview>.preview_item {
+    float: left;
+    margin: 0 0 8px;
+}
+
+.articlelist>li>.section_preview>.preview_item:before {
+    content: "|";
+    color: #ccc;
+    margin: 0 8px;
+}
+
+.articlelist>li>.section_preview>.preview_item>a:hover {
+    color: #000;
+}
+
+
+/* Loading indicator */
+span.loading {
+    font-size: 32px;
+    color: #999;
+}
+
+/* paginator external layout-ing */
+div.paginator {
+    margin-top: 10px;
+}
+
+/* noscript considerations */
+div.paginator_container {
+    display: none;
+}
+
+
+/* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

@@ -1,0 +1,27 @@
+<section class="sect_comments">
+  <ul class="comments">{% for comment in comment_list %}
+    <li>
+    <article id="c{{ comment.id }}">
+    <header class="comment_metadata">{% if comment.user_id %}{# Registered user #}
+      {% with user=comment.user %}{% with profile=user.profile %}
+      <a href="{% url userena_profile_detail user.username %}"><img src="{{ profile.get_mugshot_url }}" alt="{{ user.username }} 的头像" class="gravatar" width="80" height="80" /></a>
+      <a href="{% url userena_profile_detail user.username %}"><span class="username">{{ user.username }}</span></a>{% if profile.role == 1 %}{# Teacher, reveal identity #}
+      <span class="realname">{{ user.realname }}</span>{% endif %}
+      {% if profile.nickname %}<span class="nickname">{{ profile.nickname }}</span>{% endif %}
+      {% if profile.sign_line %}<p class="sign_line">{{ profile.sign_line }}</p>{% endif %}
+      {% endwith %}{% endwith %}{% else %}{# Unregistered user #}
+      <span class="username">{{ comment.name }}</span>
+      {% endif %}{% with tzoffset="+08:00" %}
+
+     <time datetime="{{ comment.submit_date|date:"Y-m-d\TH:i:s"}}{{ tzoffset }}" class="ctime">{{ comment.submit_date|date:"Y/m/d H:i:s" }}</time>{% endwith %}
+    </header>
+
+    <p class="comment_content">
+{{ comment.comment }}
+    </p>
+    </article>
+    </li>{% endfor %}
+  </ul>
+</section>
+
+{# vim:set ai et ts=2 sw=2 sts=2 ff=unix fenc=utf-8 syn=django: #}

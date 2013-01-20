@@ -1,0 +1,57 @@
+ul.dropmenu, ul.dropmenu>li>ul {
+    list-style-type: none;
+    text-align: center;
+    -moz-transition: opacity 0.3s ease 0s;
+    -webkit-transition: opacity 0.3s ease 0s;
+    -o-transition: opacity 0.3s ease 0s;
+}
+
+ul.dropmenu>li {
+    position: relative;
+}
+
+/*
+ * staircase bug fix
+ * now IE6 is unsupported, this can go into oblivion
+ * but the code is kept for future reference
+ * also for remembering those days fscking IE6
+ *
+ * it was:
+ * * html ul.dropmenu li {
+ *     display: inline;
+ *  }
+ */
+
+ul.dropmenu>li>a {
+    display: block;
+    float: left;
+}
+
+ul.dropmenu>li>ul {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    float: left;
+    left:0;
+    margin-top:1px;
+    /* fix gallery page dropdown bottom part covered by img */
+    z-index: 10;
+}
+
+ul.dropmenu>li>ul>li {
+    clear: both;
+}
+
+ul.dropmenu>li:hover>ul,
+ul.dropmenu>li.hover>ul {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* if only IE6'd supported child selectors...
+ * now IE6 is banned, we no longer need this highly inefficient rule
+ * (was ul.dropmenu li ul li a)
+ */
+
+
+/* vim:set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf8: */

@@ -1,0 +1,56 @@
+/* alpha blendings */
+.picslide .desc {
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#9A001E46,endColorStr=#9A001E46);
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#9A001E46,endColorstr=#9A001E46)";
+    zoom: 1;
+}
+
+.transparent_white {
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#7F000000,endColorStr=#7F000000);
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000,endColorstr=#7F000000)";
+    zoom: 1;
+}
+
+.transparent_blue {
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#B3001E46,endColorStr=#B3001E46);
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#B3001E46,endColorstr=#B3001E46)";
+    zoom: 1;
+}
+
+.transparent_red {
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#B3800000,endColorStr=#B3800000);
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#B3800000,endColorstr=#B3800000)";
+    zoom: 1;
+}
+
+/* ugly fix for namedpic name tag width */
+.dept_logo span.name {
+    width: 242px !important;
+}
+
+/* horizontal nav fix for IE6... */
+html#ie6 .nav_horiz {
+    zoom: 1;
+}
+
+/* 3px jog fix. Hide from IE5-mac. Only IE-win sees this. \*/
+* html .bottom_links li {
+    margin: 12px 3px;
+}
+
+* html .threerow li {
+    margin-left: -3px;
+    margin-right: -3px;
+}
+/* */
+
+.lMarginer .list_vert {
+    zoom:1;
+}
+
+
+/* vim:set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

@@ -1,0 +1,47 @@
+{% extends 'tutor/base_tutor.html' %}
+
+{% block title %}起始页{% endblock %}
+
+{% block content %}
+  <div class="mainpane">
+    <div class="startpage">
+      <h2 class="panetitle">起始页</h2>
+
+      <p class="prelude">
+        为了培养本科生的创新意识和实践能力，提高本科生的综合素质，鼓励本科生积极参加科技竞赛、
+        科研实践，经学院研究决定以教师科研项目为载体，面向二年级的优秀本科生，
+        实施基于学科交叉的多维平台导师制。
+      </p>
+{% if is_student %}
+{% if apply_obj.status == 1 %}
+      <p class="projects">
+        <a href="{% url xue.tutor.views.project_list_view %}">可供选择的项目列表 &raquo;</a>
+      </p>
+{% endif %}
+      <p class="applystatus">{% if has_applied %}
+        <span class="has_applied">你已经提交申请。</span>
+        初审状态：<span class="acceptance">{{ apply_status }}</span>
+{% if apply_obj.status == 2 %}{# failed submission, show reason of rejection #}
+        未通过理由：<span class="fail_reason">{{ apply_obj.fail_reason }}</span>
+{% endif %}{% if apply_obj.status == 1 %}{# succeeded #}
+        请在<a href="{% url xue.tutor.studentviews.selectproj_view %}">这里</a>选择项目。（最多 2 个）
+{% endif %}{% else %}
+        <span class="has_applied">你未提交申请。</span>{% endif %}
+      </p>
+{% if not has_applied %}{% if not apply_closed %}
+      <p class="actions">
+        <a href="{% url xue.tutor.studentviews.apply_view %}"><span class="button">点击填写申请</span></a>
+      </p>{% endif %}
+{% endif %}
+
+{% else %}{# teacher or something else #}
+      <p>可以在<a href="{% url xue.tutor.views.application_list_view %}">这里</a>进行初审。</p>
+
+      <p>进入<a href="{% url xue.tutor.teacherviews.listpage_view %}">项目管理页面</a>。</p>
+{% endif %}
+    </div>
+  </div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

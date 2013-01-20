@@ -1,0 +1,60 @@
+{% extends 'uniapply/base.html' %}
+{% load i18n xue_data %}
+
+{% block title %}申请细节{% endblock %}
+
+{% block content %}
+<div class="mainpane">
+  <h2 class="panetitle">申请细节</h2>
+  <article class="uniply_entry">
+  <header>
+  <h1 class="uniply_tgt_title">{{ entry.target.name }}<a href="{% url userena_profile_detail entry.user.username %}" class="uniply_applicant">{{ entry.user|x_RealName }}</a></h1>{% with tz_offset="+08:00" %}
+  <time class="uniply_ctime" datetime="{{ entry.ctime|date:"Y-m-d\TH:i:s" }}{{ tz_offset }}">{{ entry.ctime|date:"Y/m/d H:i:s" }}</time>{% endwith %}
+  </header>
+
+  {% for mat in entry.materials.all %}
+  <section class="uniply_entry_material">
+  <h1>{{ mat.title }}</h1>{% for para in mat.get_paragraphs %}
+  <p>{% for line in para %}{{ line }}{% if not forloop.last %}<br />{% endif %}{% endfor %}</p>{% endfor %}
+  </section>
+  {% endfor %}
+
+  <section class="titledsect uniply_audit_box">
+  <span class="uniply_audit_status">{% with s=a_status %}{% if s == 0 %}审核中{% endif %}{% if s == 1 %}审核通过{% endif %}{% if s == 2 %}审核不通过{% endif %}{% if s > 2 %}{{ s }}{% endif %}{% endwith %}</span>
+  
+  <table class="uniply_audit_rules">
+    <thead>
+      <tr>
+        <th>层级</th>
+        <th>结果</th>
+        <th>原因</th>
+      </tr>
+    </thead>
+    <tbody>{% for rule, result in a_results.iteritems %}
+      <tr class="uniply_audit_rule">
+        <td class="niceness">{{ rule.niceness }}</td>
+        <td class="status">{% if result == None %}未处理{% else %}{% with s=result.status %}{% if s == 0 %}审核中{% endif %}{% if s == 1 %}通过{% endif %}{% if s == 2 %}不通过{% endif %}{% if s > 2 %}{{ s }}{% endif %}{% endwith %}{% endif %}</td>
+        <td class="reason">{% if result != None %}{{ result.reason }}{% endif %}</td>
+      </tr>{% endfor %}
+    </tbody>
+  </table>
+
+  <span class="uniply_audit_next">{% if a_next != None %}{{ a_next.niceness }}{% endif %}</span>
+  </section>
+
+  <ul class="titledsect actions">
+    {% if a_status == 0 and a_next != None and a_next.auditer == user %}
+    <li class="action_item">
+    <a href="{% url xue.uniapply.views.entry_audit_view entry.pk a_next.pk %}" class="action_link">审核材料（第 {{ a_next.niceness }} 层）</a>
+    </li>
+    {% endif %}
+    <li class="action_item">
+    <a href="{% url xue.uniapply.views.entry_export_view entry.pk %}" class="action_link">导出材料</a>
+    </li>
+  </ul>
+  </article>
+</div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

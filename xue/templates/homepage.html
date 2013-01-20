@@ -1,0 +1,180 @@
+{% extends "./inc/base/leftright_base.html" %}
+{% load cache cms_tags menu_tags %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/common.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/mainpage.css" />
+
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/colors.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/mainpage-img.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/namedpic.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/portal.css" />
+
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/nav-left.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/nav-horiz.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/subtitle.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/stackedmenu.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/dropmenu.css" />
+{% endblock %}
+
+{% block iestyles %}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/mainpage-ie.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/nav-left-ie.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/nav-horiz-ie.css" />
+{% endblock %}
+
+{% block scripts %}
+    <script async="async" type="text/javascript" src="{{ MEDIA_URL }}xue/js/picslide.jq17.min.js"></script>
+{% endblock %}
+
+{# restrict 1000px to mainpage and perhaps gallery only, to make use of potential width #}
+{% block rootclass %} limitwidth{% endblock %}
+
+{# adds Chrome Frame support for those running <www-client/ie-9 but >ie-6 #}
+{% block latefooter %}{{ block.super }}
+    <!-- temporarily disable before inline prompt template is made... [if (IE 7) | (IE 8)]>
+    <script type="text/javascript"
+     src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+
+    <style>
+     .chromeFrameInstallDefaultStyle {
+       border: 5px solid #464646;
+       height: 500px;
+       z-index: 20;
+     }
+    </style>
+
+    <div id="prompt">
+    </div>
+
+    <script>
+     window.attachEvent("onload", function() {
+       CFInstall.check({mode: "overlay", node: "prompt"});
+     });
+    </script>
+    <![endif] -->
+{% endblock %}
+
+{% block left_container_base %}
+{% cache 600 home-left-wholeblock request.user.username %}
+<div class="rMarginer clear">
+{% include "inc/nav-left.html" %}
+
+<h3 class="subtitle fancysub"><span class="dmred">新闻事件</span></h3>
+{% include "inc/news-frag.html" %}
+</div>
+{% endcache %}
+{% endblock %}
+
+{% block right_container_base %}
+{% cache 600 home-right-wholeblock request.user.username %}
+<div class="presentation clear">
+{% with NAV_SHOW_HOME_ENTRY=0 %}{% include "inc/nav-horiz.html" %}{% endwith %}
+
+  <div class="picslide">
+    <div class="desc">
+      <div class="content">
+{% cache 86400 homepage-brief-placeholder %}
+{% include "inc/now.html" %}
+{% placeholder brief_introduction %}
+{% endcache %}
+      </div>
+    </div>
+
+    <div class="picslide_target">
+      <ul class="picslide_piclist clear">
+      </ul>
+      <div class="picslide_pool clear">
+{% cache 86400 homepage-picslide-placeholder %}
+{% include "inc/now.html" %}
+{% placeholder "slide_pictures" %}
+{% endcache %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="lMarginer">
+  <ul class="threerow clear">
+    <li>
+      <div class="rMarginer clear">
+        <h3 class="subtitle fancysub"><span class="dmred">通知公告</span></h3>
+        <ul class="list_vert announcement">
+{% cache 1800 announcement-entries %}
+{% include "inc/now.html" %}
+{% show_menu_below_id "cmstag_通知" 0 1 0 0 10 1 "menus/list-vert.html" %}
+{% endcache %}
+        </ul>
+      </div>
+    </li>
+
+    <li class="dept dept_tech">
+      <div class="lMarginer">
+        <div class="dept_logo logo_with_name clear">
+          <span class="name transparent_white"><a href="#">数字媒体技术系</a></span>{# page_url "tech-dept" #}
+        </div>
+
+        <div class="desc">
+          <p>
+            数字媒体技术系有实力雄厚的信息技术、通讯技术与新媒体技术，数字媒体技术系的专业定位是：技术为主，艺术为辅，技术与艺术相结合，理论和实践相结合。。。
+          </p>
+        </div>
+      </div>
+    </li>
+
+    <li class="dept dept_art">
+      <div class="lMarginer">
+        <div class="dept_logo logo_with_name clear">
+          <span class="name transparent_white"><a href="#">数字媒体艺术系</a></span>{# page_url "art-dept" #}
+        </div>
+
+        <div class="desc">
+          <p>
+            为适应学科发展综合交叉的趋势和社会对科研成果的集成化需求，要促进学科研究相关力量的合作与联合，并以此基础为抓手培育和发展交叉学科，形成具有艺术设计与技术交融的“泛动画”的专业办学特色。
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <div class="bottom_links clear">
+    <ul>
+      <li>
+        <div class="rnd_center logo_with_name bottom">
+          <span class="name transparent_blue"><a href="#">无锡数字媒体<br />工程研发中心</a></span>
+        </div>
+      </li>
+
+      <li>
+        <div class="creativity logo_with_name bottom">
+          <span class="name transparent_blue"><a href="#">无锡创意产品<br />研发中心</a></span>
+        </div>
+      </li>
+
+      <li>
+        <div class="info_center_1 logo_with_name bottom">
+          <span class="name transparent_blue"><a href="#">数字信息处理<br />研究中心</a></span>
+        </div>
+      </li>
+
+      <li>
+        <div class="info_center_2 logo_with_name bottom">
+          <span class="name transparent_blue"><a href="#">人工智能与模式<br />识别技术研发中心</a></span>
+        </div>
+      </li>
+
+      <li>
+        <div class="info_center_3 logo_with_name bottom">
+          <span class="name transparent_blue"><a href="#">数字娱乐与交互<br />设计研发中心</a></span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+{% endcache %}
+{% endblock %}
+
+{% block footer_container %}
+{% endblock %}
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf8 syntax=django: #}

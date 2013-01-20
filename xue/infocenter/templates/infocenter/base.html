@@ -1,0 +1,11 @@
+{% extends "inc/base/app_simple.html" %}
+
+{% block appstyles %}{{ block.super }}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/app/accounts.css" />
+{% endblock %}
+
+{% block appname %}信息中心{% endblock %}
+{% block appstyleclass %}infocenter{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf8 syntax=django: #}

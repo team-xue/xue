@@ -1,0 +1,26 @@
+{% extends 'infocenter/base.html' %}
+
+
+{% block title %}编辑个人资料{% endblock %}
+
+
+{% block content %}
+<div class="mainpane">
+  <h2 class="panetitle">编辑个人资料</h2>
+  {% if not is_locked %}
+  <form method="post">
+    {% csrf_token %}
+    <fieldset>
+      {{ form.non_field_errors }}
+      {{ form.as_p }}
+      <input type="submit" value="提交" class="button" />
+    </fieldset>
+  </form>
+  {% else %}{# Locked entry, disallow edit #}
+  <p class="error">此信息已通过审核并被锁定，如需更改请联系教务人员解锁</p>
+  {% endif %}
+</div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

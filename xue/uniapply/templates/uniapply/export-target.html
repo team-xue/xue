@@ -1,0 +1,47 @@
+{% load xue_data %}
+{{ entries|x_RenderObjectsAgg:agg_args }}
+{% comment %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>申请表导出</title>
+    <link ref="stylesheet" src="{{ MEDIA_URL }}xue/css/min/amalgamation.css" />
+    <script src="{{ MEDIA_URL }}xue/js/bundle/framework.min.js"></script>
+    <script>
+      // Resize iframe to full height
+      function resizeIframe(height, frame_id)
+      {
+        // "+60" is a general rule of thumb to allow for differences in
+        // IE & and FF height reporting, can be adjusted as required..
+        document.getElementById(frame_id).height = parseInt(height)+180;
+      }
+
+      (function($){
+        $(document).ready(function(){
+          $('#print_all').click(function(){
+            $('iframe').each(function(idx){
+              $(this)[0].contentWindow.print();
+            });
+          });
+        });
+      })($);
+    </script>
+
+    <style>
+      iframe {
+        border: none;
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button id="print_all">打印全部材料</button>
+{% for entry in entries %}
+    <iframe id="entry{{ entry.pk }}" src="{% url xue.uniapply.views.entry_export_view entry.pk %}"></iframe>{% if not forloop.last %}
+    <div class="pagebreak"></div>{% endif %}{% endfor %}
+  </body>
+  <!-- vim:set ai et ts=2 sw=2 sts=2 ff=unix fenc=utf-8 syn=django: -->
+</html>
+{% endcomment %}

@@ -1,0 +1,37 @@
+.breadcrumb:before {
+    content: "现在位置";
+    color: #999;
+
+    display: block;
+    float: left;
+
+    /*
+     * unfortunately we can't attach another pseudo-element
+     * onto this pseudo-element...
+     */
+    font-size: 14px;
+    padding: 4px 0;
+    line-height: 1.75;
+}
+
+.breadcrumb>li:before {
+    content: ".";
+    display: inline-block;
+
+    /* closely mimic the nav-horiz item's geometry */
+    font-size: 14px;
+    line-height: 1.75;
+    padding: 4px 0;
+
+    /* hide the char */
+    width: 0;
+    visibility: hidden;
+}
+
+.breadcrumb>li {
+    float: left;
+    margin: 0 0 0 6px; /* 0.5em */
+}
+
+
+/* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

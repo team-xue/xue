@@ -1,0 +1,21 @@
+{% extends 'userena/base_userena.html' %}
+{% load i18n %}
+
+{% block title %}注册{% endblock %}
+
+{% block content %}
+<div class="mainpane">
+  <form method="post">
+  {{ form.non_field_errors }}
+  {% csrf_token %}
+    <fieldset>
+      <legend>注册</legend>
+  {{ form.as_p }}
+      <input type="submit" value="注册" />
+    </fieldset>
+  </form>
+</div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 ff=unix fenc=utf-8 syn=django: #}

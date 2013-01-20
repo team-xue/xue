@@ -1,0 +1,28 @@
+{% extends 'uniapply/base.html' %}
+
+
+{% block title %}申请一个事项{% endblock %}
+
+
+{% block content %}
+<div class="mainpane">
+  <h2 class="panetitle">申请一个事项</h2>
+  {% if is_allowed %}
+  <form method="post">
+    {% csrf_token %}
+    <fieldset>
+      {{ form.non_field_errors }}
+      {{ form.as_p }}
+      <input type="submit" value="提交申请" class="button" />
+    </fieldset>
+  </form>
+  {% else %}{# Closed target or some other conditions don't pass #}
+  <p class="error">
+  您不能申请这个事项{% if is_repeat %}，因为您已经重复申请过了{% endif %}
+  </p>
+  {% endif %}
+</div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

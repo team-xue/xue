@@ -1,0 +1,57 @@
+/***** DETAIL PAGE *****/
+.app_materials>.mainpane>.detailpage>article {
+    margin: 0 0 32px;
+}
+
+.app_materials>.mainpane>.detailpage>article>header {
+    margin: 0 0 8px;
+    border-bottom: 1px solid #999;
+}
+
+.app_materials>.mainpane>.detailpage .material_title {
+    font-size: 20px;
+    margin: 0 0 8px;
+}
+
+.app_materials>.mainpane>.detailpage .material_title.material_locked:after {
+    content: "已锁定";
+    font-size: 15px;
+    color: #999;
+    margin: 0 0 0 8px;
+}
+
+/* material entry metadata */
+.app_materials>.mainpane>.detailpage .material_metadata {
+    font-size: 12px;
+    color: #ccc;
+}
+
+/* creation date */
+.app_materials>.mainpane>.detailpage .material_metadata>.ctime:before {
+    content: "创建于";
+    color: #999;
+    margin: 0 4px 0 0;
+}
+
+/* last modification date */
+.app_materials>.mainpane>.detailpage .material_metadata>.mtime:before {
+    content: "最后修改于";
+    color: #999;
+    margin: 0 4px 0 0;
+}
+
+/* entry length */
+.app_materials>.mainpane>.detailpage .material_metadata>.length:before {
+    content: "长度";
+    color: #999;
+    margin: 0 4px 0 0;
+}
+
+.app_materials>.mainpane>.detailpage .material_metadata>.length:after {
+    content: "字（标点符号与空格不计）";
+    color: #999;
+    margin: 0 0 0 4px;
+}
+
+
+/* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

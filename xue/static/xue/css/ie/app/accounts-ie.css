@@ -1,0 +1,19 @@
+/* CHECKBOX SPECIAL-CASE */
+html#ie6 div.userena form p.checkbox label {
+}
+
+html#ie6 div.userena form p.checkbox input {
+}
+
+/* INSIDE PAGES: BOX NAVIGATION AND MAIN PANE */
+html#ie6 div.userena {
+    position: absolute;
+    overflow: hidden;
+}
+
+html#ie6 div.userena div.outer-box {
+    position: relative !important;
+}
+
+
+/* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

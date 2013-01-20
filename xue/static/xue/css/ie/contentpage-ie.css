@@ -1,0 +1,9 @@
+/* non-validating gradient rules moved here */
+html#ie6 #sharePlaceholder,
+html#ie7 #sharePlaceholder,
+html#ie8 #sharePlaceholder {
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26000000', endColorstr='#00000000',GradientType=0 ); /* IE6-8 */
+}
+
+
+/* vim:set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

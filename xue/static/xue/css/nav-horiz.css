@@ -1,0 +1,80 @@
+.nav_horiz {
+    /* will IE7 submit to this? */
+    z-index: 9;
+}
+
+.nav_horiz>ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    float: left;
+    clear: both;
+    font-size: 14px; /* 120% */
+    /* prevent the menu from being cropped */
+    z-index: 10;
+}
+
+.nav_horiz li {
+    float: left;
+    display: inline; /* fix for IE which is ignored by all */
+    padding: 4px 8px;
+}
+
+.nav_horiz a {
+    /* make the text and shadow a LOT smoother on the eye */
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    white-space: nowrap;
+}
+
+.nav_horiz li:hover,
+.nav_horiz li.hover {
+    /* this shouldn't be transparent for readability */
+	background-color: #666;
+}
+
+.nav_horiz>ul>li>ul {    
+    /* override dropmenu defaults */
+    top: 1.75em; /* formerly: calculated hgt of li minus 1px */
+
+    /*
+     * total of menu entry element's vertical margins
+     *
+     * this makes Firefox happy, but it leaves a 1px-tall gap in
+     * Webkit-based browsers. Never mind though...
+     */
+    margin-top: 8px;
+
+    /* with IE6 out, we can do dynamic width based on the widest entry...
+     * the ul's width is unused, because childs automatically select the
+     * appropriate width and agree with that. So background color should
+     * no longer be ul's attribute...
+     */
+}
+
+.nav_horiz>ul>li>ul>li {
+    width: 100%;
+
+    /* background-color: #464646; -- give transparency
+     * this 0.7265625 is just 1 - (70 / 256.0). (0x46==70)
+     */
+    background: rgba(0, 0, 0, 0.7265625);
+}
+
+.nav_colorpaste {
+    width: 100%;
+/*    margin-bottom: 12px; */
+}
+
+/* with IE6 unsupported we can safely use this, hooray! */
+.nav_colorpaste:after {
+    content: ".";
+    display: block;
+    font-size: 14px; /* same as nav */
+    line-height: 1.75; /* same as global p/span/li/etc line-height */
+    padding: 4px; /* same as nav */
+    visibility: hidden;
+}
+
+
+/* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

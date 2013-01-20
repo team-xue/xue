@@ -1,0 +1,20 @@
+{% extends 'springaid2012/base_springaid.html' %}
+{% load i18n %}
+
+{% block title %}提交申请表{% endblock %}
+
+{% block content %}
+<form method="post">
+  {% csrf_token %}
+  <fieldset>
+    <legend>提交申请表</legend>
+    <div class="clear"></div>
+    {{ form.non_field_errors }}
+    {{ form.as_p }}
+    <input type="submit" value="提交" class="button" />
+  </fieldset>
+</form>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

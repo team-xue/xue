@@ -1,0 +1,347 @@
+/***** CLEARFIX *****/
+.clear:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+/* for IE/Mac */
+.clear {
+    display: inline-block;
+}
+
+/* Holly Hack to calm other browsers \*/
+.clear {
+    display: block;
+}
+/* */
+
+
+/***** GLOBAL STYLES *****/
+html {
+    background: #fefefe;
+}
+
+body {
+    font: 12px "Microsoft YaHei", "WenQuanYi Micro Hei", "WenQuanYi Zen Hei", sans-serif;
+    font-weight: 400;
+}
+
+#bodygradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    z-index: -1;
+
+    background: -moz-linear-gradient(top, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.05)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%); /* W3C */
+}
+
+* {
+    -moz-transition: background 0.2s ease 0s, opacity 0.2s ease 0s, color 0.2s ease 0s;
+    -webkit-transition: background 0.2s ease 0s, opacity 0.2s ease 0s, color 0.2s ease 0s;
+    -o-transition: background 0.2s ease 0s, opacity 0.2s ease 0s, color 0.2s ease 0s;
+}
+
+a, a span {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+}
+
+.cursor_hand {
+    /* XXX REFACTOR INTO CURSOR.CSS! */
+    cursor: pointer !important;
+}
+
+p, span, li, div, table, tr, td {
+    cursor: default;
+}
+
+hr {
+    width: 100%;
+    border-top: 1px dashed #b7b7b7;
+    clear: both;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+p,li,span, td {
+    line-height: 1.75; /* 1.75 */
+}
+
+/***** BASIC LAYOUTTING *****/
+.root {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.root.limitwidth {
+    width: 1000px !important;
+}
+
+.headContainer {
+    width: 100%;
+    clear: both;
+}
+
+.leftContainer {
+    width: 25%;
+}
+
+.rightContainer {
+    width: 75%;
+    float: right;
+}
+
+.headContainer .logo {
+    background: url("http://media.dm.jiangnan.edu.cn/xue/img/logo.png") top left no-repeat;
+    width: 600px;
+    height: 120px; /* to match the image */
+    padding: 6px;
+}
+
+.leftContainer {
+    float: left;
+}
+
+
+/***** STICKY FOOTER *****/
+/* based on the Sticky Footer Solution | http://www.cssstickyfooter.com */
+
+html, body {
+    height: 100%;
+}
+
+#wrap {
+    min-height: 100%;
+}
+
+.root {
+    overflow: auto;
+
+    /*
+     * must be same height as the footer + vert. border
+     * additional padding CANNOT be added by simply using the sum
+     * of two heights!
+     */
+    padding-bottom: 111px;
+}
+
+.footerContainer {
+    position: relative;
+    width: 100%;
+    margin-top: -111px; /* negative value of footer height + vert border */
+    border-top: 3px solid #464646;
+    height: 108px;
+    clear: both;
+    background-color: #ddd;
+}
+
+/*Opera Fix*/
+body:before {/* thanks to Maleika (Kohoutec)*/
+content:"";
+height:100%;
+float:left;
+width:0;
+margin-top:-32767px;/* thank you Erik J - negate effect of float*/
+}
+
+
+/***** FOOTER *****/
+.footer_box {
+    position: relative;
+    text-align: center;
+    color: #666;
+    padding: 8px 0 16px;
+}
+
+
+/* XXX POSSIBLY DEAD CODE; only tech-dept and art-dept use this */
+.floatleft {
+    float: left;
+}
+
+.lMarginer {
+    margin-left: 6px;
+}
+
+.rMarginer {
+    margin-right: 6px;
+}
+
+.lrMarginer {
+    margin: 0 6px 0;
+}
+
+.rightalign {
+    float: right !important;
+}
+
+/***** LOGIN BOX *****/
+.quikblock {
+    height: 120px;
+    margin-bottom: 4px;
+}
+
+.lMarginer>.quikblock {
+    margin: 0 0 0 -6px;
+}
+
+.rMarginer>.quikblock {
+    margin: 0 -6px 0 0;
+}
+
+.quikblock span, .quikblock p {
+    /* preserve the old value to save vertical space */
+    line-height: 21px;
+}
+
+.auth {
+    font-size: 15px;
+    padding: 6px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.auth>.title {
+    display: block;
+    /* width: 75%; */
+    /* center align */
+    /*margin-left: auto;
+    margin-right: auto;
+    text-align: center;*/
+    padding: 0 0 6px 6px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    clear: both;
+}
+
+
+/***** LOGIN STATUS BOX *****/
+.auth>.status {
+    text-align: center;
+    padding: 8px 0 0; /* div.auth already has some nice horizontal paddings */
+}
+
+.auth>.status span, .auth>.status a {
+    display: inline-block;
+    color: #fff;
+}
+
+.auth>.status>.username>a {
+    font-family: "Courier New", "WenQuanYi Micro Hei Mono", "Monospace", monospace;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 4px;
+}
+
+.auth>.status>.username>a:hover {
+    /* using border and negative margin here would cause unwanted
+     * position change of div.action
+     */
+    text-decoration: underline;
+}
+
+.auth>.status>.username:before {
+    content: "身份:";
+    margin: 0 8px 0 0;
+}
+
+.auth>.status>.action {
+    clear: both;
+}
+
+.auth>.status>.action>.auth_button {
+    margin: 6px auto;
+}
+
+.auth>.status>.action>.auth_button>a {
+    display: block;
+    padding: 3px 6px;
+}
+
+.auth>.status>.action>.auth_button>a:hover {
+    background-color: #77daff;
+    color: #000033;
+}
+
+/***** VERTICAL LISTS *****/
+.list_vert>li {
+    list-style: disc inside none;
+    border-bottom: 1px dashed #b7b7b7;
+
+    /* stay in one line */
+    white-space: nowrap;
+    /* ... and don't disturb other content */
+    overflow: hidden;
+}
+
+.list_vert>:hover {
+    background: #eee;
+    /* reveal all info */
+    white-space: normal;
+    overflow: visible;
+}
+
+.list_vert>.more {
+    list-style: none;
+    text-align: right;
+    border-bottom: none;
+}
+
+.list_vert>.more>a:before {
+    content: "»";
+    margin: 0 3px 0 0;
+}
+
+
+/***** NOSCRIPT NOTIFICATION *****/
+.noscript {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 2px 0;
+    background-color: #c00;
+    color: #fff;
+    font-size: 15px; /* 1.2em */
+    font-weight: bold;
+    text-align: center;
+    z-index: 101;
+}
+
+.noscript span,
+.noscript p {
+    line-height: normal;
+}
+
+
+/***** DEVELOPER INFO *****/
+.developers {
+    float: right;
+    padding: 0 8px 0 0;
+    text-align: right;
+    -moz-transition: color 0.4s ease 0s;
+    -webkit-transition: color 0.4s ease 0s;
+    -o-transition: color 0.4s ease 0s;
+}
+
+.developers:hover {
+    color: #000;
+}
+
+
+/* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

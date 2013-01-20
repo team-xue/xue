@@ -1,0 +1,23 @@
+{% extends 'uniapply/base.html' %}
+{% load i18n xue_data %}
+
+{% block title %}申请者列表{% endblock %}
+
+{% block content %}
+<div class="mainpane">
+  <h2 class="panetitle">申请者列表</h2>
+
+  <ol class="entries_list">{% for entry in entries %}
+    <li>
+      <a href="{% url xue.uniapply.views.entry_detail_view entry.pk %}" class="entry_realname">
+        {{ entry.user|x_RealName }}
+      </a>
+      <span class="entry_class">{{ entry.user.central_info.klass }}</span>
+      <time datetime={% with tz_offset="+08:00" %}"{{ entry.ctime|date:"Y-m-d\TH:i:s" }}{{ tz_offset}}"{% endwith %} class="entry_ctime">{{ entry.ctime|date:"Y.m.d H:i:s" }}</time>
+    </li>{% endfor %}
+  </ol>
+</div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

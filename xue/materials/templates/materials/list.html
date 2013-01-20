@@ -1,0 +1,26 @@
+{% extends 'materials/base.html' %}
+
+{% block title %}材料列表{% endblock %}
+
+{% block content %}
+  <div class="mainpane">
+    <div class="listpage">
+      <h2 class="panetitle">我的材料列表</h2>
+{% with entry_count=entries.count %}{% if entry_count > 0 %}
+      <p>您目前提交了 {{ entry_count }} 份材料。</p>
+{% else %}
+      <p>您还没有提交任何材料。</p>
+{% endif %}{% endwith %}
+
+      <ul class="entries">{% for entry in entries %}
+        <li>
+        <h3 class="entry_title"><a href="{% url xue.materials.views.detail_view entry.id %}">{{ entry.title }}</a></h3>
+        <span class="entry_length">长度 {{ entry.get_length }} 字</span>
+        </li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

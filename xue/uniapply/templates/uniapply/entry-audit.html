@@ -1,0 +1,35 @@
+{% extends 'uniapply/base.html' %}
+{% load i18n xue_data %}
+
+{% block title %}申请审批{% endblock %}
+
+{% block content %}
+<div class="mainpane">
+  <h2 class="panetitle">申请审批</h2>
+  <article class="uniply_entry">
+  <header>
+  <h1 class="uniply_tgt_title">{{ entry.target.name }}<a href="{% url userena_profile_detail entry.user.username %}" class="uniply_applicant">{{ entry.user|x_RealName }}</a></h1>{% with tz_offset="+08:00" %}
+  <time class="uniply_ctime" datetime="{{ entry.ctime|date:"Y-m-d\TH:i:s" }}{{ tz_offset }}">{{ entry.ctime|date:"Y/m/d H:i:s" }}</time>{% endwith %}
+  </header>
+
+  {% for mat in entry.materials.all %}
+  <section class="uniply_entry_material">
+  <h1>{{ mat.title }}</h1>{% for para in mat.get_paragraphs %}
+  <p>{% for line in para %}{{ line }}{% if not forloop.last %}<br />{% endif %}{% endfor %}</p>{% endfor %}
+  </section>
+  {% endfor %}
+
+  <form method="post">
+    {% csrf_token %}
+    <fieldset>
+      {{ form.non_field_errors }}
+      {{ form.as_p }}
+      <input type="submit" value="提交" class="button" />
+    </fieldset>
+  </form>
+  </article>
+</div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

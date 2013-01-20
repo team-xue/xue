@@ -1,0 +1,26 @@
+{% extends 'tutor/teacher_base.html' %}
+
+{% block moduletitle %}选择项目来管理{% endblock %}
+
+{% block modulecontent %}
+{% if projects %}
+      <p>您目前管理的项目有 {{ projects|length }} 个。</p>
+
+      <div class="projlist">
+        <ul>{% for entry in projects %}
+          <li>
+            <h3 class="name">
+              <a href="{% url xue.tutor.teacherviews.projectpage_view entry.id %}">
+                {{ entry.name }}
+              </a>
+            </h3>
+          </li>{% endfor %}
+        </ul>
+      </div>
+{% else %}
+      <p>您没有管理任何项目。</p>
+{% endif %}
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

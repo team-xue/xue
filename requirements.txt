@@ -1,0 +1,16 @@
+Django==1.3.5
+PIL==1.1.7
+PyYAML==3.10
+South==0.7.6
+django-appmedia==1.0.1
+django-classy-tags==0.3.4.1
+django-db-pool==0.0.7
+django-guardian==1.0.4
+django-tinymce==1.5.1b4
+django-userena==1.1.2
+easy-thumbnails==1.1
+html5lib==0.95
+psycopg2==2.4.6
+pylibmc==1.2.3
+ua-parser==0.3.2
+wsgiref==0.1.2

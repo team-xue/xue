@@ -1,0 +1,27 @@
+{% extends 'bandexams/base.html' %}
+{% load i18n %}
+
+{% block title %}我的等级考试结果{% endblock %}
+
+{% block content %}
+<div class="mainpane">
+  <h2 class="panetitle">我的等级考试结果</h2>
+  {% if results %}
+  <dl class="bandexams_entries">{% for typ, score in results %}
+    <dt>{{ typ }}</dt>
+    <dd>{{ score }}</dd>{% endfor %}
+  </dl>
+  {% else %}{# Empty list... #}
+  <p class="empty">您还没有填写过任何等级考试成绩记录</p>
+  {% endif %}
+
+  <ul class="actions">
+    <li class="action_item">
+    <a href="{% url xue.bandexams.views.add_view %}" class="action_link">添加一条记录</a>
+    </li>
+  </ul>
+</div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

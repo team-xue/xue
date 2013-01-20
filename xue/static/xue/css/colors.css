@@ -1,0 +1,71 @@
+.dmblue {
+    color: #00b6fa !important;
+}
+
+.dmgray {
+    color: #464646 !important;
+}
+
+.dmred {
+    color: #a00 !important;
+}
+
+.dmorange {
+    color: #ff9602 !important;
+}
+
+/**********************************************************/
+
+.dmblue_bg {
+    background-color: #00b6fa !important;
+}
+
+.dmgray_bg {
+    background-color: #464646 !important;
+}
+
+.dmred_bg {
+    background-color: #a00 !important;
+}
+
+.dmorange_bg {
+    background-color: #ff9602 !important;
+}
+
+/**********************************************************/
+
+.dmblue_bgfocus {
+    background-color: #00b6fa !important;
+}
+
+.dmblue_bgfocus:hover {
+    background-color: #005b7d !important;
+}
+
+.dmorange_bgfocus {
+    background-color: #ff9602 !important;
+}
+
+.dmorange_bgfocus:hover {
+    background-color: #754500 !important;
+}
+
+/**********************************************************/
+
+.transparent_white {
+    /*background: rgb(127, 127, 127);*/
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.transparent_blue {
+    /*background: rgb(0, 30, 70);*/
+    background-color: rgba(0, 30, 70, 0.7);
+}
+
+.transparent_red {
+    /*background: rgb(128, 0, 0);*/
+    background-color: rgba(128, 0, 0, 0.7);
+}
+
+
+/* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

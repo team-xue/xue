@@ -1,0 +1,206 @@
+/***** TARGET LIST *****/
+.uniapply>.mainpane>.targets>ul>li>.name {
+    font-size: 20px;
+}
+
+.uniapply>.mainpane>.targets>ul>li>.creator {
+    font-size: 12px;
+}
+
+.uniapply>.mainpane>.targets>ul>li>.creator:before {
+    content: "创建者";
+    color: #999;
+    margin: 0 4px 0 0;
+}
+
+.uniapply>.mainpage>.targets>ul>li>.startdate:after {
+    content: "开始";
+    font-size: 12px;
+    color: #999;
+    margin: 0 0 0 4px;
+}
+
+.uniapply>.mainpage>.targets>ul>li>.enddate:after {
+    content: "截止";
+    font-size: 12px;
+    color: #999;
+    margin: 0 0 0 4px;
+}
+
+
+/***** COMMON ARTICLE TAG STYLE *****/
+.uniapply>.mainpane>article {
+    margin: 0 0 32px;
+}
+
+.uniapply>.mainpane>article>header {
+    margin: 0 0 8px;
+    border-bottom: 1px solid #666;
+    font-size: 12px;
+    color: #ccc;
+}
+
+.uniapply>.mainpane>article>header>.uniply_tgt_title {
+    font-size: 32px;
+    margin: 0 0 8px;
+    border-bottom: 1px solid #999;
+}
+
+.uniapply>.mainpane>article>header>.uniply_tgt_title>.uniply_applicant {
+    color: inherit;
+}
+
+.uniapply>.mainpane>article>header>.uniply_tgt_title>.uniply_applicant:before {
+    content: "申请者";
+    font-size: 24px;
+    color: #999;
+    margin: 0 4px 0 16px;
+}
+
+.uniapply>.mainpane>article>header>.uniply_tgt_creator:before {
+    content: "由";
+    color: #999;
+    margin: 0 4px 0 0;
+}
+
+.uniapply>.mainpane>article>header>.uniply_tgt_creator:after {
+    content: "创建";
+    color: #999;
+    margin: 0 0 0 4px;
+}
+
+.uniapply>.mainpane>article>header>.uniply_tgt_stime:before {
+    content: "开始日期";
+    color: #999;
+    margin: 0 4px 0 0;
+}
+
+.uniapply>.mainpane>article>header>.uniply_tgt_etime:before {
+    content: "结束日期";
+    color: #999;
+    margin: 0 4px 0 0;
+}
+
+.uniapply>.mainpane>article>header>.uniply_tgt_classes:before {
+    content: "适用班级";
+    color: #999;
+    margin: 0 4px 0 0;
+    float: left;
+}
+
+.uniapply>.mainpane>article>header>.uniply_tgt_classes>li {
+    float: left;
+    margin: 0 4px 0 0;
+}
+
+.uniapply>.mainpane>article>header>.uniply_tgt_pagelink:before {
+    content: "相关链接";
+    color: #999;
+    margin: 0 4px 0 0;
+}
+
+.uniapply>.mainpane>article>p {
+    margin: 0 0 1em;
+}
+
+
+/* material sections */
+.uniapply>.mainpane>article>.uniply_entry_material {
+    border: 1px solid #ccc;
+    margin: 0 0 1em;
+}
+
+.uniapply>.mainpane>article>.uniply_entry_material>h1 {
+    font-size: 24px;
+    border-bottom: 1px solid #999;
+    margin: 0 0 0.5em;
+    padding: 4px 0 4px 8px;
+}
+
+
+/***** APPLICANTS PAGE *****/
+.uniapply>.mainpane>.entries_list>li {
+    list-style: decimal inside;
+}
+
+.uniapply>.mainpane>.entries_list>li>.entry_realname {
+    font-size: 20px;
+}
+
+.uniapply>.mainpane>.entries_list>li>.entry_class {
+    font-size: 20px;
+    color: #999;
+}
+
+.uniapply>.mainpane>.entries_list>li>.entry_ctime {
+    color: #ccc;
+}
+
+
+/***** APPLICANT ENTRY PAGE *****/
+.uniapply>.mainpane>.uniply_entry>header>.uniply_ctime {
+    font-size: 12px;
+}
+
+.uniapply>.mainpane>.uniply_entry>header>.uniply_ctime:before {
+    content: "申请时间";
+    color: #999;
+    font-size: 12px;
+    margin: 0 4px 0 0;
+}
+
+
+/***** AUDIT STATUS BOX *****/
+.uniapply>.mainpane>.uniply_entry>.uniply_audit_box:before {
+    content: "审核情况";
+}
+
+.uniapply>.mainpane>.uniply_entry>.uniply_audit_box>span,
+.uniapply>.mainpane>.uniply_entry>.uniply_audit_box>table {
+    margin: 0 0 0 16px;
+}
+
+.uniapply>.mainpane>.uniply_entry>.uniply_audit_box>.uniply_audit_status:before {
+    content: "状态";
+    color: #999;
+    margin: 0 4px 0 0;
+}
+
+.uniapply>.mainpane>.uniply_entry>.uniply_audit_box>.uniply_audit_next:before {
+    content: "下一层";
+    color: #999;
+    margin: 0 4px 0 0;
+}
+
+.uniapply>.mainpane>.uniply_entry>.uniply_audit_box>.uniply_audit_next:empty:after {
+    content: "无";
+    color: #999;
+}
+
+.uniapply>.mainpane>.uniply_entry>.uniply_audit_box>.uniply_audit_rules {
+    margin: 0 auto;
+}
+
+.uniapply>.mainpane>.uniply_entry>.uniply_audit_box>.uniply_audit_rules td,
+.uniapply>.mainpane>.uniply_entry>.uniply_audit_box>.uniply_audit_rules th {
+    border: 1px solid #999;
+    padding: 3px 8px;
+}
+
+.uniapply>.mainpane>.uniply_entry>.uniply_audit_box>.uniply_audit_rules th {
+    font-weight: bold;
+    text-align: center;
+}
+
+.uniapply>.mainpane>.uniply_entry>.uniply_audit_box>.uniply_audit_rules .niceness,
+.uniapply>.mainpane>.uniply_entry>.uniply_audit_box>.uniply_audit_rules .status {
+    text-align: center;
+}
+
+.uniapply>.mainpane>.uniply_entry>.uniply_audit_box>.uniply_audit_rules .reason:empty:after {
+    content: "空";
+    color: #999;
+}
+
+
+/* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

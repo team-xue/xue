@@ -1,0 +1,29 @@
+{% extends 'uniapply/base.html' %}
+{% load i18n %}
+
+{% block title %}事项列表{% endblock %}
+
+{% block content %}
+<div class="mainpane">
+  <h2 class="panetitle">事项列表</h2>
+
+  <div class="targets">
+    <ul>{% for target in targets %}
+      <li>
+          <h3 class="name">
+            <a href="{% url xue.uniapply.views.target_detail_view target.pk %}">
+              {{ target.name }}
+            </a>
+          </h3>
+
+          <span class="creator">{{ target.user.username }}</span>
+          <span class="startdate date">{{ target.start_date|date:"Y.m.d H:i:s" }}</span>
+          <span class="enddate date">{{ target.end_date|date:"Y.m.d H:i:s" }}</span>
+      </li>{% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

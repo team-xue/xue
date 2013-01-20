@@ -1,0 +1,101 @@
+/* START PAGE */
+div.tutor div.startpage p {
+    margin: 0 0 16px;
+}
+
+div.tutor div.startpage a {
+    font-size: 18px;
+    margin: 0 3px;
+    padding: 0 0 1px;
+    border-bottom: 1px dashed #ccc;
+}
+
+div.tutor div.startpage p.prelude {
+    display: block;
+    font-size: 15px;
+
+    width: 60%;
+    margin: 16px auto;
+
+    padding: 8px 24px;
+    border: 1px solid #333;
+    background-color: #ccc;
+    color: #333;
+    box-shadow: 2px 2px 4px #ccc;
+}
+
+div.tutor div.startpage span.has_applied {
+    clear: both;
+}
+
+div.tutor div.startpage span.acceptance {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* PROJECT LIST PAGE */
+div.tutor div.projlist li {
+    padding: 6px 0 6px 16px;
+    clear: both;
+    border-bottom: 1px solid #666; /* similar with dmgray */
+}
+
+div.tutor div.projlist li:hover {
+    background-color: #ccc;
+    color: #333;
+}
+
+div.tutor div.projlist h3 {
+    font-size: 20px;
+}
+
+div.tutor div.projlist li:hover a {
+    color: #000;
+}
+
+div.tutor div.projlist li p {
+    font-size: 12px;
+}
+
+/* PROJECT DETAILS PAGE */
+div.tutor div.projdetails {
+    position: relative;
+}
+
+div.tutor div.projdetails h3.name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+div.tutor div.projdetails p {
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+div.tutor div.projdetails p span {
+    color: #fff;
+}
+
+div.tutor div.projdetails p.link {
+    display: block;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+}
+
+div.tutor div.projdetails p.link a {
+    display: block;
+    background-color: #666;
+    padding: 8px;
+}
+
+div.tutor div.projdetails p.link a:hover {
+    background-color: #ccc;
+    color: #333;
+}
+
+
+/* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

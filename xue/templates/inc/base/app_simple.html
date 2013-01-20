@@ -1,0 +1,28 @@
+{% extends "inc/base/app_pagetitle.html" %}
+{% load cms_tags menu_tags %}
+
+{% block appstyles %}{{ block.super }}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/app/app-simple.css" />
+{% endblock %}
+
+{% comment %}
+Another set of leftContainer and rightContainer are used to keep perfect vertical
+lining of color pastes... Ugly indeed, but the page's main content is not 2-column,
+so perhaps it's OK.
+{% endcomment %}
+
+{% block center_container %}
+        <div class="dmapp-simple clear">
+          <div class="rightContainer dmgray_bg">
+            <div class="dmapp_simple {% block appstyleclass %}{% endblock %}">
+{% block content %}{% endblock %}
+            </div>
+          </div>
+          <div class="leftContainer dmgray">
+            <span class="titlepart">{% block appname %}{% endblock %}</span>{% block appsmallnav %}{% endblock %}
+          </div>
+        </div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf8 syntax=django: #}

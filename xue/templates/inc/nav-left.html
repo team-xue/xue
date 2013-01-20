@@ -1,0 +1,68 @@
+{% load cache menu_tags %}
+
+<div class="quikblock dmblue_bg">
+{% include "inc/loginbox.html" %}
+</div>
+
+{% cache 86400 nav-left-bulk request.user.username %}
+{% include "inc/now.html" %}
+<nav class="stackedmenu nav_leftsect">
+   <ul class="firstlvl">
+{% show_menu_below_id "stage" 0 1 1 0 -1 0 "menus/nav-left-menu.html" %}
+   </ul>
+</nav>
+{% endcache %}
+
+<script>
+function xue_baiduSearch(formname) {
+  var
+    url="http://www.baidu.com/baidu",
+    sitesuffix="site:dm.jiangnan.edu.cn";
+
+  if (formname.word.value.indexOf(sitesuffix) == -1) {
+    formname.word.value += ' ' + sitesuffix;
+  }
+  formname.action = url;
+
+  return true;
+}
+</script>
+{# XXX TODO: THIS MESS OF STYLES MUST BE CLEANED UP!!! #}
+<div class="portal_entrance">
+  <form name="f1" onsubmit="return xue_baiduSearch(this);" class="sitesearch clear">
+    <input name="ie" type="hidden" value="utf-8" />
+    <input type="text" name="word" class="searchbox" />
+    <input type="submit" value="GO" class="searchbtn" />
+{# <input name=tn type=hidden value="bds" /> #}
+    <input name="cl" type="hidden" value="3" />
+    <input name="ct" type="hidden" value="0" />
+    <input name="si" type="hidden" value="www.baidu.com">
+    <!-- <input name=s type=radio> 互联网
+    <input name=s type=radio checked> dm.jiangnan.edu.cn -->
+    <input name="s" type="hidden" value="dm.jiangnan.edu.cn" />
+  </form>
+{#    <div class="clear"></div><br /> #}
+  <form method="get" action="#" onsubmit="return false;" class="clear">
+    <select class="quicklinks">
+      <option value="1" selected="selected">快速链接</option>
+      
+    </select>
+  </form>
+</div>
+
+{% comment %}
+<form name="f1" onsubmit="return xue_baiduSearch(this)">
+<input name="word" size="30" maxlength="100" />
+<input type="submit" value="GO" />
+<!-- <input name=tn type=hidden value="bds" /> -->
+<input name="cl" type="hidden" value="3" />
+<input name="ct" type="hidden" value="0" />
+<input name="si" type="hidden" value="www.baidu.com">
+<!-- <input name=s type=radio> 互联网
+<input name=s type=radio checked> dm.jiangnan.edu.cn -->
+<input name="s" type="hidden" value="dm.jiangnan.edu.cn" />
+</form>
+{% endcomment %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf8 syntax=django: #}

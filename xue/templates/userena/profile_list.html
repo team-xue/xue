@@ -1,0 +1,61 @@
+{% extends 'userena/base_userena.html' %}
+{% load i18n %}
+
+{% block title %}{% trans 'Profiles' %}{% endblock %}
+{% block content_title %}<h2>{% trans 'Profiles' %}</h2>{% endblock %}
+
+{% block content %}
+<div class="mainpane">
+  <h2 class="panetitle">列表</h2>
+
+  <ul id="profile_list">{% for profile in profile_list %}
+    <li class="clear">
+      <div class="ident">
+        <a href="{% url userena_profile_detail profile.user.username %}" class="avatar">
+          <img src="{{ profile.get_mugshot_url }}" alt="{{ profile.user.username }}'s avatar" class="gravatar" />
+        </a>
+
+        <span class="role">{% if profile.role == 0 %}
+          [生]{% endif %}{% if profile.role == 1 %}
+          [师]{% endif %}{% if profile.role == 2 %}
+          [程序]{% endif %}
+        </span>
+
+        <a href="{% url userena_profile_detail profile.user.username %}">
+          <span class="username">{{ profile.user.username }}</span>
+        </a>
+{% if profile.nickname %}
+        <span class="nickname">{{ profile.nickname }}</span>
+{% endif %}
+        <p class="sign_line">{% if profile.sign_line %}
+          {{ profile.sign_line }}{% else %}
+          没有设置个性签名...{% endif %}
+        </p>
+      </div>
+    </li>{% endfor %}
+  </ul>
+
+{% if is_paginated %}
+  <div class="pagination">
+    <span class="step-links">
+{% if page_obj.has_previous %}
+      <a href="{% url userena_profile_list_paginated page_obj.previous_page_number %}">{% trans 'previous' %}</a>
+{% endif %}
+
+      <span class="current">
+        {% blocktrans with page_obj.number as page and page_obj.paginator.num_pages as num_pages %}
+        Page {{ page }} of {{ num_pages }}
+        {% endblocktrans %}
+      </span>
+
+      {% if page_obj.has_next %}
+      <a href="{% url userena_profile_list_paginated  page_obj.next_page_number %}">{% trans 'next' %}</a>
+      {% endif %}
+    </span>
+  </div>
+{% endif %}
+</div>
+{% endblock %}
+
+
+{# vim: set ai et ts=2 sw=2 sts=2 ff=unix fenc=utf-8 syntax=django: #}

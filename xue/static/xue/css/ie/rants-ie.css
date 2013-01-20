@@ -1,0 +1,54 @@
+/* IE6, go die twice plz */
+* html .ie6_die {
+/*    margin-top: 100%; /* VERY nasty way to force content down */
+    display: block !important;
+    border: 3px solid #600;
+    background-color: #fcc;
+    padding: 24px 16px;
+    z-index: 2;
+}
+
+* html .ie6_die p {
+    font-size: 24px;
+    font-family: "仿宋", "仿宋_GB2312", serif;
+    line-height: 1.25;
+}
+
+* html .ie6_die p .en {
+    font-family: "Georgia", serif;
+}
+
+* html .ie6_die .upgrade_relief {
+    font-family: "黑体", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 4px 0;
+    text-decoration: underline;
+}
+
+* html .ie6_die .bang {
+    float: left;
+    font-family: Georgia, serif;
+    font-size: 72px;
+    font-weight: bold;
+    padding: 0 6px;
+    color: red;
+}
+
+* html .ie6_die .browsers {
+    text-align: center;
+    font-size: 16px;
+    line-height: 32px;
+    font-weight: bold;
+}
+
+* html .ie6_die a {
+    color: #00a;
+}
+
+* html .ie6_die .browsers a {
+    font-size: 150%;
+}
+
+
+/* vim:set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

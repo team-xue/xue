@@ -1,0 +1,48 @@
+/***** PORTAL AREA *****/
+/* the name originates as a misunderstanding */
+.portal_entrance {
+    /* height: 80px; */
+    padding: 10px 10px 0;
+    text-align: center;
+    /* under dev */
+    /*background-color: #fcc;*/
+    margin-bottom: 15px; /* 1.2em */
+    /* border-top: 1px dashed #ccc; */
+    border-bottom: 1px dashed #ccc;
+}
+
+.portal_entrance input[type=text] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.portal_entrance input[type=button],
+.portal_entrance input[type=submit] {
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+.portal_entrance form {
+    padding: 10px 0;
+}
+
+.portal_entrance .sitesearch input.searchbox {
+    float: left;
+    width: 80%;
+}
+
+.portal_entrance .sitesearch input.searchbtn {
+    float: right;
+    color: #666;
+    margin-top: -3px;
+    margin-left: 5%;
+    width: 15%;
+}
+
+.portal_entrance select.quicklinks {
+    width: 100%;
+}
+
+
+/* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

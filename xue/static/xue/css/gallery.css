@@ -1,0 +1,213 @@
+/* TOP DESCRIPTION BAR */
+.gal_desc {
+    overflow: hidden;
+    position: relative;
+    z-index: -1;
+}
+
+/* ALBUM-WIDE METADATA */
+.gal_desc>.metadata {
+    padding: 6px 0 6px 48px;
+    color: #fff;
+}
+
+.gal_desc>.metadata>h1.title {
+    font-size: 15px;
+    color: #00b6fa; /* dmblue */
+    padding-bottom: 6px;
+}
+
+.gal_desc>.metadata>span.date {
+    padding-left: 6px;
+}
+
+.gal_desc>.metadata>span.author,
+.gal_desc>.metadata>span.date {
+    /* FIXME: a default line height set in common.css... Seek to move it out of common */
+    line-height: 1em; /* for now override it here */
+}
+
+
+/* GALLERY WIDGETS */
+.gal_container {
+    padding-top: 50px; /* be the same as the two buttons... */
+    width: 850px;
+    margin: 0 auto;
+}
+
+.gal {
+    display: none; /* later overridden if we have script */
+}
+
+.gal .gal_btn {
+    cursor: pointer;
+}
+
+.gal .gal_btn:hover {
+    background-color: #ccc !important;
+}
+
+
+/* noscript situation, basic appearance spec for photopool */
+.photopool>img {
+    max-width: 100%;
+    clear: both;
+    margin: 0 auto;
+    padding-bottom: 24px;
+}
+
+/* presentation area 3-col fixed-fluid-fixed layout */
+.gal>.presentation {
+    height: 420px;
+}
+
+.gal>.presentation .photowrapper {
+    float: left;
+    width: 100%;
+}
+
+.gal>.presentation .photowrapper>.photo {
+    margin: 0 50px;
+    /* below for background */
+    height: 420px; /* or height may not be enough */
+    background-color: #f3f3f3;
+}
+
+/* current photo */
+.gal>.presentation .photowrapper>.photo>img {
+    position: relative; /* scripted alignment... */
+    max-width: 100%;
+    max-height: 420px;
+
+    /* the following fix is from
+     * http://www.webdeveloper.com/forum/showthread.php?t=194238
+     */
+    vertical-align: bottom;
+
+    /* disable transition effect to eliminate nasty movements when switching */
+    -moz-transition: all 0s ease 0s;
+    -webkit-transition: all 0s ease 0s;
+    -o-transition: all 0s ease 0s;
+}
+
+.gal>.presentation>.box>.prev {
+    background: url("http://media.dm.jiangnan.edu.cn/xue/img/arr-l.png") center center no-repeat;
+    border-left: 1px solid #ccc;
+    height: 420px;
+    width: 49px; /* well, 1px border broke the layout. */
+    float: left;
+    margin-left: -100%;
+}
+
+.gal>.presentation>.box>.next {
+    background: url("http://media.dm.jiangnan.edu.cn/xue/img/arr-r.png") center center no-repeat;
+    border-right: 1px solid #ccc;
+    height: 420px;
+    width: 49px;
+    float: right;
+    margin-left: -50px;
+}
+
+/* per-photo area, also functioning as vert. separator */
+.gal>.perphoto {
+    clear: both;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 32px;
+
+    border-bottom: 2px solid #ddd;
+}
+
+/* individual photo metadata */
+.gal>.perphoto>.metadata {
+    float: left;
+}
+
+/*
+.gal>.perphoto .metadata span.title {
+    font-size: 15px;
+}
+*/
+
+/* index */
+.gal>.perphoto>div.index {
+    float: right;
+}
+
+
+/* image list area 3-col layout */
+.gal>.imagelist {
+    padding-top: 16px;
+    height: 129px;
+}
+
+.gal>.imagelist .thumbwrapper {
+    float: left;
+    width: 100%;
+}
+
+.gal>.imagelist .thumbnails {
+    margin: 0 50px;
+}
+
+.gal>.imagelist .thumbnails>ul {
+    /* in case there are too few photos and we need centeralign */
+    position: relative;
+}
+
+.gal>.imagelist>.box>.prev {
+    background: url("http://media.dm.jiangnan.edu.cn/xue/img/dblarr-small-l.png") center no-repeat;
+    height: 129px;
+    width: 50px; /* NOTE same as the above arrow widget */
+    float: left;
+    margin-left: -100%;
+}
+
+.gal>.imagelist>.box>.next {
+    background: url("http://media.dm.jiangnan.edu.cn/xue/img/dblarr-small-r.png") center no-repeat;
+    height: 129px;
+    width: 50px;
+    float: right;
+    margin-left: -50px;
+}
+
+/* thumbnail widgets
+ * the outer dimension is 150x129. inner dim. is 140x105 (4:3), leaving a
+ * padding 12px 5px.
+ */
+.gal .thumbnails li {
+    float: left;
+}
+
+.gal .thumbnails .thumb {
+    width: 140px;
+    height: 105px;
+    padding: 12px 5px;
+}
+
+.gal .thumbnails .thumb>img {
+    position: relative; /* for scripting the alignment */
+    /* through experiments, horizontal centering also cannot be automatically
+     * done, at least I haven't figured out why the margin-{left,right} trick
+     * doesn't work on <img>'s... sigh
+     */
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+/* ACCESSORY */
+/* XXX IS THERE A MORE ELEGANT WAY TO ALIGN?
+ * Also presently if the metadata text is extra long, the text flow won't break
+ * the chance is pretty small though
+ */
+.gal-colorpaste {
+    width: 144px; /* 72px * 2 */
+    height: 100px; /* extra height are cropped due to div.desc's overflow:hidden */
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+/* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

@@ -1,0 +1,18 @@
+.subtitle {
+    font-size: 18px; /* 1.5em */
+    font-weight: bold;
+}
+
+.fancysub {
+    border-bottom: 2px dotted #a00;
+    padding-bottom: 3px;
+}
+
+.fancysub span {
+    display: inline;
+    border-top: 2px dotted #a00;
+    /*padding-top: 3px;*/
+}
+
+
+/* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

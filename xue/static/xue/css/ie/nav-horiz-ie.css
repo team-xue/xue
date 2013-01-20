@@ -1,0 +1,36 @@
+/* for transparency */
+
+html#ie6 .nav_horiz ul li ul,
+html#ie7 .nav_horiz>ul>li>ul,
+html#ie8 .nav_horiz>ul>li>ul {
+    /* background-color: #464646; -- give transparency
+     * this 0.7265625 is just 1 - (70 / 256.0). (0x46==70)
+     *
+     * background: rgba(0, 0, 0, 0.7265625);
+     */
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#BA000000,endColorStr=#BA000000);
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#BA000000,endColorstr=#BA000000)";
+    zoom: 1;
+}
+
+html#ie6 .nav_horiz a,
+html#ie7 .nav_horiz a,
+html#ie8 .nav_horiz a,
+html#ie9 .nav_horiz a {
+	zoom: 1;
+	background-color: #464646;
+	filter: progid:DXImageTransform.Microsoft.Chroma(Color=#464646)
+	        progid:DXImageTransform.Microsoft.DropShadow(OffX=1, OffY=1, Color=#000000);
+    -ms-filter: progid:DXImageTransform.Microsoft.Chroma(Color=#464646)
+	        progid:DXImageTransform.Microsoft.DropShadow(OffX=1, OffY=1, Color=#000000);
+}
+
+/* IE8: background color not consistent, let's force some colors onto it */
+html#ie8 .nav_horiz>ul>li>ul>li:hover>a {
+    /* same as li:hover's color */
+    background-color: #666;
+}
+
+
+/* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

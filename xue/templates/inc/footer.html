@@ -1,0 +1,24 @@
+{% load xue_tags cms_tags %}
+
+
+<div class="footer_box">
+  <span class="developers">
+    开发者 <a href="https://github.com/xen0n/">xen0n</a><br />
+    powered by <a href="https://www.django-cms.org/">django-cms</a><br />
+  {# <!-- gv^`huFAVra"y^uuCN6mW#k._Qo&a8p*YD]0H=bb1eKJ?niJv,G#+G2&U`}da`xpq BDXV4L$5VQ5]&fV`#+1b< --> #}
+    后端版本 {% xue_dev_version %}<br />
+    UA: {% xue_uastring %}
+  </span>
+
+  <span>
+    版权所有 &copy; 2007-2012 江南大学数字媒体学院。所有权利保留。备案: 苏ICP备09101752号<br />
+    Copyright 2007-2012 SCHOOL OF DIGITAL MEDIA, JIANGNAN UNIVERSITY. All rights reserved.<br />
+    支持浏览器:
+    <a href="http://mozilla.com/">Firefox</a>,
+    <a href="http://www.chromium.org/Home">Chromium</a>,
+    Opera。<!--[if lt IE 8]>IE 用户请至少使用 IE 8，<![endif]--><!--[if IE]><strong style="font-weight: bold;">恕不保证 IE 用户浏览体验</strong>。<![endif]-->本页<a href="http://validator.w3.org/check?uri=referer">可通过 HTML5 语法检测</a>。<a href="{% page_url "changelog" %}">查看网站改动记录</a>
+  </span>
+</div>
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf8 syntax=django: #}

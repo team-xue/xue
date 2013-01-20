@@ -1,0 +1,175 @@
+.presentation {
+    width: 100%;
+    clear: both;
+}
+
+.announcement li {
+    width: 100% !important;
+}
+
+.down_area {
+    background-color: #00b6fa !important;
+}
+
+.down_area:hover {
+    background-color: #005b7d !important;
+}
+
+.picslide {
+    width: 100%;
+    height: 250px;
+    float: left;
+    /* (greatly) improve page loading time by using jpeg for inherently low-res
+     * image
+     */
+    /* background: url("http://media.dm.jiangnan.edu.cn/xue/img/mainpage-pres.jpg") top left no-repeat;
+    background-size: 100% 100%;*/
+    margin-bottom: 15px; /* 1.2em */
+
+    /* reference for the desc block */
+    position: relative;
+
+    /* IE7: appear below nav.horiz drop menu */
+    z-index: 1;
+}
+
+.picslide>div.picslide_target {
+    overflow: hidden;
+    position: relative;
+}
+
+.picslide>div.picslide_target>div.picslide_pool {
+    /* make this sufficiently large to accomodate the total width */
+    width: 8192px;
+    position: relative;
+    top: 0;
+    /* left attribute is to be animated. */
+    left: 0;
+
+    /* disable the CSS transition effect */
+    -moz-transition: none 0s ease 0s;
+    -webkit-transition: none 0s ease 0s;
+    -o-transition: none 0s ease 0s;
+}
+
+.picslide>div.picslide_target>div.picslide_pool>img {
+    float: left;
+    /* disable the CSS transition effect */
+    -moz-transition: none 0s ease 0s;
+    -webkit-transition: none 0s ease 0s;
+    -o-transition: none 0s ease 0s;
+}
+
+/* piclist */
+.picslide_target>.picslide_piclist {
+	position: absolute;
+    bottom: 0;
+	left: 0;
+	padding: 0 0 8px;
+
+	visibility: hidden;
+    opacity: 0;
+	z-index: 2;
+
+    /* enable transition for opacity and background alpha only */
+    -moz-transition: opacity 0.2s ease 0s,
+            background 0.2s ease 0s;
+    -webkit-transition: opacity 0.2s ease 0s,
+            background 0.2s ease 0s;
+    -o-transition: opacity 0.2s ease 0s,
+            background 0.2s ease 0s;
+}
+
+.picslide_target:hover>.picslide_piclist {
+    visibility: visible;
+    opacity: 1;
+}
+
+.picslide_target>.picslide_piclist>li {
+	float: left;
+    background-color: rgba(255, 255, 255, 0.5);
+
+	width: 16px;
+	height: 16px;
+	margin: 0 0 0 8px;
+	padding: 4px;
+
+	font: 200 18px "Courier New", monospace;
+	text-align: center;
+    line-height: normal;
+
+	cursor: pointer;
+}
+
+.picslide_target>.picslide_piclist>.picslide_selected {
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.picslide>.desc {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 33.3%;
+    height: 100%;
+
+    /* impossible to present the "multiply" effect in PSD template */
+    background-color: rgba(0, 30, 70, 0.6);
+    color: #fff;
+}
+
+.picslide>.desc>.content {
+    margin: 18px; /* 1.5em */
+}
+
+.picslide>.desc>.content>h1 {
+    font-size: 18px;
+    padding: 0 0 12px 0; /* 0.6em */
+}
+
+.threerow {
+    list-style: none;
+    margin-bottom: 12px; /* 1em */
+}
+
+.threerow li {
+    float: left;
+    width: 33.33%;
+}
+
+.dept_logo {
+    position: relative;
+}
+
+.dept_logo span {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.dept_tech, .dept_art {
+    float: left;
+    margin-left: 0;
+    margin-right: 0;
+    /*overflow: auto;*/
+}
+
+.dept>.desc {
+    margin: 6px 6px 6px 0; /* 0.5em */
+}
+
+.bottom_links {
+    margin: 0 0 8px;
+    padding: 8px 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.bottom_links>ul>li {
+    float: left;
+    margin: 0 6px;
+}
+
+
+/* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

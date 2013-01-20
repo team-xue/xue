@@ -1,0 +1,28 @@
+{% extends 'tutor/teacher_base.html' %}
+
+{% block moduletitle %}起始页{% endblock %}
+
+{% block modulecontent %}
+      <div>
+        <p>
+          项目名称:
+          <span class="project">
+            {{ project.name }}
+          </span>
+        </p>
+
+        <p>
+          可用的动作:
+          <ul class="actions">
+            <li>
+              <a href="{% url xue.tutor.teacherviews.pickinglist_view project.id %}">
+                甄选项目成员
+              </a>
+            </li>
+          </ul>
+        </p>
+      </div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

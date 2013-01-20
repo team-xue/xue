@@ -1,0 +1,2 @@
+# Site-specific settings module, should NEVER be exposed
+sitesettings.py

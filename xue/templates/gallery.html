@@ -1,0 +1,75 @@
+{% extends "./inc/base/centered.html" %}
+{% load cms_tags menu_tags %}
+
+{% block styles %}{{ block.super }}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/gallery.css" />
+{% endblock %}
+
+{% block scripts %}
+    <script async="async" type="text/javascript" src="{{ MEDIA_URL }}xue/js/gallery.jq17.min.js"></script>
+{% endblock %}
+
+{% block center_container %}
+<div class="dmgray_bg gal_desc">
+  <div class="metadata">
+    <h1 class="title">{% page_attribute page_title %}</h1>
+    <span class="author">作者a, 作者b</span>
+    <span class="date">{{ current_page.creation_date|date:"Y.m.d" }}</span>
+  </div>
+  <div class="gal-colorpaste dmblue_bg"></div>
+</div>
+<div class="clear"></div>
+
+<div class="gal_container">
+  <div class="gal">
+    <div class="presentation">
+      <div class="box">
+        <div class="photowrapper">
+          <div class="photo">
+            <div><!-- there need to be something --></div>
+          </div>
+        </div>
+        <div class="prev gal_btn enabled"></div>
+        <div class="next gal_btn enabled"></div>
+        <div class="clear"></div>
+      </div>
+    </div>
+
+    <div class="perphoto">
+      <div class="metadata">
+        <span class="title"></span>
+      </div>
+
+      <div class="index">
+        <span class="curr"></span>/<span class="total"></span>
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+    <div class="imagelist">
+      <div class="box">
+        <div class="thumbwrapper">
+          <div class="thumbnails">
+            <ul>
+            </ul>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="prev gal_btn enabled"></div>
+        <div class="next gal_btn enabled"></div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="photopool">
+{% placeholder "gallery-photos" %}
+  </div>
+  
+  <div class="clear"></div>
+</div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf8 syntax=django: #}

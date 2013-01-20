@@ -1,0 +1,65 @@
+{% extends "./inc/base/withnews.html" %}
+{% load cache cms_tags menu_tags %}
+
+{% block styles %}{{ block.super }}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/contentpage.css" />
+{% endblock %}
+
+{% block iestyles %}{{ block.super }}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/ie/contentpage-ie.css" />
+{% endblock %}
+
+{% block earlyscripts %}
+<script type="text/javascript">
+var x_shareInfo={
+{% cache 3600 article_share_param request.user.username current_page.pk %}
+  {% include "inc/now.js" %}
+  u:''||location.href,
+  t:"{{ current_page.get_title|escapejs }}",
+  d:"{{ current_page.get_text_excerpt|escapejs }}",
+  i:"http://dm.jiangnan.edu.cn/media/xue/img/sharelogo-100x100.png"
+{% endcache %}
+  };
+
+function doLoadContentHelper()
+{
+  var helper=document.createElement('script');
+  helper.type = 'text/javascript';
+  helper.async = true;
+  helper.src = "{{ MEDIA_URL }}xue/js/contentpage.jq17.min.js";
+  document.body.appendChild(helper);
+}
+
+if (window.addEventListener) {
+  window.addEventListener('load', doLoadContentHelper, false);
+} else if (window.attachEvent) {
+  window.attachEvent('onload', doLoadContentHelper);
+} else {
+  window.onload = doLoadContentHelper;
+}
+</script>
+{% endblock %}
+
+{% block right_container %}
+{% with pagetitle=current_page.get_title %}
+{% cache 3600 article_placeholder request.user.username current_page.pk %}
+{% include "inc/now.html" %}
+<article class="cms_article">
+  <header>
+  <h1 class="title">{{ pagetitle }}</h1>
+    <time datetime="{{ current_page.publication_date|date:"Y-m-d\TH:i:s" }}+08:00" class="pubtime"{#pubdate="pubdate"#}>{{ current_page.publication_date|date:"Y.m.d H:i:s" }}</time>
+    <span class="author">
+      <!-- TODO -->
+    </span>
+    <span class="tags">{% for tag in current_page.get_tags %}<a href="{% url xue.tagfrontend.views.tag_view tag.pk %}" class="header_link">{{ tag.name }}</a>{% if not forloop.last %},{% endif %}{% endfor %}</span>
+  </header>
+
+{% placeholder "articletext" %}
+</article>
+{% endcache %}
+{% endwith %}
+<div class="clear"><div id="sharePlaceholder" class="clear"></div></div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf8 syntax=django: #}

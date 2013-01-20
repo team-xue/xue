@@ -1,0 +1,43 @@
+/* Paginator outer div style left for the actual template layout to do */
+
+/* the actual inner paginator */
+.pagination a {
+    text-decoration: none;
+    border: solid 1px #AAE;
+    color: #15B;
+}
+
+.pagination a, .pagination span {
+    display: block;
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    min-width:12px;
+    text-align:center;
+    line-height: 100%;
+    padding: 6px;
+}
+
+.pagination .current {
+    background: #26B;
+    color: #fff;
+    border: solid 1px #AAE;
+}
+
+.pagination .current.prev, .pagination .current.next {
+    color:#999;
+    border-color:#999;
+    background:#fff;
+}
+
+/* for users with scripts disabled or without scripts
+ * the hiding of pool is now done by jQuery
+ *
+
+#pagination_pool {
+    display: none;
+}
+*/
+
+
+/* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */

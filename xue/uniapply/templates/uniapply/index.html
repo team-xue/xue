@@ -1,0 +1,24 @@
+{% extends 'uniapply/base.html' %}
+
+{% block title %}起始页{% endblock %}
+
+{% block content %}
+  <div class="mainpane">
+    <div class="startpage">
+      <h2 class="panetitle">起始页</h2>
+
+      <ul class="titledsect actions">
+        <li class="action_item">
+        <a href="{% url xue.uniapply.views.target_list_view %}" class="action_link">浏览事项</a>
+        </li>
+
+        <li class="action_item">
+        <a href="{% url xue.uniapply.views.my_view %}" class="action_link">我的事项</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
+
+
+{# vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8 syntax=django: #}

@@ -1,0 +1,24 @@
+.logo_with_name>.name {
+    display: block;
+    width: 100%;
+}
+
+.logo_with_name>.name>a {
+    display: block;
+    color: #fff;
+    font-size: 16px; /* 1.3em */
+    padding: 3px; /* 0.2em */
+}
+
+/**** SUPPORT BOTTOM-PLACED LINKS ****/
+.logo_with_name.bottom {
+    position: relative;
+}
+
+.logo_with_name.bottom>.name {
+    position: absolute;
+    bottom: 0;
+}
+
+
+/* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */
