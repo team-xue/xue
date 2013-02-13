@@ -1,16 +1,16 @@
 {% extends "./inc/base/withnews.html" %}
 
 {% block styles %}{{ block.super }}
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/section.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/pagination.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/section.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/pagination.css" />
 {% endblock %}
 
 {% block scriptincludes %}
-    <script type="text/javascript" src="{{ MEDIA_URL }}xue/js/framework/15jquery.pagination.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}xue/js/framework/15jquery.pagination.js"></script>
 {% endblock %}
 
 {% block scripts %}{# TODO: move the pagination part to a dedicated block soon! #}
-    <script async="async" type="text/javascript" src="{{ MEDIA_URL }}xue/js/sectionpaginate.jq17.min.js"></script>
+    <script async="async" type="text/javascript" src="{{ STATIC_URL }}xue/js/sectionpaginate.jq17.min.js"></script>
 {% endblock %}
 
 {% block right_container %}

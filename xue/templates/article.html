@@ -2,11 +2,11 @@
 {% load cache cms_tags menu_tags %}
 
 {% block styles %}{{ block.super }}
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/contentpage.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/contentpage.css" />
 {% endblock %}
 
 {% block iestyles %}{{ block.super }}
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/ie/contentpage-ie.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/ie/contentpage-ie.css" />
 {% endblock %}
 
 {% block earlyscripts %}
@@ -26,7 +26,7 @@ function doLoadContentHelper()
   var helper=document.createElement('script');
   helper.type = 'text/javascript';
   helper.async = true;
-  helper.src = "{{ MEDIA_URL }}xue/js/contentpage.jq17.min.js";
+  helper.src = "{{ STATIC_URL }}xue/js/contentpage.jq17.min.js";
   document.body.appendChild(helper);
 }
 
