@@ -2,29 +2,29 @@
 {% load cms_tags menu_tags %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/common.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/colors.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/common.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/colors.css" />
 
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/nav-left.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/nav-horiz.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/stackedmenu.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/dropmenu.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/breadcrumb.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/subtitle.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/mainpage-img.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/namedpic.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/nav-left.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/nav-horiz.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/stackedmenu.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/dropmenu.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/breadcrumb.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/subtitle.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/mainpage-img.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/namedpic.css" />
 
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/teststyle.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/teststyle.css" />
 
     <!--[if IE]>
-      <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/mainpage-ie.css" />
+      <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/mainpage-ie.css" />
     <![endif]-->
 {% endblock %}
 
 
 {% block left_container %}
-			<a href="{% page_url "tech-dept" %}"><img src="{{ MEDIA_URL }}xue/img/tstimg/art3.gif" alt="" /></a>
-      <img src="{{ MEDIA_URL }}xue/img/tstimg/art1.gif" alt="" />
+			<a href="{% page_url "tech-dept" %}"><img src="{{ STATIC_URL }}xue/img/tstimg/art3.gif" alt="" /></a>
+      <img src="{{ STATIC_URL }}xue/img/tstimg/art1.gif" alt="" />
 
       <div class="box"></div>
 
@@ -72,18 +72,18 @@
                     <li class="rightalign dmorange_bgfocus"><a href="#">下载专区</a></li>
                   </ul>
 
-			<img src="{{ MEDIA_URL }}xue/img/tstimg/art2.gif" width="725" height="90" alt="" />
+			<img src="{{ STATIC_URL }}xue/img/tstimg/art2.gif" width="725" height="90" alt="" />
             		<div class="breadcrumb"><span>现在位置: </span><ul>{% show_breadcrumb %}</ul></div><div class="clear"></div>
                 <span class="constructbig dmblue">此板块暂缺内容！Still unfinished!</span>
 
-              <img src="{{ MEDIA_URL }}xue/img/tstimg/嵌入2.jpg" width="725" height="225" alt="" style="margin-bottom: 18px;" />
+              <img src="{{ STATIC_URL }}xue/img/tstimg/嵌入2.jpg" width="725" height="225" alt="" style="margin-bottom: 18px;" />
 
                               <div class="group"><div class="title floatleft">视频展示</div><div style="float:right">more</div><hr />
-                <img src="{{ MEDIA_URL }}xue/img/tstimg/嵌入4.jpg" width="230" height="150" style="float:left" alt="" />
+                <img src="{{ STATIC_URL }}xue/img/tstimg/嵌入4.jpg" width="230" height="150" style="float:left" alt="" />
                 <div style="float:right">左边是我好朋友</div>
                 <div style="clear: both;">
                 <div class="previewItem2">
-  					<img src="{{ MEDIA_URL }}xue/img/tstimg/img_previews.jpg" width="68" height="68" alt="" />
+  					<img src="{{ STATIC_URL }}xue/img/tstimg/img_previews.jpg" width="68" height="68" alt="" />
 					<div class="headline">别吃我</div>
                     <div class="previewText">
                     欢迎度什么的
@@ -92,7 +92,7 @@
                     </div>
 				</div>
                 <div class="previewItem2">
-  					<img src="{{ MEDIA_URL }}xue/img/tstimg/img_previews.jpg" width="68" height="68" alt="" />
+  					<img src="{{ STATIC_URL }}xue/img/tstimg/img_previews.jpg" width="68" height="68" alt="" />
 					<div class="headline">别吃我</div>
                     <div class="previewText">
                     欢迎度什么的
@@ -101,7 +101,7 @@
                     </div>
 				</div>
                 <div class="previewItem2">
-  					<img src="{{ MEDIA_URL }}xue/img/tstimg/img_previews.jpg" width="68" height="68" alt="" />
+  					<img src="{{ STATIC_URL }}xue/img/tstimg/img_previews.jpg" width="68" height="68" alt="" />
 					<div class="headline">别吃我</div>
                     <div class="previewText">
                     欢迎度什么的
@@ -114,7 +114,7 @@
                 </div>
                 <div class="group" style="margin:0 0 0 5px;"><div class="title floatleft">系部新闻</div><div style="float:right">more</div><hr />
 				<div class="previewItem">
-  					<img src="{{ MEDIA_URL }}xue/img/tstimg/img_previews.jpg" width="68" height="68" alt="" />
+  					<img src="{{ STATIC_URL }}xue/img/tstimg/img_previews.jpg" width="68" height="68" alt="" />
 					<div class="headline">我是文章标题别吃我</div>
                     <div class="previewText">
                     这里是文章内容这里是文章内容这里是文章内容这里是文章内容（字数不得超过42字）
@@ -123,7 +123,7 @@
                     </div>
 				</div>
 				<div class="previewItem" style="background:#F4F4F4">
-  					<img src="{{ MEDIA_URL }}xue/img/tstimg/img_previews.jpg" width="68" height="68" alt="" />
+  					<img src="{{ STATIC_URL }}xue/img/tstimg/img_previews.jpg" width="68" height="68" alt="" />
 					<div class="headline">我是文章标题别吃我</div>
                     <div class="previewText">
                     这里是文章内容这里是文章内容这里是文章内容这里是文章内容（字数不得超过42字）
@@ -132,7 +132,7 @@
                     </div>
                 </div>
 				<div class="previewItem">
-  					<img src="{{ MEDIA_URL }}xue/img/tstimg/img_previews.jpg" width="68" height="68" alt="" />
+  					<img src="{{ STATIC_URL }}xue/img/tstimg/img_previews.jpg" width="68" height="68" alt="" />
 					<div class="headline">我是文章标题别吃我</div>
                     <div class="previewText">
                     这里是文章内容这里是文章内容这里是文章内容这里是文章内容（字数不得超过42字）
@@ -141,7 +141,7 @@
                     </div>
 				</div>
                 <div class="previewItem" style="background:#F4F4F4">
-  					<img src="{{ MEDIA_URL }}xue/img/tstimg/img_previews.jpg" width="68" height="68" alt="" />
+  					<img src="{{ STATIC_URL }}xue/img/tstimg/img_previews.jpg" width="68" height="68" alt="" />
 					<div class="headline">我是文章标题别吃我</div>
                     <div class="previewText">
                     这里是文章内容这里是文章内容这里是文章内容这里是文章内容（字数不得超过42字）

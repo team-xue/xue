@@ -2,15 +2,15 @@
 {% load cms_tags menu_tags %}
 
 {% block styles %}{{ block.super }}
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/contentpage.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/subtitle.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/nav-left.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/stackedmenu.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/portal.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/contentpage.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/subtitle.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/nav-left.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/stackedmenu.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/portal.css" />
 {% endblock %}
 
 {% block iestyles %}{{ block.super }}
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/nav-left-ie.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/nav-left-ie.css" />
 {% endblock %}
 
 {# NOTE: Remove the color paste to save vertical space for auth box #}
