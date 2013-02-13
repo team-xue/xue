@@ -35,7 +35,7 @@ Base layout in production.
     <!--[if lt IE 7]><style>html{background:#fff0f0}body{background:none!ie}#wrap,.footerContainer{display:none!nimei}</style><![endif]-->
 {% comment %}
     <!--[if lt IE 9]>
-    <script src="{{ MEDIA_URL }}xue/js/ie/html5shiv.js"></script>
+    <script src="{{ STATIC_URL }}xue/js/ie/html5shiv.js"></script>
     <![endif]-->
 {% endcomment %}{% if not SCRIPTINCLUDE_DEBUG %}
 {# IE compatibility frameworks need to be executed first #}
@@ -77,7 +77,7 @@ Base layout in production.
 {% block latefooter %}
 {% comment %} // IE6 is gone... let's remove support for that
 <!--[if IE 6]>
-<script src="{{ MEDIA_URL }}xue/js/ie/iepngfix.js"></script>
+<script src="{{ STATIC_URL }}xue/js/ie/iepngfix.js"></script>
 <script type="text/javascript">
   DD_belatedPNG.fix(".logo");
 </script>
@@ -94,7 +94,7 @@ Base layout in production.
 
 {% block scripts %}{% endblock %}{% comment %}
     <!--[if IE 7]>
-    <script type="text/javascript" src="{{ MEDIA_URL }}xue/js/menuhover.jq17.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}xue/js/menuhover.jq17.js"></script>
     <![endif]-->{% endcomment %}
 
 {% include "inc/rants-ie.html" %}

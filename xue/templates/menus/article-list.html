@@ -3,7 +3,7 @@
 
 {% for child in children %}
 <li>
-{#  <img src="{{ MEDIA_URL }}xue/img/no-thumbnail.png" class="thumbnail" alt="[No thumbnail]" />#}
+{#  <img src="{{ STATIC_URL }}xue/img/no-thumbnail.png" class="thumbnail" alt="[No thumbnail]" />#}
   <div class="metadata">
     <h3 class="title">
       <a href="{{ child.attr.redirect_url|default:child.get_absolute_url }}" class="dmred">

@@ -3,7 +3,7 @@
 
 {% with max_count_str=max_count|stringformat:"d" %}{% with maxchild_slicer=":"|add:max_count_str %}
 {% for child in children|slice:maxchild_slicer %}
-<li class="preview_item">{#  <img src="{{ MEDIA_URL }}xue/img/no-thumbnail.png" class="thumbnail" alt="[No thumbnail]" />#}
+<li class="preview_item">{#  <img src="{{ STATIC_URL }}xue/img/no-thumbnail.png" class="thumbnail" alt="[No thumbnail]" />#}
   <a href="{{ child.attr.redirect_url|default:child.get_absolute_url }}" class="preview_link">
     {{ child.get_menu_title }}{% if not child.is_leaf_node %} &raquo;{% endif %}
       </a>{% comment %}

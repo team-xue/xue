@@ -2,11 +2,11 @@
 {% load cms_tags menu_tags %}
 
 {% block styles %}{{ block.super }}
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/gallery.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/gallery.css" />
 {% endblock %}
 
 {% block scripts %}
-    <script async="async" type="text/javascript" src="{{ MEDIA_URL }}xue/js/gallery.jq17.min.js"></script>
+    <script async="async" type="text/javascript" src="{{ STATIC_URL }}xue/js/gallery.jq17.min.js"></script>
 {% endblock %}
 
 {% block center_container %}

@@ -2,29 +2,29 @@
 {% load cache cms_tags menu_tags %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/common.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/mainpage.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/common.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/mainpage.css" />
 
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/colors.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/mainpage-img.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/namedpic.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/portal.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/colors.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/mainpage-img.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/namedpic.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/portal.css" />
 
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/nav-left.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/nav-horiz.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/subtitle.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/stackedmenu.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/dropmenu.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/nav-left.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/nav-horiz.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/subtitle.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/stackedmenu.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/dropmenu.css" />
 {% endblock %}
 
 {% block iestyles %}
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/mainpage-ie.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/nav-left-ie.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}xue/css/nav-horiz-ie.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/mainpage-ie.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/nav-left-ie.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/nav-horiz-ie.css" />
 {% endblock %}
 
 {% block scripts %}
-    <script async="async" type="text/javascript" src="{{ MEDIA_URL }}xue/js/picslide.jq17.min.js"></script>
+    <script async="async" type="text/javascript" src="{{ STATIC_URL }}xue/js/picslide.jq17.min.js"></script>
 {% endblock %}
 
 {# restrict 1000px to mainpage and perhaps gallery only, to make use of potential width #}
