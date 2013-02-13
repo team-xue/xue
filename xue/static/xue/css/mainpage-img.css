@@ -1,58 +1,76 @@
-.dept_tech .dept_logo {
-    background: url("http://media.dm.jiangnan.edu.cn/xue/img/tech-dept.jpg") top no-repeat;
+/* Sprites come to the rescue! */
+.dept_tech .dept_logo,
+.dept_art .dept_logo,
+.rnd_center,
+.creativity,
+.info_center_1,
+.info_center_2,
+.info_center_3 {
+  background-image: url("http://static.dm.jiangnan.edu.cn/xue/img/mainpage-sprites.jpg");
+}
 
-    /* XXX THIS NEEDS CLEANING */
-    width: 242px;
-    height: 150px;
-    /* background-size: 100% 100%; */
+.dept_tech .dept_logo {
+  /*background: url("http://static.dm.jiangnan.edu.cn/xue/img/tech-dept.jpg") top no-repeat;*/
+  background-position: -10px -10px;
+
+  /* XXX THIS NEEDS CLEANING */
+  width: 242px;
+  height: 150px;
+  /* background-size: 100% 100%; */
 }
 
 .dept_art .dept_logo {
-    background: url("http://media.dm.jiangnan.edu.cn/xue/img/art-dept.jpg") top no-repeat;
+  /*background: url("http://static.dm.jiangnan.edu.cn/xue/img/art-dept.jpg") top no-repeat;*/
+  background-position: -10px -180px;
 
-    width: 242px;
-    height: 150px;
-    /* background-size: 100% 100%; */
+  width: 242px;
+  height: 150px;
+  /* background-size: 100% 100%; */
 }
 
 /*
 .sino_jpn {
-    background: url("http://media.dm.jiangnan.edu.cn/xue/img/sino-jpn.png") top no-repeat;
-    width: 123px;
-    height: 160px;
-    margin-top: 24px; /* 2em *
+  background: url("http://static.dm.jiangnan.edu.cn/xue/img/sino-jpn.png") top no-repeat;
+  width: 123px;
+  height: 160px;
+  margin-top: 24px; /* 2em *
 }
 */
 
 .rnd_center {
-    background: url("http://media.dm.jiangnan.edu.cn/xue/img/r-n-d-center.jpg") top no-repeat;
-    width: 136px;
-    height: 102px;
+  /*background: url("http://static.dm.jiangnan.edu.cn/xue/img/r-n-d-center.jpg") top no-repeat;*/
+  background-position: -10px -350px;
+  width: 136px;
+  height: 102px;
 }
 
 .creativity {
-    background: url("http://media.dm.jiangnan.edu.cn/xue/img/creativity-center.jpg") top no-repeat;
-    width: 135px;
-    height: 103px;
+  /*background: url("http://static.dm.jiangnan.edu.cn/xue/img/creativity-center.jpg") top no-repeat;*/
+  background-position: -10px -472px;
+  width: 135px;
+  height: 103px;
 }
 
 .info_center_1 {
-    background: url("http://media.dm.jiangnan.edu.cn/xue/img/info-center-1.jpg") top no-repeat;
-    width: 137px;
-    height: 103px;
+  /*background: url("http://static.dm.jiangnan.edu.cn/xue/img/info-center-1.jpg") top no-repeat;*/
+  background-position: -10px -595px;
+  width: 137px;
+  height: 103px;
 }
 
 .info_center_2 {
-    background: url("http://media.dm.jiangnan.edu.cn/xue/img/info-center-2.jpg") top no-repeat;
-    width: 136px;
-    height: 103px;
+  /*background: url("http://static.dm.jiangnan.edu.cn/xue/img/info-center-2.jpg") top no-repeat;*/
+  background-position: -10px -718px;
+  width: 136px;
+  height: 103px;
 }
 
 .info_center_3 {
-    background: url("http://media.dm.jiangnan.edu.cn/xue/img/info-center-3.jpg") top no-repeat;
-    width: 136px;
-    height: 103px;
+  /*background: url("http://static.dm.jiangnan.edu.cn/xue/img/info-center-3.jpg") top no-repeat;*/
+  background-position: -10px -841px;
+  width: 136px;
+  height: 103px;
 }
 
 
-/* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */
+/* vim: set ai et ts=2 sw=2 sts=2 ff=unix fenc=utf-8: */
