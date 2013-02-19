@@ -166,6 +166,15 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
     padding: 8px 0 16px;
 }
 
+#revcolorbox {
+    /* background-color is set thru inline style */
+    display: inline-block;
+    width: 0.75em;
+    height: 0.75em;
+    margin: 0 0 0 4px;
+    cursor: pointer;
+}
+
 
 /* XXX POSSIBLY DEAD CODE; only tech-dept and art-dept use this */
 .floatleft {

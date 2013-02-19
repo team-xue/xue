@@ -4,6 +4,7 @@
 
 from __future__ import unicode_literals, division
 
+import re
 from cgi import escape as htmlescape
 
 from django import template
@@ -32,6 +33,12 @@ def version_node_factory(s):
 XueDevVersionNode = version_node_factory(VERSION_DEV)
 XueVersionNode = version_node_factory(VERSION_STR)
 
+# Revision coloring
+_vercolormatch = re.match(r'^Git-([0-9A-Fa-f]{6})', VERSION_DEV)
+_vercolor = '000000' if _vercolormatch is None else _vercolormatch.group(1)
+XueRevisionColorNode = version_node_factory('#%s' % _vercolor)
+del _vercolormatch
+del _vercolor
 
 if HAVE_UA_PARSER:
     class XueUAStringNode(template.Node):
@@ -122,6 +129,15 @@ def xue_version(parser, token):
         raise ValueError('%r tag requires no argument' % tokens[0])
 
     return XueVersionNode()
+
+
+@register.tag
+def xue_rev_color(parser, token):
+    tokens = token.split_contents()
+    if len(tokens) > 1:
+        raise ValueError('%r tag requires no argument' % tokens[0])
+
+    return XueRevisionColorNode()
 
 
 @register.tag
