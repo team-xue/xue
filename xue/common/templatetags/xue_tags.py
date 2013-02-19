@@ -19,20 +19,19 @@ except ImportError:
     pass
 
 
-class XueDevVersionNode(template.Node):
-    def __init__(self):
-        self._escaped_result = htmlescape(VERSION_DEV)
+def version_node_factory(s):
+    ver = htmlescape(s if s else 'unknown')
 
-    def render(self, context):
-        return self._escaped_result
+    class _XueVersionNode(template.Node):
+        def render(self, context):
+            return ver
+
+    return _XueVersionNode
 
 
-class XueVersionNode(template.Node):
-    def __init__(self):
-        self._escaped_result = htmlescape(VERSION_STR)
+XueDevVersionNode = version_node_factory(VERSION_DEV)
+XueVersionNode = version_node_factory(VERSION_STR)
 
-    def render(self, context):
-        return self._escaped_result
 
 if HAVE_UA_PARSER:
     class XueUAStringNode(template.Node):
@@ -134,4 +133,4 @@ def xue_uastring(parser, token):
     return XueUAStringNode()
 
 
-# vi:ai:et:ts=4 sw=4 sts=4 fenc=utf-8
+# vim:ai:et:ts=4:sw=4:sts=4:fenc=utf-8:
