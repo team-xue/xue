@@ -14,6 +14,11 @@ html#ie8 .nav_horiz>ul>li>ul {
     zoom: 1;
 }
 
+/*
+ * disable the eye candy because it turns ClearType off, which is *not*
+ * that eye-pleasing...
+ */
+/*
 html#ie6 .nav_horiz a,
 html#ie7 .nav_horiz a,
 html#ie8 .nav_horiz a,
@@ -25,6 +30,7 @@ html#ie9 .nav_horiz a {
     -ms-filter: progid:DXImageTransform.Microsoft.Chroma(Color=#464646)
 	        progid:DXImageTransform.Microsoft.DropShadow(OffX=1, OffY=1, Color=#000000);
 }
+*/
 
 /* IE8: background color not consistent, let's force some colors onto it */
 html#ie8 .nav_horiz>ul>li>ul>li:hover>a {
