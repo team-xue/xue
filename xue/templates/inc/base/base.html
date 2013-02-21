@@ -33,17 +33,13 @@ Base layout in production.
     <![endif]-->
     <!-- make <www-client/IE-7's content rendering stop early -->
     <!--[if lt IE 7]><style>html{background:#fff0f0}body{background:none!ie}#wrap,.footerContainer{display:none!nimei}</style><![endif]-->
-{% comment %}
-    <!--[if lt IE 9]>
-    <script src="{{ STATIC_URL }}xue/js/ie/html5shiv.js"></script>
-    <![endif]-->
-{% endcomment %}{% if not SCRIPTINCLUDE_DEBUG %}
+{% if not SCRIPTINCLUDE_DEBUG %}
 {# IE compatibility frameworks need to be executed first #}
     <!--[if (lt IE 9) | (gt IE 6)]>
     <script type="text/javascript" src="{{ STATIC_URL }}xue/js/bundle/ie-framework.min.js"></script>
     <![endif]-->
 
-    <!--[if lte IE 6]><!-->
+    <!--[if !(lt IE 7)]><!-->
     <script type="text/javascript" src="{{ STATIC_URL }}xue/js/bundle/framework.min.js"></script>
     <!--<![endif]-->
 {% endif %}
