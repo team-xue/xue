@@ -1,6 +1,8 @@
 .presentation {
     width: 100%;
     clear: both;
+
+    margin: 0 0 15px;
 }
 
 .announcement li {
@@ -22,9 +24,13 @@
     /* (greatly) improve page loading time by using jpeg for inherently low-res
      * image
      */
-    /* background: url("http://media.dm.jiangnan.edu.cn/xue/img/mainpage-pres.jpg") top left no-repeat;
+    /* background: url("http://static.dm.jiangnan.edu.cn/xue/img/mainpage-pres.jpg") top left no-repeat;
     background-size: 100% 100%;*/
-    margin-bottom: 15px; /* 1.2em */
+    /* putting the margin here would cause IE7 to ignore it, so
+     * it should be placed in .presentation instead
+     *
+     * margin-bottom: 15px; / * 1.2em * /
+     */
 
     /* reference for the desc block */
     position: relative;
@@ -39,8 +45,11 @@
 }
 
 .picslide>div.picslide_target>div.picslide_pool {
-    /* make this sufficiently large to accomodate the total width */
-    width: 8192px;
+    /* no white-spaces to mess up width alignment */
+    font-size: 0;
+    /* be lined up */
+    white-space: nowrap;
+
     position: relative;
     top: 0;
     /* left attribute is to be animated. */
@@ -50,14 +59,16 @@
     -moz-transition: none 0s ease 0s;
     -webkit-transition: none 0s ease 0s;
     -o-transition: none 0s ease 0s;
+    transition: none 0s ease 0s;
 }
 
 .picslide>div.picslide_target>div.picslide_pool>img {
-    float: left;
+    /* just remain inline, thx to white-space and font-size settings */
     /* disable the CSS transition effect */
     -moz-transition: none 0s ease 0s;
     -webkit-transition: none 0s ease 0s;
     -o-transition: none 0s ease 0s;
+    transition: none 0s ease 0s;
 }
 
 /* piclist */
