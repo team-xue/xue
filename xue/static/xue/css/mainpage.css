@@ -45,8 +45,11 @@
 }
 
 .picslide>div.picslide_target>div.picslide_pool {
-    /* make this sufficiently large to accomodate the total width */
-    width: 8192px;
+    /* no white-spaces to mess up width alignment */
+    font-size: 0;
+    /* be lined up */
+    white-space: nowrap;
+
     position: relative;
     top: 0;
     /* left attribute is to be animated. */
@@ -56,14 +59,16 @@
     -moz-transition: none 0s ease 0s;
     -webkit-transition: none 0s ease 0s;
     -o-transition: none 0s ease 0s;
+    transition: none 0s ease 0s;
 }
 
 .picslide>div.picslide_target>div.picslide_pool>img {
-    float: left;
+    /* just remain inline, thx to white-space and font-size settings */
     /* disable the CSS transition effect */
     -moz-transition: none 0s ease 0s;
     -webkit-transition: none 0s ease 0s;
     -o-transition: none 0s ease 0s;
+    transition: none 0s ease 0s;
 }
 
 /* piclist */
