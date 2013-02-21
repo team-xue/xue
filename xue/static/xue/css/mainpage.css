@@ -22,7 +22,7 @@
     /* (greatly) improve page loading time by using jpeg for inherently low-res
      * image
      */
-    /* background: url("http://media.dm.jiangnan.edu.cn/xue/img/mainpage-pres.jpg") top left no-repeat;
+    /* background: url("http://static.dm.jiangnan.edu.cn/xue/img/mainpage-pres.jpg") top left no-repeat;
     background-size: 100% 100%;*/
     margin-bottom: 15px; /* 1.2em */
 
