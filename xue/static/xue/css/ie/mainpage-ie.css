@@ -5,7 +5,7 @@
     right: 0;
     width: 33.3%;
     height: 100%;
-    z-index: 2;  /* .content has 5 */
+    z-index: 1;  /* .content has 5 but .desc had 1 while the value here originally was 2, so... IE WTF?! */
 
     background:transparent;
     filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#9A001E46,endColorStr=#9A001E46);
