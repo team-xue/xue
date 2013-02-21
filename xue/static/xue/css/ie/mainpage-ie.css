@@ -1,11 +1,19 @@
-/* alpha blendings */
-.picslide .desc {
+/* fix <www-client/IE-9 problems with ClearType and filters */
+.picslide>.ie-desc-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 33.3%;
+    height: 100%;
+    z-index: 1;  /* .content has 5 but .desc had 1 while the value here originally was 2, so... IE WTF?! */
+
     background:transparent;
     filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#9A001E46,endColorStr=#9A001E46);
     -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#9A001E46,endColorstr=#9A001E46)";
     zoom: 1;
 }
 
+/* alpha blendings */
 .transparent_white {
     background:transparent;
     filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#7F000000,endColorStr=#7F000000);
