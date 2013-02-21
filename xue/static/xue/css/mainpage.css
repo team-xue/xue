@@ -1,6 +1,8 @@
 .presentation {
     width: 100%;
     clear: both;
+
+    margin: 0 0 15px;
 }
 
 .announcement li {
@@ -24,7 +26,11 @@
      */
     /* background: url("http://media.dm.jiangnan.edu.cn/xue/img/mainpage-pres.jpg") top left no-repeat;
     background-size: 100% 100%;*/
-    margin-bottom: 15px; /* 1.2em */
+    /* putting the margin here would cause IE7 to ignore it, so
+     * it should be placed in .presentation instead
+     *
+     * margin-bottom: 15px; / * 1.2em * /
+     */
 
     /* reference for the desc block */
     position: relative;
