@@ -91,7 +91,7 @@
 }
 
 .gal>.presentation>.box>.prev {
-    background: url("http://media.dm.jiangnan.edu.cn/xue/img/arr-l.png") center center no-repeat;
+    background: url("http://static.dm.jiangnan.edu.cn/xue/img/arr-l.png") center center no-repeat;
     border-left: 1px solid #ccc;
     height: 420px;
     width: 49px; /* well, 1px border broke the layout. */
@@ -100,7 +100,7 @@
 }
 
 .gal>.presentation>.box>.next {
-    background: url("http://media.dm.jiangnan.edu.cn/xue/img/arr-r.png") center center no-repeat;
+    background: url("http://static.dm.jiangnan.edu.cn/xue/img/arr-r.png") center center no-repeat;
     border-right: 1px solid #ccc;
     height: 420px;
     width: 49px;
@@ -156,7 +156,7 @@
 }
 
 .gal>.imagelist>.box>.prev {
-    background: url("http://media.dm.jiangnan.edu.cn/xue/img/dblarr-small-l.png") center no-repeat;
+    background: url("http://static.dm.jiangnan.edu.cn/xue/img/dblarr-small-l.png") center no-repeat;
     height: 129px;
     width: 50px; /* NOTE same as the above arrow widget */
     float: left;
@@ -164,7 +164,7 @@
 }
 
 .gal>.imagelist>.box>.next {
-    background: url("http://media.dm.jiangnan.edu.cn/xue/img/dblarr-small-r.png") center no-repeat;
+    background: url("http://static.dm.jiangnan.edu.cn/xue/img/dblarr-small-r.png") center no-repeat;
     height: 129px;
     width: 50px;
     float: right;
