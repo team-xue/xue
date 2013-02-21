@@ -125,13 +125,15 @@
     width: 33.3%;
     height: 100%;
 
-    /* impossible to present the "multiply" effect in PSD template */
+    /* impossible to realize the "multiply" effect in PSD template */
+    /* sigh, IE's background settings are almost independent */
     background-color: rgba(0, 30, 70, 0.6);
     color: #fff;
 }
 
 .picslide>.desc>.content {
     margin: 18px; /* 1.5em */
+    z-index: 5;
 }
 
 .picslide>.desc>.content>h1 {
