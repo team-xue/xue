@@ -24,7 +24,7 @@ Base layout in production.
     <!--<![endif]-->
 
     <!--sorry, no (lt IE 7)'s supported --><!--[if IE 8]>
-    <style type="text/css">#wrap{display:table;height:100%}</style>
+    <style type="text/css">#wrap{height:100%;display:table}</style>{# swapped place to avoid a % + } combination #}
     <![endif]-->
     <!--[if IE]>{% if STYLE_DEBUG %}
     <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/common-ie.css" />{% block iestyles %}{% endblock %}{% else %}
@@ -45,10 +45,7 @@ Base layout in production.
 
     <!--[if lte IE 6]><!-->
     <script type="text/javascript" src="{{ STATIC_URL }}xue/js/bundle/framework.min.js"></script>
-    <script type="text/javascript">
-      // alias to coexist w/ =jquery-1.4.2 required by django-cms
-      var $jq17 = jQuery.noConflict();
-    </script><!--<![endif]-->
+    <!--<![endif]-->
 {% endif %}
 {% block earlyscripts %}{% endblock %}
 {% plugins_media %}
@@ -87,10 +84,8 @@ Base layout in production.
 {# For scripts... #}{% if SCRIPTINCLUDE_DEBUG %}
     <script type="text/javascript" src="{{ STATIC_URL }}xue/js/framework/10jquery-1.7.min.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}xue/js/framework/15jquery.hoverintent.js"></script>{% block scriptincludes %}{% endblock %}
-    <script type="text/javascript">{# XXX Duplication of code!! #}
-      // alias to coexist w/ =jquery-1.4.2 required by django-cms
-      var $jq17 = jQuery.noConflict();
-    </script>{% endif %}
+    <script type="text/javascript" src="{{ STATIC_URL }}xue/js/framework/99noconflict.js"></script>
+{% endif %}
 
 {% block scripts %}{% endblock %}{% comment %}
     <!--[if IE 7]>
