@@ -7,7 +7,6 @@ Base layout in production.
 
 {% block pagetitle %}{% page_attribute page_title %} - 江南大学 数字媒体学院{% endblock %}
 
-{% with STYLE_DEBUG=0 SCRIPTINCLUDE_DEBUG=0 %}
 {% block decl %}{#    <meta name="description" content="" /> page_attribute meta_description #}
 {# page_attribute meta_keywords #}
     <meta name="keywords" content="数字媒体,数字媒体技术,数字媒体艺术,数字媒体学院,江南大学,江南大学数字媒体学院,江南大学数媒学院,江大,江大数媒学院" />
@@ -18,22 +17,19 @@ Base layout in production.
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ STATIC_URL }}xue/img/apple-touch-icon-72x72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="{{ STATIC_URL }}xue/img/apple-touch-icon-precomposed.png">
 
-    <!--[if !(lt IE 7)]><!-->{% if STYLE_DEBUG %}
-    <link rel="stylesheet" media="screen" href="{{ STATIC_URL }}xue/css/00reset.css" />{% block styles %}{% endblock %}{% else %}
-    <link rel="stylesheet" media="screen" href="{{ STATIC_URL }}xue/css/min/amalgamation.css" />{% endif %}{% block appstyles %}{% endblock %}
+    <!--[if !(lt IE 7)]><!-->
+    <link rel="stylesheet" media="screen" href="{{ STATIC_URL }}xue/css/min/amalgamation.css" />{% block appstyles %}{% endblock %}
     <!--<![endif]-->
 
     <!--sorry, no (lt IE 7)'s supported --><!--[if IE 8]>
     <style type="text/css">#wrap{height:100%;display:table}</style>{# swapped place to avoid a % + } combination #}
     <![endif]-->
-    <!--[if IE]>{% if STYLE_DEBUG %}
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/common-ie.css" />{% block iestyles %}{% endblock %}{% else %}
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/min/ie-amalgamation.css" />{% endif %}
+    <!--[if IE]>
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/min/ie-amalgamation.css" />
     <style type="text/css">.clear{zoom:1;}</style>{% block ieappstyles %}{% endblock %}
     <![endif]-->
     <!-- make <www-client/IE-7's content rendering stop early -->
     <!--[if lt IE 7]><style>html{background:#fff0f0}body{background:none!ie}#wrap,.footerContainer{display:none!nimei}</style><![endif]-->
-{% if not SCRIPTINCLUDE_DEBUG %}
 {# IE compatibility frameworks need to be executed first #}
     <!--[if (lt IE 9) | (gt IE 6)]>
     <script type="text/javascript" src="{{ STATIC_URL }}xue/js/bundle/ie-framework.min.js"></script>
@@ -42,7 +38,6 @@ Base layout in production.
     <!--[if !(lt IE 7)]><!-->
     <script type="text/javascript" src="{{ STATIC_URL }}xue/js/bundle/framework.min.js"></script>
     <!--<![endif]-->
-{% endif %}
 {% block earlyscripts %}{% endblock %}
 {% plugins_media %}
 {% endblock %}
@@ -68,29 +63,9 @@ Base layout in production.
 
 {# Rule 6: Put scripts at the bottom. P50 of High Performance Web Sites. #}
 {% block latefooter %}
-{% comment %} // IE6 is gone... let's remove support for that
-<!--[if IE 6]>
-<script src="{{ STATIC_URL }}xue/js/ie/iepngfix.js"></script>
-<script type="text/javascript">
-  DD_belatedPNG.fix(".logo");
-</script>
-<![endif]-->
-{% endcomment %}
-
-{# For scripts... #}{% if SCRIPTINCLUDE_DEBUG %}
-    <script type="text/javascript" src="{{ STATIC_URL }}xue/js/framework/10jquery-1.7.min.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}xue/js/framework/15jquery.hoverintent.js"></script>{% block scriptincludes %}{% endblock %}
-    <script type="text/javascript" src="{{ STATIC_URL }}xue/js/framework/99noconflict.js"></script>
-{% endif %}
-
-{% block scripts %}{% endblock %}{% comment %}
-    <!--[if IE 7]>
-    <script type="text/javascript" src="{{ STATIC_URL }}xue/js/menuhover.jq17.js"></script>
-    <![endif]-->{% endcomment %}
-
+{% block scripts %}{% endblock %}
 {% include "inc/rants-ie.html" %}
 {% endblock %}
-{% endwith %}
 
 
 {# vim:set ai et ts=2 sw=2 sts=2 fenc=utf8 syntax=django: #}
