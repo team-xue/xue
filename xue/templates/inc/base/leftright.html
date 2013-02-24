@@ -2,20 +2,6 @@
 {% load cache cms_tags menu_tags %}
 
 
-{% block styles %}{{ block.super }}
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/common.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/colors.css" />
-
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/breadcrumb.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/nav-horiz.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/dropmenu.css" />
-{% endblock %}
-
-{% block iestyles %}{{ block.super }}
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/nav-horiz-ie.css" />
-{% endblock %}
-
-
 {% block left_container_base %}
 {% block nav_colorpaste %}<div class="dmblue_bg nav_colorpaste"></div>{% endblock %}
 {% block left_container %}{% endblock %}

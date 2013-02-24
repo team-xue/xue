@@ -1,13 +1,6 @@
 {% extends "./inc/base/withnews.html" %}
 {% load cache cms_tags menu_tags %}
 
-{% block styles %}{{ block.super }}
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/contentpage.css" />
-{% endblock %}
-
-{% block iestyles %}{{ block.super }}
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/ie/contentpage-ie.css" />
-{% endblock %}
 
 {% block earlyscripts %}
 <script type="text/javascript">
