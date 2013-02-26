@@ -1,27 +1,6 @@
 {% extends "./inc/base/leftright_base.html" %}
 {% load cache cms_tags menu_tags %}
 
-{% block styles %}
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/common.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/mainpage.css" />
-
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/colors.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/mainpage-img.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/namedpic.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/portal.css" />
-
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/nav-left.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/nav-horiz.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/subtitle.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/stackedmenu.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/dropmenu.css" />
-{% endblock %}
-
-{% block iestyles %}
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/mainpage-ie.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/nav-left-ie.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/nav-horiz-ie.css" />
-{% endblock %}
 
 {% block scripts %}
     <script async="async" type="text/javascript" src="{{ STATIC_URL }}xue/js/picslide.jq17.min.js"></script>
@@ -177,5 +156,6 @@
 
 {% block footer_container %}
 {% endblock %}
+
 
 {# vim:set ai et ts=2 sw=2 sts=2 fenc=utf8 syntax=django: #}
