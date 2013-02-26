@@ -15,6 +15,12 @@
       <ul class="entries">{% for entry in entries %}
         <li>
         <h3 class="entry_title"><a href="{% url xue.materials.views.detail_view entry.id %}">{{ entry.title }}</a></h3>
+
+        <ul class="entry_taglist">{% for tag in entry.tags.all %}
+          <li>
+          {{ tag.name }}
+          </li>{% endfor %}
+        </ul>
         <span class="entry_length">长度 {{ entry.get_length }} 字</span>
         </li>{% endfor %}
       </ul>
