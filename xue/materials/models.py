@@ -9,8 +9,27 @@ from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _u
 _ = lambda x: x
 
+from taggit.managers import TaggableManager
+from taggit.models import GenericTaggedItemBase, TagBase
+
+# to make django-taggit play well w/ south
+from south.introspection_plugins import django_taggit
+
 # TODO: extract this into common module!
 DEPUNCTUATIONER = re.compile(r'''[\s,.;:'"()\[\]，。；：“”‘’《》、·「」…！？?]+''')
+
+
+class TaggedMaterial(GenericTaggedItemBase):
+    tag = models.ForeignKey('MaterialTag')
+
+
+class MaterialTag(TagBase):
+    class Meta:
+        verbose_name = _('材料标签')
+        verbose_name_plural = _('材料标签')
+
+    creator = models.ForeignKey(User, verbose_name=_('创建者'), )
+    is_official = models.BooleanField(_('是否官方'), default=False)
 
 
 class MaterialEntry(models.Model):
@@ -28,6 +47,8 @@ class MaterialEntry(models.Model):
     mtime = models.DateTimeField(_('修改日期'), auto_now=True)
 
     is_locked = models.BooleanField(_('已锁定'), default=False)
+
+    tags = TaggableManager(through=TaggedMaterial)
 
     def __unicode__(self):
         return '%(realname)s (%(username)s) 的材料: %(title)s [%(length)d 字]' % {
