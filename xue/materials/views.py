@@ -63,7 +63,7 @@ def add_view(request):
                 entry.user = usr
                 entry.save()
 
-            return redirect('xue.materials.views.homepage_view')
+            return redirect('xue.materials.views.detail_view', entry.pk)
     else:
         frm = AddMaterialForm()
 
