@@ -17,6 +17,7 @@ class MaterialEntryAdmin(admin.ModelAdmin):
             )
 
 
+admin.site.register(MaterialTag)
 admin.site.register(MaterialEntry, MaterialEntryAdmin)
 
 

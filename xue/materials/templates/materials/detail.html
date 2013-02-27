@@ -14,6 +14,11 @@
         <div class="material_metadata">{% with tzoffset="+08:00" %}
           <time datetime="{{ entry.ctime|date:"Y-m-d\TH:i:s" }}{{ tzoffset }}" class="ctime">{{ entry.ctime|date:"Y-m-d H:i:s" }}</time>
           <time datetime="{{ entry.mtime|date:"Y-m-d\TH:i:s" }}{{ tzoffset }}" class="mtime">{{ entry.mtime|date:"Y-m-d H:i:s" }}</time>{% endwith %}
+          <ul class="tags">{% for tag in entry.tags.all %}
+            <li>
+            {{ tag.name }}
+            </li>{% endfor %}
+          </ul>
           <span class="length">{{ entry.get_length }}</span>
         </div>
         </header>

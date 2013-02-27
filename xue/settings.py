@@ -193,6 +193,8 @@ INSTALLED_APPS = (
     'easy_thumbnails',
     'guardian',
 
+    'taggit',
+
     'accounts',
     'xue.springaid2012',
     'xue.tutor',
