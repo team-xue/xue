@@ -20,7 +20,7 @@ DEPUNCTUATIONER = re.compile(r'''[\s,.;:'"()\[\]，。；：“”‘’《》�
 
 
 class TaggedMaterial(GenericTaggedItemBase):
-    tag = models.ForeignKey('MaterialTag')
+    tag = models.ForeignKey('MaterialTag', related_name='tag')
 
 
 class MaterialTag(TagBase):
