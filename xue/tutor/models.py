@@ -7,7 +7,11 @@ from django.contrib.auth.models import User
 
 _ = lambda x: x
 
-from xue.common.choices import APPLICATION_STATUS_CHOICES, APPLICATION_STATUS_DICT
+from xue.common.choices import (
+        APPLICATION_STATUS_CHOICES,
+        APPLICATION_STATUS_DICT,
+        POLITICAL_BKGND_DICT,
+        )
 
 
 class TutorProject(models.Model):
@@ -36,12 +40,18 @@ class StudentProject(models.Model):
 
     student = models.ForeignKey(User)
     project = models.ForeignKey(TutorProject)
-    status = models.IntegerField('申请状态', choices=APPLICATION_STATUS_CHOICES,
-                                 default=0,
-                                 )
-    fail_reason = models.CharField('未通过原因', max_length=128, blank=True,
-                                   default='', help_text='最多 128 字',
-                                   )
+    status = models.IntegerField(
+            '申请状态',
+            choices=APPLICATION_STATUS_CHOICES,
+            default=0,
+            )
+    fail_reason = models.CharField(
+            '未通过原因',
+            max_length=128,
+            blank=True,
+            default='',
+            help_text='最多 128 字',
+            )
     fail_count = models.IntegerField('被拒绝次数', default=0)
     # XXX tutor advice not currently built in...
 
@@ -59,12 +69,18 @@ class StudentApplication(models.Model):
 
     student = models.ForeignKey(User, verbose_name='学生', unique=True, )
     desc = models.TextField('申请理由', help_text='至少 200 字')
-    status = models.IntegerField('申请状态', choices=APPLICATION_STATUS_CHOICES,
-                                 default=0,
-                                 )
-    fail_reason = models.CharField('未通过原因', max_length=128, blank=True,
-                                   default='', help_text='最多 128 字',
-                                   )
+    status = models.IntegerField(
+            '申请状态',
+            choices=APPLICATION_STATUS_CHOICES,
+            default=0,
+            )
+    fail_reason = models.CharField(
+            '未通过原因',
+            max_length=128,
+            blank=True,
+            default='',
+            help_text='最多 128 字',
+            )
 
     def __unicode__(self):
         return '%s 的申请' % (self.student.profile.realname, )
@@ -86,7 +102,10 @@ class StudentApplication(models.Model):
     get_student_major.short_description = _('学生专业')
 
     def get_student_political(self):
-        return self.student.central_info.political
+        return POLITICAL_BKGND_DICT.get(
+                self.student.central_info.political,
+                '?',
+                )
     get_student_political.short_description = _('学生政治面貌')
 
 
