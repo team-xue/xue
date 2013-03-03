@@ -32,11 +32,10 @@ class StudentApplicationAdmin(admin.ModelAdmin):
             )
 
     list_filter = (
-            'student__central_info__klass__date',
+            'status',
             'student__central_info__klass__major',
             'student__central_info__klass',
             'student__central_info__political',
-            'status',
             )
 
 
