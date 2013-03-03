@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals, division
+
 from django.shortcuts import redirect, get_object_or_404
 from django.db import transaction
 from django.contrib.auth.decorators import login_required
@@ -13,6 +15,7 @@ from xue.tutor.models import StudentApplication, APPLICATION_STATUS_DICT, \
 
 from xue.tutor.forms import ReviewForm
 
+
 @login_required
 @quickview('tutor/index.html')
 def mainpage_view(request):
@@ -21,7 +24,7 @@ def mainpage_view(request):
 
     # role-based ident
     is_student = has_applied = False
-    apply_id, apply_status, apply_obj = 0, u'n/a', None
+    apply_id, apply_status, apply_obj = 0, 'n/a', None
     # XXX hardcoded role!
     if usr_role == 0:
         # student
@@ -32,19 +35,20 @@ def mainpage_view(request):
             apply_obj = StudentApplication.objects.get(student=usr)
             has_applied = True
             apply_id = apply_obj.id
-            apply_status = APPLICATION_STATUS_DICT.get(apply_obj.status,
-                                                       u'unknown'
-                                                       )
+            apply_status = APPLICATION_STATUS_DICT.get(
+                    apply_obj.status,
+                    'unknown',
+                    )
         except ObjectDoesNotExist:
             pass
 
     return {
-            u'is_student': is_student,
-            u'has_applied': has_applied,
-            u'apply_id': apply_id,
-            u'apply_status': apply_status,
-            u'apply_obj': apply_obj,
-            u'apply_closed': True, # XXX Hardcoded for now!!
+            'is_student': is_student,
+            'has_applied': has_applied,
+            'apply_id': apply_id,
+            'apply_status': apply_status,
+            'apply_obj': apply_obj,
+            'apply_closed': True,  # XXX Hardcoded for now!!
             }
 
 
@@ -53,27 +57,50 @@ def mainpage_view(request):
 def application_list_view(request):
     app_entries = StudentApplication.objects.all()
     return {
-            u'entries': app_entries,
-            u'STATUS_DICT': APPLICATION_STATUS_DICT,
+            'entries': app_entries,
+            'STATUS_DICT': APPLICATION_STATUS_DICT,
             }
 
 
 @login_required
 @quickview('tutor/project_list.html')
 def project_list_view(request):
-    proj_entries = TutorProject.objects.all()
+    usr = request.user
+    usr_role = usr.profile.role
+
+    if usr_role == 0:
+        # student, filter the project list according to year
+        proj_entries = TutorProject.objects.filter(
+                year=usr.central_info.get_year(),
+                )
+    else:
+        proj_entries = TutorProject.objects.all()
+
     return {
-            u'entries': proj_entries,
+            'entries': proj_entries,
             }
 
 
 @login_required
 @quickview('tutor/project_detail.html')
 def project_detail_view(request, proj_id):
-    project = get_object_or_404(TutorProject, id=int(proj_id))
+    usr = request.user
+    usr_role = usr.profile.role
+
+    extra_kwargs = (
+            {}
+            if usr_role != 0
+            else {'year': usr.central_info.get_year(), }
+            )
+
+    project = get_object_or_404(
+            TutorProject,
+            id=int(proj_id),
+            **extra_kwargs
+            )
 
     return {
-            u'project': project,
+            'project': project,
             }
 
 
@@ -96,9 +123,10 @@ def review_view(request, entry_id):
     else:
         frm = ReviewForm()
 
-    return {'form': frm,
-             'entry': entry,
-             'student': student,
+    return {
+            'form': frm,
+            'entry': entry,
+            'student': student,
             }
 
 
@@ -120,16 +148,16 @@ def applicant_overview_csv_view(request):
                 'id_number': prof.id_number,
                 'political': xue_choices.POLITICAL_BKGND_DICT[prof.political],
                 'phone': prof.phone,
-                'awards': prof.awards if prof.awards else u'--',
+                'awards': prof.awards if prof.awards else '--',
                 'desc': appl.desc,
                 }
 
         if prof.english_band_type == 0:
-            english = u'无记录'
+            english = '无记录'
         else:
             english = xue_choices.ENGLISH_BAND_DICT[prof.english_band_type]
             if prof.english_band_score:
-                english += u' %d 分' % prof.english_band_score
+                english += ' %d 分' % prof.english_band_score
 
         cooked_dict['english'] = english
 

@@ -151,5 +151,8 @@ class CentralStudentInfo(models.Model):
         return self.user.profile.id_number
     get_id_number.short_description = _('学号')
 
+    def get_year(self):
+        return self.klass.date.year
+
 
 # vim:set ai et ts=4 sw=4 sts=4 fenc=utf-8:
