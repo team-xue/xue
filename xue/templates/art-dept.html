@@ -1,24 +1,12 @@
 {% extends "./inc/base/leftright.html" %}
 {% load cms_tags menu_tags %}
 
-{% block styles %}
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/common.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/colors.css" />
 
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/nav-left.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/nav-horiz.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/stackedmenu.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/dropmenu.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/breadcrumb.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/subtitle.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/mainpage-img.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/namedpic.css" />
+{% block nav_colorpaste_cls %}dmorange_bg{% endblock %}
 
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/teststyle.css" />
 
-    <!--[if IE]>
-      <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/mainpage-ie.css" />
-    <![endif]-->
+{% block nav_horiz_container %}
+{% with NAV_SHOW_HOME_ENTRY=1, NAV_FOCUSCLRCLASS="dmorange_bgfocus" %}{% include "inc/nav-horiz.html" %}{% endwith %}
 {% endblock %}
 
 
@@ -61,17 +49,6 @@
 {% endblock %}
 
 {% block right_container %}
-						      <ul class="nav_horiz dmgray_bg dropmenu">
-                    <li>
-                      <a href="{% page_url "home" %}">首页</a>
-                    </li>
-
-                    {% show_menu_below_id "home" 0 1 1 0 %}
-
-                    <li class="rightalign dmorange_bgfocus"><a href="/old">旧版入口</a></li>
-                    <li class="rightalign dmorange_bgfocus"><a href="#">下载专区</a></li>
-                  </ul>
-
 			<img src="{{ STATIC_URL }}xue/img/tstimg/art2.gif" width="725" height="90" alt="" />
             		<div class="breadcrumb"><span>现在位置: </span><ul>{% show_breadcrumb %}</ul></div><div class="clear"></div>
                 <span class="constructbig dmblue">此板块暂缺内容！Still unfinished!</span>

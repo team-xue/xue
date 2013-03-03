@@ -1,19 +1,14 @@
 {% extends "./inc/base/leftright.html" %}
 {% load cms_tags menu_tags %}
 
-{% block styles %}
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/common.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/colors.css" />
 
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/nav-left.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/nav-horiz.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/stackedmenu.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/dropmenu.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/breadcrumb.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/subtitle.css" />
+{% block nav_colorpaste_cls %}dmorange_bg{% endblock %}
 
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/teststyle.css" />
+
+{% block nav_horiz_container %}
+{% with NAV_SHOW_HOME_ENTRY=1, NAV_FOCUSCLRCLASS="dmorange_bgfocus" %}{% include "inc/nav-horiz.html" %}{% endwith %}
 {% endblock %}
+
 
 {% block left_container %}
       <img src="{{ STATIC_URL }}xue/img/tstimg/tech1.gif" alt="" />
@@ -60,6 +55,7 @@
         </ul>
       </div>
 {% endblock %}
+
 
 {% block right_container %}
             <ul class="nav_horiz dmgray_bg dropmenu">
