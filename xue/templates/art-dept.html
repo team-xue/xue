@@ -2,14 +2,6 @@
 {% load cms_tags menu_tags %}
 
 
-{% block nav_colorpaste_cls %}dmorange_bg{% endblock %}
-
-
-{% block nav_horiz_container %}
-{% with NAV_SHOW_HOME_ENTRY=1 NAV_FOCUSCLRCLASS="dmorange_bgfocus" %}{% include "inc/nav-horiz.html" %}{% endwith %}
-{% endblock %}
-
-
 {% block left_container %}
 			<a href="{% page_url "tech-dept" %}"><img src="{{ STATIC_URL }}xue/img/tstimg/art3.gif" alt="" /></a>
       <img src="{{ STATIC_URL }}xue/img/tstimg/art1.gif" alt="" />
