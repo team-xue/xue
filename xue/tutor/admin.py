@@ -15,7 +15,7 @@ class TutorProjectAdmin(admin.ModelAdmin):
             )
 
     list_filter = (
-            'get_teacher_name',
+            'teacher__profile__realname',
             'year',
             )
 
@@ -32,10 +32,10 @@ class StudentApplicationAdmin(admin.ModelAdmin):
             )
 
     list_filter = (
-            'get_student_year',
-            'get_student_major',
-            'get_student_klass',
-            'get_student_political',
+            'student__central_info__klass__date__year',
+            'student__central_info__klass__major',
+            'student__central_info__klass',
+            'student__central_info__political',
             'status',
             )
 
