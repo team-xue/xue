@@ -28,7 +28,6 @@ class MaterialTag(TagBase):
         verbose_name = _('材料标签')
         verbose_name_plural = _('材料标签')
 
-    creator = models.ForeignKey(User, verbose_name=_('创建者'), )
     is_official = models.BooleanField(_('是否官方'), default=False)
 
 
