@@ -75,7 +75,7 @@ class StudentProject(models.Model):
 
     def get_project_year(self):
         return self.project.year
-    get_student_year.short_description = _('项目针对年份')
+    get_project_year.short_description = _('项目针对年份')
 
 
 class StudentApplication(models.Model):
