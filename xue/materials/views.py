@@ -63,7 +63,10 @@ def add_view(request):
                 entry.user = usr
                 entry.save()
 
-            return redirect('xue.materials.views.homepage_view')
+                # for tags
+                frm.save_m2m()
+
+            return redirect('xue.materials.views.detail_view', entry.pk)
     else:
         frm = AddMaterialForm()
 
@@ -120,6 +123,9 @@ def edit_view(request, entry_id):
             entry.title = frm.cleaned_data['title']
             entry.content = frm.cleaned_data['content']
             entry.save()
+
+            # for tags
+            frm.save_m2m()
 
             return redirect('xue.materials.views.detail_view', entry.pk)
     else:

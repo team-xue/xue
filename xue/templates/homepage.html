@@ -7,6 +7,7 @@
 {% endblock %}
 
 {# restrict 1000px to mainpage and perhaps gallery only, to make use of potential width #}
+{# also deptartment pages need this as well. they employ heavy styling, thus are rather fragile #}
 {% block rootclass %} limitwidth{% endblock %}
 
 {# adds Chrome Frame support for those running <www-client/ie-9 but >ie-6 #}
@@ -48,7 +49,7 @@
 {% block right_container_base %}
 {% cache 600 home-right-wholeblock request.user.username %}
 <div class="presentation clear">
-{% with NAV_SHOW_HOME_ENTRY=0 %}{% include "inc/nav-horiz.html" %}{% endwith %}
+{% with NAV_SHOW_HOME_ENTRY=0 NAV_FOCUSCLRCLASS="dmblue_bgfocus" %}{% include "inc/nav-horiz.html" %}{% endwith %}
 
   <div class="picslide">
     <div class="desc">

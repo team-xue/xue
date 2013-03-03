@@ -3,12 +3,14 @@
 
 
 {% block left_container_base %}
-{% block nav_colorpaste %}<div class="dmblue_bg nav_colorpaste"></div>{% endblock %}
+{% block nav_colorpaste %}<div class="{% block nav_colorpaste_cls %}dmblue_bg{% endblock %} nav_colorpaste"></div>{% endblock %}
 {% block left_container %}{% endblock %}
 {% endblock %}
 
 {% block right_container_base %}
-{% with NAV_SHOW_HOME_ENTRY=1 %}{% include "inc/nav-horiz.html" %}{% endwith %}
+{% block nav_horiz_container %}
+{% with NAV_SHOW_HOME_ENTRY=1 NAV_FOCUSCLRCLASS="dmblue_bgfocus" %}{% include "inc/nav-horiz.html" %}{% endwith %}
+{% endblock %}
 
 <div class="lMarginer">
   <ul class="breadcrumb clear">
