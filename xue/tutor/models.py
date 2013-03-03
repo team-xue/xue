@@ -25,7 +25,7 @@ class TutorProject(models.Model):
         return '导师项目: %s' % (self.name, )
 
     def get_teacher_name(self):
-        return teacher.profile.realname
+        return self.teacher.profile.realname
     get_teacher_name.short_description = _('教师姓名')
 
 
