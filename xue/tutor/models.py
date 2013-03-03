@@ -38,8 +38,8 @@ class StudentProject(models.Model):
         verbose_name = _('学生项目')
         verbose_name_plural = _('学生项目')
 
-    student = models.ForeignKey(User)
-    project = models.ForeignKey(TutorProject)
+    student = models.ForeignKey(User, verbose_name=_('学生'))
+    project = models.ForeignKey(TutorProject, verbose_name=_('导师项目'))
     status = models.IntegerField(
             '申请状态',
             choices=APPLICATION_STATUS_CHOICES,
@@ -71,7 +71,7 @@ class StudentProject(models.Model):
 
     def get_project_teacher_realname(self):
         return self.project.teacher.profile.realname
-    get_project_teacher_realname = _('导师姓名')
+    get_project_teacher_realname.short_description = _('导师姓名')
 
     def get_project_year(self):
         return self.project.year
