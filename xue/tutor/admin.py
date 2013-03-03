@@ -19,11 +19,30 @@ class TutorProjectAdmin(admin.ModelAdmin):
             )
 
 
+class StudentProjectAdmin(admin.ModelAdmin):
+    list_display = (
+            'status',
+            'get_project_year',
+            'student',
+            'get_student_klass',
+            'get_student_realname',
+            'get_project_teacher_realname',
+            'project',
+            'fail_count',
+            )
+
+    list_filter = (
+            'status',
+            'student__central_info__klass__major',
+            'student__central_info__klass',
+            )
+
+
 class StudentApplicationAdmin(admin.ModelAdmin):
     list_display = (
+            'status',
             'student',
             'get_student_realname',
-            'status',
             'get_student_year',
             'get_student_major',
             'get_student_klass',
@@ -33,13 +52,13 @@ class StudentApplicationAdmin(admin.ModelAdmin):
     list_filter = (
             'status',
             'student__central_info__klass__major',
-            'student__central_info__klass',
             'student__central_info__political',
+            'student__central_info__klass',
             )
 
 
 admin.site.register(TutorProject, TutorProjectAdmin)
-admin.site.register(StudentProject)
+admin.site.register(StudentProject, StudentProjectAdmin)
 admin.site.register(StudentApplication, StudentApplicationAdmin)
 
 

@@ -61,6 +61,22 @@ class StudentProject(models.Model):
                 self.project.name,
                 )
 
+    def get_student_realname(self):
+        return self.student.profile.realname
+    get_student_realname.short_description = _('学生姓名')
+
+    def get_student_klass(self):
+        return self.student.central_info.klass
+    get_student_klass.short_description = _('学生班级')
+
+    def get_project_teacher_realname(self):
+        return self.project.teacher.profile.realname
+    get_project_teacher_realname = _('导师姓名')
+
+    def get_project_year(self):
+        return self.project.year
+    get_student_year.short_description = _('项目针对年份')
+
 
 class StudentApplication(models.Model):
     class Meta:
