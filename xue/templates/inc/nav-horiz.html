@@ -6,7 +6,7 @@
     <li>
       <a href="{% page_url "home" %}">首页</a>
       </li>{% endif %}
-{% cache 86400 nav-horiz-bulk request.user.username %}
+{% cache 86400 nav-horiz-bulk request.user.username NAV_FOCUSCLRCLASS %}
 {% include "inc/now.html" %}
 {% show_menu_below_id "home" 0 1 1 0 -1 16 %}{% if user.is_staff %}
     <li><a href="{% url admin:index %}">管理</a></li>{% endif %}
