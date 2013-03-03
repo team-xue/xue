@@ -21,13 +21,13 @@ class TutorProjectAdmin(admin.ModelAdmin):
 
 class StudentProjectAdmin(admin.ModelAdmin):
     list_display = (
+            'get_student_realname',
+            'student',
             'status',
             'get_project_year',
-            'student',
-            'get_student_klass',
-            'get_student_realname',
-            'get_project_teacher_realname',
             'project',
+            'get_student_klass',
+            'get_project_teacher_realname',
             'fail_count',
             )
 
@@ -40,9 +40,9 @@ class StudentProjectAdmin(admin.ModelAdmin):
 
 class StudentApplicationAdmin(admin.ModelAdmin):
     list_display = (
-            'status',
-            'student',
             'get_student_realname',
+            'student',
+            'status',
             'get_student_year',
             'get_student_major',
             'get_student_klass',
