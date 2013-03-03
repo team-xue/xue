@@ -2,12 +2,7 @@
 {% load cms_tags menu_tags %}
 
 
-{% block nav_colorpaste_cls %}dmorange_bg{% endblock %}
-
-
-{% block nav_horiz_container %}
-{% with NAV_SHOW_HOME_ENTRY=1 NAV_FOCUSCLRCLASS="dmorange_bgfocus" %}{% include "inc/nav-horiz.html" %}{% endwith %}
-{% endblock %}
+{% block rootclass %} limitwidth{% endblock %}
 
 
 {% block left_container %}
