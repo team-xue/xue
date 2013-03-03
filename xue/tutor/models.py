@@ -69,5 +69,25 @@ class StudentApplication(models.Model):
     def __unicode__(self):
         return '%s 的申请' % (self.student.profile.realname, )
 
+    def get_student_realname(self):
+        return self.student.profile.realname
+    get_student_realname.short_description = _('学生姓名')
+
+    def get_student_year(self):
+        return self.student.central_info.get_year()
+    get_student_year.short_description = _('学生入学年份')
+
+    def get_student_klass(self):
+        return self.student.central_info.klass
+    get_student_klass.short_description = _('学生班级')
+
+    def get_student_major(self):
+        return self.student.central_info.klass.major.name
+    get_student_major.short_description = _('学生专业')
+
+    def get_student_political(self):
+        return self.student.central_info.political
+    get_student_political.short_description = _('学生政治面貌')
+
 
 # vim:ai:et:ts=4:sw=4:sts=4:fenc=utf8:
