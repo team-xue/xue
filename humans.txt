@@ -1,0 +1,47 @@
+<!-- humans.txt for dm.jiangnan.edu.cn | http://humanstxt.org/ -->
+
+# Team
+
+* Wang Xuerui
+    * GitHub: xen0n
+
+
+# Tech
+
+## Backend and deployment
+
+* Django
+    * django-cms
+    * django-db-pool
+    * django-taggit
+    * django-userena
+    * South
+* ua-parser
+* PostgreSQL
+* Memcached
+
+* nginx
+* Gunicorn
+* GitHub WebHook
+
+
+## Frontend
+
+* HTML5
+* CSS3
+* Modernizr (with HTML5Shiv)
+* jQuery
+    * jquery-pagination
+* YUI Compressor
+* jsunidecode
+
+
+## Development environment
+
+* Vim
+* Gedit
+* Git
+* Firebug
+
+
+<!-- vim:set ai et ts=4 sw=4 sts=4 fenc=utf-8 syn=markdown: -->
