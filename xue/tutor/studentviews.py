@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals, division
+
 from django.shortcuts import redirect, get_object_or_404
 from django.db import transaction
 
@@ -42,9 +44,10 @@ def apply_view(request):
     else:
         frm = StudentApplicationForm()
 
-    return {'form': frm,
+    return {
+            'form': frm,
             'is_repeat': is_repeat,
-             }
+            }
 
 
 @limit_role([0])
@@ -60,7 +63,8 @@ def selectproj_view(request):
     # verify max count
     projs = list(StudentProject.objects.filter(student=request.user))
     if len(projs) >= 2:
-        return {'is_exceeded': True,
+        return {
+                'is_exceeded': True,
                 'projects': projs,
                 }
 
@@ -77,10 +81,12 @@ def selectproj_view(request):
     else:
         frm = ProjectSelectionForm()
 
-    return {'is_exceeded': False,
+    return {
+            'is_exceeded': False,
             'projects': projs,
             'form': frm,
             }
+
 
 # expiration
 if PRELIMINARY_EXPIRED:
