@@ -8,8 +8,8 @@ from django.contrib import admin
 
 class DMUserProfileAdmin(admin.ModelAdmin):
     list_display = (
-            'nickname',
             'realname',
+            'nickname',
             'gender',
             'role',
             'id_number',
