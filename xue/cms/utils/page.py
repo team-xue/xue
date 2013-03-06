@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
+
 from django.conf import settings
 import re
+
+from django.core.exceptions import ObjectDoesNotExist
 
 APPEND_TO_SLUG = "-copy"
 COPY_SLUG_REGEX = re.compile(r'^.*-copy(?:-(\d)*)?$')
