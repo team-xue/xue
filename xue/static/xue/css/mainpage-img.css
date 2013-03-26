@@ -7,6 +7,7 @@
 .info_center_2,
 .info_center_3 {
   background-image: url("http://static.dm.jiangnan.edu.cn/xue/img/mainpage-sprites.jpg");
+  z-index: -1;
 }
 
 .dept_tech .dept_logo {
