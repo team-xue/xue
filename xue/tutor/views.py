@@ -48,7 +48,7 @@ def mainpage_view(request):
             'apply_id': apply_id,
             'apply_status': apply_status,
             'apply_obj': apply_obj,
-            'apply_closed': True,  # XXX Hardcoded for now!!
+            'apply_closed': False,  # XXX Hardcoded for now!!
             }
 
 
