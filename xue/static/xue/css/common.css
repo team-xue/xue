@@ -312,7 +312,7 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
 
     border: 2px solid #999;
     border-radius: 0 16px 16px 0;
-    padding: 3px;
+    padding: 3px 11px 3px 3px;
     background: rgba(255, 255, 255, 0.875);
 }
 
