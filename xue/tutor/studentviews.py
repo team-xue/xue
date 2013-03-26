@@ -11,7 +11,7 @@ from xue.tutor.forms import StudentApplicationForm, ProjectSelectionForm
 from xue.tutor.models import StudentProject, StudentApplication
 
 # expiration...
-PRELIMINARY_EXPIRED, SECONDARY_EXPIRED = True, True
+PRELIMINARY_EXPIRED, SECONDARY_EXPIRED = False, False
 
 
 @limit_role([0])
