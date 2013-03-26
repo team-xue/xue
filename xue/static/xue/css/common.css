@@ -301,6 +301,9 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
     /* reveal all info */
     overflow: visible;
     list-style: none;
+
+    /* not sure why this brings the whole item above... */
+    position: relative;
 }
 
 .list_vert>li:hover>a {
