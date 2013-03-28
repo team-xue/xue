@@ -316,12 +316,12 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
     background: rgba(255, 255, 255, 0.875);
 }
 
-.list_vert>li>.has_subtitle>.subtitle {
+.list_vert>li>.has-subtitle>.subtitle {
     display: none;
     line-height: 1;
 }
 
-.list_vert>li:hover>.has_subtitle>.subtitle {
+.list_vert>li:hover>.has-subtitle>.subtitle {
     display: inline !important;
 }
 
