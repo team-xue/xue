@@ -50,7 +50,7 @@
       // 截断小标题
       if (subtitle_arr) {
         var
-          main_title = caption.substring(0, subtitle_arr.index).trim(),
+          maintitle = caption.substring(0, subtitle_arr.index).trim(),
           subtitle = caption.substring(last_idx).trim();
         // console.log(main_title);
         // console.log(subtitle);
@@ -59,7 +59,7 @@
           // 加样式标记
           .addClass("has-subtitle")
           // 替换掉原来的链接文本（长标题）
-          .text(main_title)
+          .text(maintitle)
           // 在后边加上详细信息
           .append(
               $("<span />")
