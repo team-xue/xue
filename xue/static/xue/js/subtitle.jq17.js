@@ -1,15 +1,22 @@
 (function($){
+  var
+    list_selector = ".list_vert>li>a",
+    OPEN_QUOTE = /[“「]/,
+    CLOSE_QUOTE = /[”」]/;
+
   $(document).ready(function(){
-    var lst = $(".list_vert>li>a");
-    lst.each(function(idx){
-      var elem=$(this);
-      var caption=elem.text();
-      var re=/—{2,}/g;
+    $(list_selector).each(function(idx){
+      var
+        elem = $(this),
+        caption = elem.text(),
+        re = /—{2,}/g,
+        subtitle_arr,
+        last_idx = 0,
+        quote_depth = 0;
+
       // console.log(caption);
       subtitle_arr = re.exec(caption);
 
-      last_idx = 0;
-      quote_depth = 0;
       while(subtitle_arr) {
         // console.log(subtitle_arr);
         // console.log(re.lastIndex);
@@ -18,10 +25,10 @@
         // 扫描到破折号开始为止的子串
         var idx = subtitle_arr.index;
         for (i=last_idx;i<idx;i++) {
-          ch = caption.charAt(i);
-          if (ch.match(/[“「]/)) {
+          var ch = caption.charAt(i);
+          if (ch.match(OPEN_QUOTE)) {
             quote_depth++;
-          } else if (ch.match(/[”」]/)) {
+          } else if (ch.match(CLOSE_QUOTE)) {
             quote_depth--;
           }
         }
@@ -42,8 +49,9 @@
 
       // 截断小标题
       if (subtitle_arr) {
-        main_title = caption.substring(0, subtitle_arr.index).trim();
-        subtitle = caption.substring(last_idx).trim();
+        var
+          main_title = caption.substring(0, subtitle_arr.index).trim(),
+          subtitle = caption.substring(last_idx).trim();
         // console.log(main_title);
         // console.log(subtitle);
 
@@ -52,11 +60,12 @@
           .addClass("has-subtitle")
           // 替换掉原来的链接文本（长标题）
           .text(main_title)
-          // 在后边加上小标题
+          // 在后边加上详细信息
           .append(
               $("<span />")
-              .text(subtitle)
-              .addClass("subtitle")
+                .append($("<span />").text(maintitle).addClass("maintitle"))
+                .append($("<span />").text(subtitle).addClass("subtitle"))
+                .addClass("subtitlebox")
               );
       }
     });
