@@ -11,20 +11,17 @@
     <div class="clear"></div>
 
     <div class="details">{% with profile=student.profile %}
-      <div class="ident">
-        <p class="infoentry realname">姓名 <span>{{ profile.realname }}</span></p>
-        <p class="infoentry gender">性别 <span>{% if profile.gender == 1 %}女{% endif %}{% if profile.gender == 2 %}男{% endif %}</span></p>
-        <p class="infoentry email">Email <span>{{ student.email }}</span></p>
-        <p class="infoentry phone">联系电话 <span>{{ profile.phone }}</span></p>
-        <p class="infoentry phone">高中学校 <span>{{ profile.high_school }}</span></p>
-        <p class="infoentry hobby">兴趣爱好 <span>{{ profile.hobby }}</span></p>
-        <p class="infoentry awards">获奖情况 <span>{% if profile.awards %}{{ profile.awards }}{% else %}无{% endif %}</span></p>
-        <p class="infoentry english">英语能力 <span>{% if profile.english_band_type %}{% if profile.english_band_type == 4 %}四级{% endif %}{% if profile.english_band_type == 6 %}六级{% endif %} {{ profile.english_band_score }} 分{% else %}无考试通过记录{% endif %}</span></p>
-        <p class="infoentry hobby">
-          申请理由<br />
-          <span>{{ entry.desc }}</span>
-        </p>
-      </div>{% endwith %}
+      <dl class="ident applicant-sheet">
+        <dt class="key">姓名</dt><dd class="value">{{ profile.realname }}</dd>
+        <dt class="key">性别</dt><dd class="value">{% if profile.gender == 1 %}女{% endif %}{% if profile.gender == 2 %}男{% endif %}</dd>
+        <dt class="key">邮箱</dt><dd class="value">{{ student.email }}</dd>
+        <dt class="key">电话</dt><dd class="value">{{ profile.phone }}</dd>
+        <dt class="key">高中</dt><dd class="value">{{ profile.high_school }}</dd>
+        <dt class="key">兴趣</dt><dd class="value">{{ profile.hobby }}</dd>
+        <dt class="key">英语能力</dt><dd class="value">{% if profile.english_band_type %}{% if profile.english_band_type == 4 %}四级{% endif %}{% if profile.english_band_type == 6 %}六级{% endif %} {{ profile.english_band_score }} 分{% else %}无考试通过记录{% endif %}</dd>
+        <dt class="key-long">获奖情况</dt><dd class="value-long">{% if profile.awards %}{{ profile.awards }}{% else %}无{% endif %}</dd>
+        <dt class="key-long">申请理由</dt><dd class="value-long">{{ entry.desc }}</dd>
+      </dl>{% endwith %}
     </div>
 
     {{ form.non_field_errors }}
