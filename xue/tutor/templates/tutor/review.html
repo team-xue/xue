@@ -11,7 +11,7 @@
     <div class="clear"></div>
 
     <div class="details">{% with profile=student.profile %}
-      <dl class="ident applicant-sheet">
+      <dl class="applicant-sheet clear">
         <dt class="key">姓名</dt><dd class="value">{{ profile.realname }}</dd>
         <dt class="key">性别</dt><dd class="value">{% if profile.gender == 1 %}女{% endif %}{% if profile.gender == 2 %}男{% endif %}</dd>
         <dt class="key">邮箱</dt><dd class="value">{{ student.email }}</dd>
@@ -19,8 +19,8 @@
         <dt class="key">高中</dt><dd class="value">{{ profile.high_school }}</dd>
         <dt class="key">兴趣</dt><dd class="value">{{ profile.hobby }}</dd>
         <dt class="key">英语能力</dt><dd class="value">{% if profile.english_band_type %}{% if profile.english_band_type == 4 %}四级{% endif %}{% if profile.english_band_type == 6 %}六级{% endif %} {{ profile.english_band_score }} 分{% else %}无考试通过记录{% endif %}</dd>
-        <dt class="key-long">获奖情况</dt><dd class="value-long">{% if profile.awards %}{{ profile.awards }}{% else %}无{% endif %}</dd>
-        <dt class="key-long">申请理由</dt><dd class="value-long">{{ entry.desc }}</dd>
+        <dt class="key">获奖情况</dt><dd class="value">{{ profile.awards }}</dd>
+        <dt class="key">申请理由</dt><dd class="value">{{ entry.desc }}</dd>
       </dl>{% endwith %}
     </div>
 

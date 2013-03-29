@@ -59,8 +59,8 @@
      * padding-top not needed here because the forms are now wrapped in div.mainpane
      * which already has done this
      */
-    padding: 0 33px 10px 3px;
-    margin: -10px 0 20px -26px;
+    padding: 0 14px 10px 3px;
+    margin: 0 0 20px -16px;
     border-bottom: 1px solid #fff;
 }
 
