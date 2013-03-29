@@ -138,4 +138,34 @@ div.tutor div.projdetails p.link a:hover {
 }
 
 
+/* 初审表单 */
+.applicant-sheet {
+    margin: 0 0 64px;
+    border-bottom: 1px solid #fff;
+    padding: 0 0 32px;
+    font-size: 20px;
+}
+
+.applicant-sheet>.key,
+.applicant-sheet>.value {
+    float: left;
+    min-height: 1.5em;
+}
+
+.applicant-sheet>.key {
+    width: 16%;
+    text-align: right;
+    opacity: 0.25;
+}
+
+.applicant-sheet>.value {
+    width: 84%;
+}
+
+.applicant-sheet>.value:empty:after {
+    content: "未填写";
+    opacity: 0.5;
+}
+
+
 /* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */
