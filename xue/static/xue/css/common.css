@@ -287,6 +287,11 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
 }
 
 /***** VERTICAL LISTS *****/
+.list_vert {
+    /* FIXME: refactor fancysub'd header styles! */
+    border-top: 2px dotted #a00;
+}
+
 .list_vert>li {
     list-style: disc inside none;
     border-bottom: 1px dashed #b7b7b7;
@@ -311,8 +316,8 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
     line-height: 1;  /* don't change list item's height */
 
     border: 2px solid #999;
-    border-radius: 0 16px 16px 0;
-    padding: 3px 11px 3px 3px;
+    border-radius: 16px 16px 16px 0;
+    padding: 3px 11px;
     background: rgba(255, 255, 255, 0.875);
 }
 
@@ -341,8 +346,8 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
     left: 0;
 
     border: 2px solid #999;
-    border-radius: 0 32px 0 0;
-    padding: 3px 13px 3px 3px;
+    border-radius: 16px 16px 16px 0;
+    padding: 3px 11px;
     background: rgba(255, 255, 255, 0.875);
 }
 

@@ -88,7 +88,14 @@
 .announcement, .news {
     /*float: left;*/
     width: 100% !important;
-    min-height: 350px !important;
+
+    /*
+     * Now the article titles are no longer wrapping on hover, so they
+     * no longer cause the list to expand. Thus this property can be
+     * safely removed.
+     *
+     * min-height: 350px !important;
+     * */
 }
 
 
