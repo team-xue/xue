@@ -321,6 +321,10 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
     background: rgba(255, 255, 255, 0.875);
 }
 
+.list_vert>.more:hover>a {
+    border-radius: 16px 16px 0 16px;
+}
+
 .list_vert>li:hover>a.has-subtitle {
     /* hide presence, only keeping the line height */
     font-size: 100%;
