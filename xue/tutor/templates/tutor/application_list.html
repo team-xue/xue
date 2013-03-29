@@ -9,9 +9,10 @@
 
   <div class="entries">
     <ul>{% for entry in entries %}{% with profile=entry.student.profile %}
-      <li class="clear">
+      <li class="applicant clear">
         <img src="{{ profile.get_mugshot_url }}" alt="{{ profile.user.username }} 的头像" class="gravatar" width="80" height="80" />
-        <a href="{% url xue.tutor.views.review_view entry.id %}">
+        <a href="{% url xue.tutor.views.review_view entry.id %}" class="applicant-info">
+          <span class="uid">{{ profile.user.username }}</span>
           <span class="klass">{{ profile.user.central_info.klass }}</span>
           <span class="realname">{{ profile.realname }}</span>
           <span class="status">{% with entrystatus=entry.status %}{% if entrystatus == 0 %}待处理{% endif %}{% if entrystatus == 1 %}已通过{% endif %}{% if entrystatus == 2 %}未通过{% endif %}{% endwith %}</span>
