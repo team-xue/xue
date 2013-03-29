@@ -332,7 +332,12 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
 
     line-height: 1;
     position: absolute;
-    top: 0;
+
+    /*
+     * 锚定到左下角而不是左上角
+     * 这样鼠标从上往下扫过时标题框不会挡到下一篇文章
+     */
+    bottom: 0;
     left: 0;
 
     border: 2px solid #999;
