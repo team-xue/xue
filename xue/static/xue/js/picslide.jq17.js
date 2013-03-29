@@ -25,7 +25,32 @@
 
       // handle of slide timer
       timer_id,
-      slide_timer;
+      slide_timer,
+
+      // Page Visibility API support
+      // https://developer.mozilla.org/en-US/docs/DOM/Using_the_Page_Visibility_API
+      // Set the name of the hidden property and the change event for
+      // visibility
+      // FIXME: Get rid of most detection code once Modernizr builder
+      // supports the 'pagevisibility' check!
+      hidden,
+      visibilityChange;
+
+
+  if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support
+    hidden = "hidden";
+    visibilityChange = "visibilitychange";
+  } else if (typeof document.mozHidden !== "undefined") {
+    hidden = "mozHidden";
+    visibilityChange = "mozvisibilitychange";
+  } else if (typeof document.msHidden !== "undefined") {
+    hidden = "msHidden";
+    visibilityChange = "msvisibilitychange";
+  } else if (typeof document.webkitHidden !== "undefined") {
+    hidden = "webkitHidden";
+    visibilityChange = "webkitvisibilitychange";
+  }
+
 
   function moveToFrame(idx)
   {
@@ -107,6 +132,16 @@
     piclist_elems[0].addClass(piclist_selected_cls);
   }
 
+  function onVisibilityChange() {
+    if (document[hidden]) {
+      // don't slide the pictures if the user can't see it
+      cancelSlideTimer();
+    } else {
+      cancelSlideTimer();
+      timer_id = setTimeout(doSlide, frame_duration_ms);
+    }
+  }
+
 
   $(document).ready(function(){
     $target = $(target_sel);
@@ -127,6 +162,15 @@
       constructPicList(num_frames);
 
       timer_id = setTimeout(doSlide, frame_duration_ms);
+    }
+
+    // set up handler for Page Visibility API
+    if (typeof document.addEventListener === "undefined" ||
+        typeof hidden === "undefined") {
+      // either addEventListener or Visibility API is not supported
+    } else {
+      // Handle page visibility change  
+      document.addEventListener(visibilityChange, onVisibilityChange, false);
     }
   });
 })($jq17);
