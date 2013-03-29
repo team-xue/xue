@@ -8,7 +8,7 @@
   <h2 class="panetitle">申请列表</h2>
 
   <div class="entries">
-    <ul>{% for entry in entries %}{% with profile=entry.student.profile %}
+    <ul class="people">{% for entry in entries %}{% with profile=entry.student.profile %}
       <li class="applicant clear">
         <img src="{{ profile.get_mugshot_url }}" alt="{{ profile.user.username }} 的头像" class="gravatar" width="80" height="80" />
         <a href="{% url xue.tutor.views.review_view entry.id %}" class="applicant-info">
