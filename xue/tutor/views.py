@@ -2,6 +2,8 @@
 
 from __future__ import unicode_literals, division
 
+import datetime
+
 from django.shortcuts import redirect, get_object_or_404
 from django.db import transaction
 from django.contrib.auth.decorators import login_required
@@ -14,6 +16,10 @@ from xue.tutor.models import StudentApplication, APPLICATION_STATUS_DICT, \
                               TutorProject
 
 from xue.tutor.forms import ReviewForm
+
+
+def this_year():
+    return datetime.datetime.today().year
 
 
 @login_required
@@ -48,14 +54,20 @@ def mainpage_view(request):
             'apply_id': apply_id,
             'apply_status': apply_status,
             'apply_obj': apply_obj,
-            'apply_closed': False,  # XXX Hardcoded for now!!
+            'apply_closed': True,  # XXX Hardcoded for now!!
             }
 
 
 @login_required
 @quickview('tutor/application_list.html')
 def application_list_view(request):
-    app_entries = StudentApplication.objects.all()
+    app_entries = StudentApplication.objects.filter(
+            # 大二下
+            student__central_info__klass__date__year=this_year() - 2,
+            # 未审核的
+            status=0,
+            )
+
     return {
             'entries': app_entries,
             'STATUS_DICT': APPLICATION_STATUS_DICT,
