@@ -97,5 +97,45 @@ div.tutor div.projdetails p.link a:hover {
     color: #333;
 }
 
+/* 申请者列表 */
+.people>.applicant {
+    margin: 0 0 8px 0;
+}
+
+.people>.applicant>.applicant-info {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+.people>.applicant>.applicant-info>.uid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 48px;
+    opacity: 0.125;
+}
+
+.people>.applicant>.applicant-info>.klass {
+    display: block;
+    font-size: 16px;
+}
+
+.people>.applicant>.applicant-info>.realname {
+    display: block;
+    font-size: 30px;
+    position: relative;
+    left: 16px;
+    transition: left 0.1s ease 0s;
+}
+
+.people>.applicant:hover>.applicant-info>.realname {
+    left: 32px;
+}
+
+.people>.applicant>.applicant-info>.status {
+    margin: 0 0 0 16px;
+}
+
 
 /* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */
