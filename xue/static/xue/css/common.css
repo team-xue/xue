@@ -287,6 +287,11 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
 }
 
 /***** VERTICAL LISTS *****/
+.list_vert {
+    /* FIXME: refactor fancysub'd header styles! */
+    border-top: 2px dotted #a00;
+}
+
 .list_vert>li {
     list-style: disc inside none;
     border-bottom: 1px dashed #b7b7b7;
