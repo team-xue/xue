@@ -4,14 +4,9 @@
 }
 
 .fancysub {
-    border-bottom: 2px dotted #a00;
-    padding-bottom: 3px;
-}
-
-.fancysub span {
-    display: inline;
+    display: inline-block;  /* 这让元素宽度仅仅包住内容 */
     border-top: 2px dotted #a00;
-    /*padding-top: 3px;*/
+    line-height: normal;
 }
 
 
