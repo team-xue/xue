@@ -11,12 +11,11 @@
     <ul>{% for entry in entries %}{% with profile=entry.student.profile %}
       <li class="clear">
         <img src="{{ profile.get_mugshot_url }}" alt="{{ profile.user.username }} 的头像" class="gravatar" width="80" height="80" />
-        <p>
-          <a href="{% url xue.tutor.views.review_view entry.id %}">
-            <span class="realname">{{ profile.realname }}</span> 的申请
-            [<span class="status">{% with entrystatus=entry.status %}{% if entrystatus == 0 %}待处理{% endif %}{% if entrystatus == 1 %}已通过{% endif %}{% if entrystatus == 2 %}未通过{% endif %}{% endwith %}</span>]
-          </a>
-        </p>
+        <a href="{% url xue.tutor.views.review_view entry.id %}">
+          <span class="klass">{{ profile.user.central_info.klass }}</span>
+          <span class="realname">{{ profile.realname }}</span>
+          <span class="status">{% with entrystatus=entry.status %}{% if entrystatus == 0 %}待处理{% endif %}{% if entrystatus == 1 %}已通过{% endif %}{% if entrystatus == 2 %}未通过{% endif %}{% endwith %}</span>
+        </a>
       </li>{% endwith %}{% endfor %}
     </ul>
   </div>
