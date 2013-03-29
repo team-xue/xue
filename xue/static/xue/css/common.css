@@ -297,11 +297,63 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
     overflow: hidden;
 }
 
-.list_vert>:hover {
-    background: #eee;
+.list_vert>li:hover {
     /* reveal all info */
-    white-space: normal;
     overflow: visible;
+    list-style: none;
+
+    /* not sure why this brings the whole item above... */
+    position: relative;
+}
+
+.list_vert>li:hover>a {
+    font-size: 125%;
+    line-height: 1;  /* don't change list item's height */
+
+    border: 2px solid #999;
+    border-radius: 0 16px 16px 0;
+    padding: 3px 11px 3px 3px;
+    background: rgba(255, 255, 255, 0.875);
+}
+
+.list_vert>li:hover>a.has-subtitle {
+    /* hide presence, only keeping the line height */
+    font-size: 100%;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    background: none;
+    position: relative;
+    color: transparent;
+}
+
+.list_vert>li>.has-subtitle>.subtitlebox {
+    display: none;
+
+    line-height: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    border: 2px solid #999;
+    border-radius: 0 32px 0 0;
+    padding: 3px 13px 3px 3px;
+    background: rgba(255, 255, 255, 0.875);
+}
+
+.list_vert>li:hover>.has-subtitle>.subtitlebox {
+    display: block !important;
+    color: #000;
+}
+
+.subtitlebox>.maintitle {
+    display: block;
+    font-size: 125%;
+}
+
+.subtitlebox>.subtitle {
+    display: block;
+    margin: 0 0 0 2em;
 }
 
 .list_vert>.more {

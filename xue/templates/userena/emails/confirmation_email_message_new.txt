@@ -1,7 +1,7 @@
 {% autoescape off %}
 {% with user.username as username %}亲爱的 {{ username }}{% endwith %}，您要求更改电子邮件地址。请访问以下链接完成地址更改：
 
-{{ protocol }}://dm.jiangnan.edu.cn{% url userena_email_confirm user.username confirmation_key %}
+{{ protocol }}://dm.jiangnan.edu.cn{% url userena_email_confirm confirmation_key %}
 
 感谢使用本站点！
 
