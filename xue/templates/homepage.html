@@ -41,7 +41,7 @@
 <div class="rMarginer clear">
 {% include "inc/nav-left.html" %}
 
-<h3 class="sectiontitle fancysub"><span class="dmred">新闻事件</span></h3>
+<h3 class="sectiontitle fancysub dmred"><a href="{% page_url "events" %}">新闻事件</a></h3>
 {% include "inc/news-frag.html" %}
 </div>
 {% endcache %}
@@ -80,13 +80,13 @@
   <ul class="threerow clear">
     <li>
       <div class="rMarginer clear">
-        <h3 class="sectiontitle fancysub"><span class="dmred">通知公告</span></h3>
-        <ul class="list_vert announcement">
 {% cache 1800 announcement-entries %}
 {% include "inc/now.html" %}
+        <h3 class="sectiontitle fancysub dmred"><a href="{% page_url "cmstag_通知" %}">通知公告</a></h3>
+        <ul class="list_vert announcement">
 {% show_menu_below_id "cmstag_通知" 0 1 0 0 10 1 "menus/list-vert.html" %}
-{% endcache %}
         </ul>
+{% endcache %}
       </div>
     </li>
 
