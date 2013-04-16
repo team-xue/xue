@@ -13,7 +13,7 @@
 {# if showing menu below a specific id, we can give a "more" link pointing to that page #}
 {% if root_node and max_count != -1 and children|length == max_count %}
 <li class="more">
-  <a href="{{ root_node.attr.redirect_url|default:root_node.get_absolute_url }}">less</a>
+  <a href="{{ root_node.attr.redirect_url|default:root_node.get_absolute_url }}">more</a>
 </li>
 {% endif %}
 
