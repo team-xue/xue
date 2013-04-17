@@ -15,7 +15,7 @@
   </div>
 {% if child.children %}
   <ul class="section_preview clear">
-{% show_menu from_level to_level extra_inactive extra_active MAX_PREVIEW_COUNT 0 "menus/section-preview.html" "" "" child %}{# filter_opt hardcoded to 0 #}
+{% show_menu from_level to_level extra_inactive extra_active MAX_PREVIEW_COUNT filter_opt "menus/section-preview.html" "" "" child %}{# filter_opt hardcoded to 0 #}
   </ul>
 {% endif %}
 </li>
