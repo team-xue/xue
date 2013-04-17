@@ -15,3 +15,4 @@ psycopg2==2.4.6
 pylibmc==1.2.3
 ua-parser==0.3.2
 wsgiref==0.1.2
+test
