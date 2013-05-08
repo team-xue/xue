@@ -8,7 +8,7 @@ from django.db import transaction
 from xue.common.decorators import quickview, limit_role
 
 from xue.tutor.forms import StudentApplicationForm, ProjectSelectionForm
-from xue.tutor.models import StudentProject, StudentApplication
+from xue.tutor.models import StudentProject, StudentApplication, TutorProject
 
 # expiration...
 PRELIMINARY_EXPIRED, SECONDARY_EXPIRED = False, False
@@ -79,7 +79,11 @@ def selectproj_view(request):
                 entry.save()
             return redirect('xue.tutor.views.mainpage_view')
     else:
-        frm = ProjectSelectionForm()
+        frm = ProjectSelectionForm(
+                queryset=TutorProject.objects.filter(
+                    year=request.user.central_info.klass.date.year,
+                    ),
+                )
 
     return {
             'is_exceeded': False,
