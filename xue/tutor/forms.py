@@ -20,6 +20,14 @@ class ProjectSelectionForm(forms.ModelForm):
         model = StudentProject
         fields = ('project', )
 
+    def __init__(self, year, *args, **kwargs):
+        super(ProjectSelectionForm, self).__init__(*args, **kwargs)
+
+        # filter out projects with different year set
+        self.year = year
+        qs = self.fields['project'].queryset
+        self.fields['project'].queryset = qs.filter(year=year)
+
 
 class SecondReviewForm(forms.ModelForm):
     class Meta:
