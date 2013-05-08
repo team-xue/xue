@@ -68,9 +68,11 @@ def selectproj_view(request):
                 'projects': projs,
                 }
 
+    year = request.user.central_info.klass.date.year
+
     if request.method == 'POST':
         # form data
-        frm = ProjectSelectionForm(request.POST)
+        frm = ProjectSelectionForm(year, request.POST)
         if frm.is_valid():
             # valid data, store it
             with transaction.commit_on_success():
@@ -79,11 +81,7 @@ def selectproj_view(request):
                 entry.save()
             return redirect('xue.tutor.views.mainpage_view')
     else:
-        frm = ProjectSelectionForm(
-                queryset=TutorProject.objects.filter(
-                    year=request.user.central_info.klass.date.year,
-                    ),
-                )
+        frm = ProjectSelectionForm(year)
 
     return {
             'is_exceeded': False,
