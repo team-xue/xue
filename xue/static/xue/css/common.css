@@ -296,6 +296,8 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
     list-style: disc inside none;
     border-bottom: 1px dashed #b7b7b7;
 
+    position: relative;
+
     /* stay in one line */
     white-space: nowrap;
     /* ... and don't disturb other content */
@@ -325,15 +327,33 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
     border-radius: 16px 16px 0 16px;
 }
 
-.list_vert>li:hover>a.has-subtitle {
+.list_vert>li:hover>.has-subtitle {
     /* hide presence, only keeping the line height */
     font-size: 100%;
     border: none;
     border-radius: 0;
     padding: 0;
     background: none;
-    position: relative;
     color: transparent;
+}
+
+/* hint for the remaining part of title */
+.list_vert>li>.has-subtitle:after {
+    content: "...";
+    font-size: 125%;
+    line-height: normal;
+    text-shadow: 0 0 3px #000000;
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    background: rgba(255, 255, 255, 0.875);
+    padding: 0 4px;
+}
+
+.list_vert>li:hover>.has-subtitle:after {
+    display: none !important;
 }
 
 .list_vert>li>.has-subtitle>.subtitlebox {
