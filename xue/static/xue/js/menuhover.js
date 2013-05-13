@@ -30,4 +30,4 @@
   $(document).ready(function(){
     //initHovers();
   });
-})($jq17);
+})($jq);

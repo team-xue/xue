@@ -358,7 +358,7 @@
     // initial photo
     doGotoPhoto(0, true); // initial=true
   });
-})($jq17);
+})($jq);
 
 
 // vi:ai:et:ts=2:sw=2:sts=2:ff=unix:fenc=utf8:
