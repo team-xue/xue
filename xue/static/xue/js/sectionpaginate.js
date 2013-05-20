@@ -43,7 +43,7 @@
 
     initPagination();
   });
-})($jq17);
+})($jq);
 
 
 // vim:ai:et:ts=2:sw=2:sts=2:ff=unix:fenc=utf-8:
