@@ -11,7 +11,7 @@
           <li>
             <h3 class="name">
               <a href="{% url xue.tutor.teacherviews.picking_view project.id entry.id %}">
-                {{ entry.student.profile.realname }}.filter(entrystatus==1) 的申请
+                {{ entry.student.profile.nickname }}.filter(entrystatus==1) 的申请
               </a>
 
               [<span class="status">{% with entrystatus=entry.status %}{% if entrystatus == 0 %}待处理{% endif %}{% if entrystatus == 1 %}已通过{% endif %}{% if entrystatus == 2 %}未通过{% endif %}{% endwith %}</span>]
