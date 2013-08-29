@@ -190,7 +190,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 1000;
+    z-index: -1;  /* 在比较窄的屏幕上不要挡着旧站入口 */
 
     width: 210px;
     height: 210px;
