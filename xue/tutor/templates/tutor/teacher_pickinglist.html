@@ -15,7 +15,7 @@
                 
                     {{ entry.student.profile.realname }} 的申请,{{entry.status}}
                   </a>
-              {% endif %}            
+                       
                                     
 
               [<span class="status">{% with entrystatus=entry.status %}{% if entrystatus == 0 %}待处理{% endif %}{% if entrystatus == 1 %}已通过{% endif %}{% if entrystatus == 2 %}未通过{% endif %}{% endwith %}</span>]
