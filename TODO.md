@@ -10,7 +10,7 @@
 * 参照教育部有关规定改进各种 ``CHOICES`` 定义
 * I18N 整理，字符串标记什么的
 * 用 Markdown 渲染各种评论和材料什么的 (2012.9.2)
-* 我想到了再说吧...
+* 想到了再说吧
 
 
 <!-- vim:set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8 syn=markdown: -->
