@@ -105,7 +105,7 @@ p,li,span, td {
 }
 
 .headContainer .logo {
-    background:/* url("http://static.dm.jiangnan.edu.cn/xue/img/logo.png")*/ top left no-repeat;
+    background: url("http://static.dm.jiangnan.edu.cn/xue/img/logo.png") top left no-repeat;
     width: 600px;
     height: 120px; /* to match the image */
     padding: 6px;
