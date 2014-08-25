@@ -213,5 +213,44 @@
     height: 298px;
 }
 
+#welcomefresh2014-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+#welcomefresh2014-retract {
+    margin: 0 auto;
+
+    width: 16%;
+    min-width: 200px;
+    height: 49px;  /* 由 border-top 补到 50px */
+    line-height: 49px;
+
+    color: #eee;
+    background-color: rgba(255, 255, 255, 0.25);
+
+    border-color: rgba(255, 255, 255, 0.8);
+    border-radius: 24px 24px 0 0;
+    border-style: solid solid none;
+    border-width: 1px 1px 0;
+
+    text-align: center;
+    font-size: 24px;
+
+    display: none;
+    opacity: 0.375;
+
+    cursor: pointer;
+}
+
+#welcomefresh2014-container:hover #welcomefresh2014-retract {
+    display: block;
+}
+
+#welcomefresh2014-retract:hover {
+    opacity: 1;
+}
+
 
 /* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */
