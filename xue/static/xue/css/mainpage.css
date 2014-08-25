@@ -198,5 +198,20 @@
     background: url("//static.dm.jiangnan.edu.cn/xue/img/freshman-2013.png") top left no-repeat;
 }
 
+#welcomefresh2014-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 298px;
+
+    background: url("//static.dm.jiangnan.edu.cn/xue/img/freshman-2014.jpg") top center no-repeat #000;
+}
+
+#welcomefresh2014-push {
+    height: 298px;
+}
+
 
 /* vim: set ai et ts=4 sw=4 sts=4 ff=unix fenc=utf-8: */
