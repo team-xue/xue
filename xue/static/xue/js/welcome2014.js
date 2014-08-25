@@ -1,6 +1,18 @@
 (function($){
   'use strict';
 
+  // from jQuery UI
+  var easeInBounce = function(p) {
+    var pow2, bounce = 4;
+    while (p < ((pow2 = Math.pow(2, --bounce)) - 1) / 11) {}
+    return 1 / Math.pow(4, 3 - bounce) - 7.5625 * Math.pow((pow2 * 3 - 2) / 22 - p, 2);
+  };
+
+  $.easing['easeInBounce'] = easeInBounce;
+  $.easing['easeOutBounce'] = function(p) {
+    return 1 - easeInBounce(1 - p);
+  };
+
   var welcomeBannerFactory = function($container, $pusher, $retractButton, $html) {
     var self = {
       init: function() {
@@ -15,7 +27,8 @@
         });
       },
       retractElem: function(elem, duration, callback) {
-        elem.animate({height: 0}, duration, callback);
+        // easing 固定为 easeOutBounce (弹来弹去的, 纯粹是恶趣味)
+        elem.animate({height: 0}, duration, 'easeOutBounce', callback);
       },
       retractBanner: function(buttonFadeDuration, bannerRetractDuration) {
         // 先隐藏按钮
