@@ -22,8 +22,8 @@
 
         // 绑定收回按钮点击事件
         $retractButton.click(function() {
-          // hard-code 时间常数为 0.1s 按钮, 0.5s 收起动作
-          self.retractBanner(100, 750);
+          // hard-code 时间常数为 0.25s 按钮, 1.25s 收起动作
+          self.retractBanner(250, 1250);
         });
       },
       retractElem: function(elem, duration, callback) {
