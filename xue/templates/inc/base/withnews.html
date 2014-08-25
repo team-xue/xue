@@ -1,5 +1,5 @@
 {% extends "./inc/base/leftright.html" %}
-{% load cms_tags menu_tags %}
+{% load cms_tags menu_tags xue_tags %}
 
 
 {# NOTE: Remove the color paste to save vertical space for auth box #}
@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block scripts %}{{ block.super }}
-<script async="async" type="text/javascript" src="{{ STATIC_URL }}xue/js/subtitle.min.js"></script>
+<script async="async" type="text/javascript" src="{{ STATIC_URL }}xue/js/subtitle.min.js{% xue_cachebuster %}"></script>
 {% endblock %}
 
 {% block left_container %}{{ block.super }}

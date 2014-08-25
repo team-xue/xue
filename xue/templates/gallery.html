@@ -1,9 +1,9 @@
 {% extends "./inc/base/centered.html" %}
-{% load cms_tags menu_tags %}
+{% load cms_tags menu_tags xue_tags %}
 
 
 {% block scripts %}
-    <script async="async" type="text/javascript" src="{{ STATIC_URL }}xue/js/gallery.min.js"></script>
+    <script async="async" type="text/javascript" src="{{ STATIC_URL }}xue/js/gallery.min.js{% xue_cachebuster %}"></script>
 {% endblock %}
 
 {% block center_container %}

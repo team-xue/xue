@@ -5,6 +5,7 @@
 from __future__ import unicode_literals, division
 
 import re
+import time
 from cgi import escape as htmlescape
 
 from django import template
@@ -20,6 +21,23 @@ except ImportError:
     pass
 
 
+# Cache-buster node
+def cachebuster_node_factory(timestamp):
+    cachebuster_qs = '?_ts=%d' % (
+            int(timestamp),
+            )
+
+    class _XueCacheBusterNode(template.Node):
+        def render(self, context):
+            return cachebuster_qs
+
+    return _XueCacheBusterNode
+
+
+XueCacheBusterNode = cachebuster_node_factory(time.time())
+
+
+# Version nodes
 def version_node_factory(s):
     ver = htmlescape(s if s else 'unknown')
 
@@ -111,6 +129,15 @@ else:
 
         def render(self, context):
             return '<span class="error">ua-parser not available!</span>'
+
+
+@register.tag
+def xue_cachebuster(parser, token):
+    tokens = token.split_contents()
+    if len(tokens) > 1:
+        raise ValueError('%r tag requires no argument' % tokens[0])
+
+    return XueCacheBusterNode()
 
 
 @register.tag

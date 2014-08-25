@@ -3,7 +3,7 @@
 Base layout in production.
 {% endcomment %}
 
-{% load cms_tags menu_tags %}
+{% load cms_tags menu_tags xue_tags %}
 
 {% block pagetitle %}{% page_attribute page_title %} - 江南大学 数字媒体学院{% endblock %}
 
@@ -11,32 +11,32 @@ Base layout in production.
 {# page_attribute meta_keywords #}
     <meta name="keywords" content="数字媒体,数字媒体技术,数字媒体艺术,数字媒体学院,江南大学,江南大学数字媒体学院,江南大学数媒学院,江大,江大数媒学院" />
 
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ STATIC_URL }}xue/img/apple-touch-icon-144x144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ STATIC_URL }}xue/img/apple-touch-icon-114x114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ STATIC_URL }}xue/img/apple-touch-icon-72x72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="{{ STATIC_URL }}xue/img/apple-touch-icon-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico{% xue_cachebuster %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ STATIC_URL }}xue/img/apple-touch-icon-144x144-precomposed.png{% xue_cachebuster %}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ STATIC_URL }}xue/img/apple-touch-icon-114x114-precomposed.png{% xue_cachebuster %}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ STATIC_URL }}xue/img/apple-touch-icon-72x72-precomposed.png{% xue_cachebuster %}">
+    <link rel="apple-touch-icon-precomposed" href="{{ STATIC_URL }}xue/img/apple-touch-icon-precomposed.png{% xue_cachebuster %}">
 
     <!--[if !(lt IE 7)]><!-->
-    <link rel="stylesheet" media="screen" href="{{ STATIC_URL }}xue/css/min/amalgamation.css" />{% block appstyles %}{% endblock %}
+    <link rel="stylesheet" media="screen" href="{{ STATIC_URL }}xue/css/min/amalgamation.css{% xue_cachebuster %}" />{% block appstyles %}{% endblock %}
     <!--<![endif]-->
 
     <!--sorry, no (lt IE 7)'s supported --><!--[if IE 8]>
     <style type="text/css">#wrap{height:100%;display:table}</style>{# swapped place to avoid a % + } combination #}
     <![endif]-->
     <!--[if IE]>
-    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/min/ie-amalgamation.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}xue/css/min/ie-amalgamation.css{% xue_cachebuster %}" />
     <style type="text/css">.clear{zoom:1;}</style>{% block ieappstyles %}{% endblock %}
     <![endif]-->
     <!-- make <www-client/IE-7's content rendering stop early -->
     <!--[if lt IE 7]><style>html{background:#fff0f0}body{background:none!ie}#wrap,.footerContainer{display:none!nimei}</style><![endif]-->
 {# IE compatibility frameworks need to be executed first #}
     <!--[if (lt IE 9) | (gt IE 6)]>
-    <script type="text/javascript" src="{{ STATIC_URL }}xue/js/bundle/ie-framework.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}xue/js/bundle/ie-framework.min.js{% xue_cachebuster %}"></script>
     <![endif]-->
 
     <!--[if !(lt IE 7)]><!-->
-    <script type="text/javascript" src="{{ STATIC_URL }}xue/js/bundle/framework.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}xue/js/bundle/framework.min.js{% xue_cachebuster %}"></script>
     <!--<![endif]-->
 {% block earlyscripts %}{% endblock %}
 {% plugins_media %}
