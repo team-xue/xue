@@ -11,6 +11,20 @@
 {# also deptartment pages need this as well. they employ heavy styling, thus are rather fragile #}
 {% block rootclass %} limitwidth{% endblock %}
 
+{# 2014 迎新 #}
+{% block earlybody %}
+<div id="welcomefresh2014-container">
+  <div id="welcomefresh2014-bottom">
+    <div id="welcomefresh2014-retract">收起横幅</div>
+  </div>
+</div>
+{% endblock %}
+
+{% block head_extras_before_logo %}
+<div id="welcomefresh2014-push"></div>
+{% endblock %}
+
+
 {# adds Chrome Frame support for those running <www-client/ie-9 but >ie-6 #}
 {% block latefooter %}{{ block.super }}
     <!-- temporarily disable before inline prompt template is made... [if (IE 7) | (IE 8)]>
