@@ -49,7 +49,7 @@ Base layout in production.
                 您的浏览器不支持脚本，或者您关闭了脚本执行。一些页面效果将不会显示，且部分功能无法使用。
               </span>
             </div>
-          </noscript>
+          </noscript>{% block head_extras_before_logo %}{% endblock %}
 
           <div class="logo">
           </div>{% block head_extras %}{% endblock %}
