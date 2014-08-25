@@ -64,6 +64,18 @@ Base layout in production.
 {# Rule 6: Put scripts at the bottom. P50 of High Performance Web Sites. #}
 {% block latefooter %}
 {% block scripts %}{% endblock %}
+<!-- why on earth does ppl want to CLICK THE LOGO for HOMEPAGE?! -->
+<script>
+(function($) {
+  $(document).ready(function() {
+    $('.headContainer .logo')
+      .css('cursor', 'pointer')
+      .click(function() {
+        location.href = '/cn/';
+      });
+  });
+})($jq);
+</script>
 {% include "inc/rants-ie.html" %}
 {% endblock %}
 
