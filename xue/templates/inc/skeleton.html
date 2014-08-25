@@ -25,11 +25,14 @@
   <body>
     <div id="wrap">{% block earlybody %}{% endblock %}
       <div class="root clear{% block rootclass %}{% endblock %}">
-        <div class="headContainer">{% block header %}{% endblock %}        </div>
+        <div class="headContainer">{% block header %}{% endblock %} 
+            <a href="http://dm.jiangnan.edu.cn/cn/">
+                <img src="http://static.dm.jiangnan.edu.cn/xue/img/logo.png">
+            </a></div>
 {% block body %}{% endblock %}
       </div>
       <div id="bodygradient"></div>
-      <div id="welcomefresh"></div>
+      <!--<div id="welcomefresh"></div-->
     </div>
     <div class="footerContainer">{% block footer %}{% endblock %}    </div>{% block latefooter %}{% endblock %}
   </body>
