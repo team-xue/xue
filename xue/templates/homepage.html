@@ -5,7 +5,7 @@
 {% block scripts %}
 <script async="async" type="text/javascript" src="{{ STATIC_URL }}xue/js/picslide.min.js{% xue_cachebuster %}"></script>
 <script async="async" type="text/javascript" src="{{ STATIC_URL }}xue/js/subtitle.min.js{% xue_cachebuster %}"></script>
-<script async="async" type="text/javascript" src="{{ STATIC_URL }}xue/js/welcome2014.min.js{% xue_cachebuster %}"></script>
+{# <script async="async" type="text/javascript" src="{{ STATIC_URL }}xue/js/welcome2014.min.js{% xue_cachebuster %}"></script> #}
 {% endblock %}
 
 {# restrict 1000px to mainpage and perhaps gallery only, to make use of potential width #}
@@ -13,6 +13,7 @@
 {% block rootclass %} limitwidth{% endblock %}
 
 {# 2014 迎新 #}
+{% comment %}
 {% block earlybody %}
 <div id="welcomefresh2014-container">
   <div id="welcomefresh2014-bottom">
@@ -24,6 +25,7 @@
 {% block head_extras_before_logo %}
 <div id="welcomefresh2014-push"></div>
 {% endblock %}
+{% endcomment %}
 
 
 {# adds Chrome Frame support for those running <www-client/ie-9 but >ie-6 #}
